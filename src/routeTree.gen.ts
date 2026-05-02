@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiWeddingRouteImport } from './routes/api/wedding'
-import { Route as ApiLogoRouteImport } from './routes/api/logo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,39 +22,30 @@ const ApiWeddingRoute = ApiWeddingRouteImport.update({
   path: '/api/wedding',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiLogoRoute = ApiLogoRouteImport.update({
-  id: '/api/logo',
-  path: '/api/logo',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/api/logo': typeof ApiLogoRoute
   '/api/wedding': typeof ApiWeddingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/api/logo': typeof ApiLogoRoute
   '/api/wedding': typeof ApiWeddingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/api/logo': typeof ApiLogoRoute
   '/api/wedding': typeof ApiWeddingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/logo' | '/api/wedding'
+  fullPaths: '/' | '/api/wedding'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/logo' | '/api/wedding'
-  id: '__root__' | '/' | '/api/logo' | '/api/wedding'
+  to: '/' | '/api/wedding'
+  id: '__root__' | '/' | '/api/wedding'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ApiLogoRoute: typeof ApiLogoRoute
   ApiWeddingRoute: typeof ApiWeddingRoute
 }
 
@@ -75,19 +65,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiWeddingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/logo': {
-      id: '/api/logo'
-      path: '/api/logo'
-      fullPath: '/api/logo'
-      preLoaderRoute: typeof ApiLogoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ApiLogoRoute: ApiLogoRoute,
   ApiWeddingRoute: ApiWeddingRoute,
 }
 export const routeTree = rootRouteImport
