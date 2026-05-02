@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <iframe
-      src="/wedding.html"
+      src="/api/wedding"
       title="Wedding Website"
       style={{
         position: "fixed",
