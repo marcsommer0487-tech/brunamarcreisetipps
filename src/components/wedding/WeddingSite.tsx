@@ -280,9 +280,9 @@ type Card = {
   body: ReactNode;
   tag?: { cls: string; label: string };
 };
-function CardGrid({ cards }: { cards: Card[] }) {
+function CardGrid({ cards, variant }: { cards: Card[]; variant?: "3-2" }) {
   return (
-    <div className="bm-card-grid">
+    <div className={`bm-card-grid${variant === "3-2" ? " bm-card-grid-3-2" : ""}`}>
       {cards.map((c, i) => (
         <div className="bm-card" key={i}>
           <div className="bm-card-top">
@@ -404,7 +404,7 @@ function DiscoverSection() {
         <p className="bm-lead">
           Rund um BH liegen echte Highlights — von UNESCO-Städten bis zu Kunstmuseen mitten in der Natur.
         </p>
-        <CardGrid cards={daytrips} />
+        <CardGrid cards={daytrips} variant="3-2" />
         <div className="bm-rio-box">
           <h3>🎉 Rio de Janeiro — Mit dabei!</h3>
           <p>
@@ -751,6 +751,7 @@ section:nth-of-type(even):not(#hero){background:var(--bm-ivory2);}
 
 /* CARDS */
 .bm-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:2rem;}
+@media(min-width:760px){.bm-card-grid-3-2{grid-template-columns:repeat(6,1fr);}.bm-card-grid-3-2 > .bm-card{grid-column:span 2;}.bm-card-grid-3-2 > .bm-card:nth-child(4){grid-column:2 / span 2;}.bm-card-grid-3-2 > .bm-card:nth-child(5){grid-column:4 / span 2;}}
 .bm-card{background:#fff;border:1px solid var(--bm-ivory3);border-radius:3px;padding:1.5rem;}
 .bm-card-top{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;}
 .bm-card-icon{font-size:1.4rem;}
