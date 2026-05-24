@@ -341,7 +341,7 @@ function DiscoverSection() {
     {
       icon: "🏛️",
       title: "Conjunto Pampulha",
-      body: "UNESCO-Kandidat. Oscar Niemeyers modernistisches Meisterwerk an der Lagoa da Pampulha — inklusive Igreja São Francisco de Assis, seiner bekanntesten Kirche, dekoriert mit Azulejos von Portinari."},
+      body: "UNESCO-Welterbe seit 2016. Oscar Niemeyers modernistisches Meisterwerk an der Lagoa da Pampulha — inklusive Igreja São Francisco de Assis, seiner bekanntesten Kirche, dekoriert mit Azulejos von Portinari."},
     {
       icon: "🏪",
       title: "Mercado Central",
