@@ -203,16 +203,6 @@ function VisaSection() {
           </p>
           <span className="bm-tag bm-tag-green">Visumsfrei</span>
         </div>
-        <div className="bm-card">
-          <div className="bm-card-top">
-            <span className="bm-card-icon">🌍</span>
-            <h3>Andere Länder</h3>
-          </div>
-          <p>
-            Bitte prüft die aktuellen Einreisebestimmungen auf der Seite des brasilianischen Außenministeriums.
-          </p>
-          <span className="bm-tag bm-tag-gold">Bitte prüfen</span>
-        </div>
       </div>
       <WarnBox>
         ⚠️ <strong>Wichtig:</strong>{" "}
