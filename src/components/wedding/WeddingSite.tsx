@@ -343,7 +343,7 @@ function DiscoverSection() {
     {
       icon: "🏛️",
       title: "Conjunto Pampulha",
-      body: "UNESCO-Kandidat. Oscar Niemeyers modernistisches Meisterwerk an der Lagoa da Pampulha."},
+      body: "UNESCO-Kandidat. Oscar Niemeyers modernistisches Meisterwerk an der Lagoa da Pampulha — inklusive Igreja São Francisco de Assis, seiner bekanntesten Kirche, dekoriert mit Azulejos von Portinari."},
     {
       icon: "🏪",
       title: "Mercado Central",
@@ -357,13 +357,10 @@ function DiscoverSection() {
       title: "Mirante das Mangabeiras",
       body: "Aussichtspunkt mit Panoramablick über ganz BH."},
     {
-      icon: "🎨",
-      title: "Bairro Santa Teresa",
-      body: "Trendy Künstlerviertel mit Galerien, Cafés und Wochenendmarkt."},
-    {
-      icon: "⛪",
-      title: "Igreja São Francisco",
-      body: "Niemeyers bekannteste Kirche, dekoriert mit Azulejos von Portinari."},
+      icon: "🏟️",
+      title: "Mineirão",
+      body: "Legendäres Fußballstadion — bekannt für die 7:1-Halbfinale 2014. Für Fußballfans empfohlen: Führungen buchbar.",
+      tag: { cls: "bm-tag-blue", label: "Für Fans" }},
   ];
 
   const daytrips: Card[] = [
