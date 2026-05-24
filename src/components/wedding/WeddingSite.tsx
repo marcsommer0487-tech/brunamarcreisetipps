@@ -751,6 +751,7 @@ section:nth-of-type(even):not(#hero){background:var(--bm-ivory2);}
 
 /* CARDS */
 .bm-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:2rem;}
+@media(min-width:760px){.bm-card-grid-3-2{grid-template-columns:repeat(6,1fr);}.bm-card-grid-3-2 > .bm-card{grid-column:span 2;}.bm-card-grid-3-2 > .bm-card:nth-child(4){grid-column:2 / span 2;}.bm-card-grid-3-2 > .bm-card:nth-child(5){grid-column:4 / span 2;}}
 .bm-card{background:#fff;border:1px solid var(--bm-ivory3);border-radius:3px;padding:1.5rem;}
 .bm-card-top{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;}
 .bm-card-icon{font-size:1.4rem;}
