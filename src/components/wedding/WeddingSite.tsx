@@ -764,17 +764,7 @@ section:nth-of-type(even):not(#hero){background:var(--bm-ivory2);}
 .bm-phrase-pt{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--bm-green);font-size:1rem;}
 .bm-phrase-de{color:var(--bm-brown2);font-size:0.9rem;text-align:right;}
 
-/* CONTACT */
-#contact .bm-title{color:var(--bm-gold2);}
-#contact .bm-lead{color:rgba(255,255,255,0.7);max-width:540px;margin-left:auto;margin-right:auto;}
-#contact .bm-eyebrow{color:rgba(255,255,255,0.4);}
-.bm-rsvp-btn{display:inline-block;background:var(--bm-gold);color:#fff;padding:1rem 2.8rem;text-decoration:none;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;border-radius:2px;margin-top:2rem;transition:background 0.2s;font-family:'Lato',sans-serif;font-weight:700;}
-.bm-rsvp-btn:hover{background:var(--bm-gold2);}
-.bm-contact-details{display:flex;justify-content:center;gap:3rem;margin-top:2.5rem;flex-wrap:wrap;}
-.bm-contact-item{text-align:center;}
-.bm-ci-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.4rem;}
-.bm-ci-value{color:rgba(255,255,255,0.85);font-size:0.95rem;}
-.bm-contact-item a{color:var(--bm-gold2);text-decoration:none;}
+/* FOOTER */
 
 /* FOOTER */
 .bm-footer{background:#0C1F14;color:rgba(255,255,255,0.3);text-align:center;padding:2rem;font-size:0.78rem;letter-spacing:0.06em;}
