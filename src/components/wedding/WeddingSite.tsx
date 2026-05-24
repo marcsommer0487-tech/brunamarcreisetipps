@@ -626,38 +626,6 @@ function LanguageSection() {
 }
 
 /* ─────────────────────────────────────────────────────────
-   CONTACT / RSVP
-   ───────────────────────────────────────────────────────── */
-function ContactSection() {
-  return (
-    <section id="contact">
-      <div className="bm-container">
-        <span className="bm-eyebrow">Anmeldung</span>
-        <h2 className="bm-title">Bitte meldet euch an!</h2>
-        <p className="bm-lead">
-          Damit wir gut planen können, bitten wir um eine Rückmeldung bis zum angegebenen Datum.
-        </p>
-        <a className="bm-rsvp-btn" href="mailto:eure-email@beispiel.de">Jetzt zusagen</a>
-        <div className="bm-contact-details">
-          <div className="bm-contact-item">
-            <div className="bm-ci-label">Anmeldefrist</div>
-            <div className="bm-ci-value bm-placeholder">TT.MM.JJJJ — wird bekannt gegeben</div>
-          </div>
-          <div className="bm-contact-item">
-            <div className="bm-ci-label">WhatsApp-Gruppe</div>
-            <div className="bm-ci-value"><a href="#">Link folgt</a></div>
-          </div>
-          <div className="bm-contact-item">
-            <div className="bm-ci-label">Email</div>
-            <div className="bm-ci-value"><a href="mailto:eure-email@beispiel.de">eure-email@beispiel.de</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────────────────────────────────────
    ROOT
    ───────────────────────────────────────────────────────── */
 export function WeddingSite() {
