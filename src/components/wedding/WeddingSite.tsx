@@ -385,10 +385,10 @@ function DiscoverSection() {
       body: "Ca. 1,5 Std. — Nationalpark mit Wasserfällen, Wanderwegen und Naturbädern.",
       tag: { cls: "bm-tag-gold", label: "★★ Sehr empfehlenswert" }},
     {
-      icon: "🏘️",
-      title: "Sabará",
-      body: "Ca. 30 Min. — Kleines Kolonialstädtchen vor den Toren von BH mit Barockkirchen.",
-      tag: { cls: "bm-tag-blue", label: "★ Lohnt sich" }},
+      icon: "🚂",
+      title: "São João del-Rei",
+      body: "Ca. 2 Std. — Historische Stadt mit einem der schönsten Kolonialkerne Minas Gerais. Mit der dampfbetriebenen Maria-Fumaça nach Tiradentes fahren — ein echtes Erlebnis!",
+      tag: { cls: "bm-tag-gold", label: "★★ Sehr empfohlenswert" }},
   ];
 
   return (
