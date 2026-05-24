@@ -60,14 +60,14 @@ function Hero() {
     <section id="hero" className="bm-hero">
       <img className="bm-hero-logo" src={logo} alt="Bruna & Marc" />
       <p className="bm-hero-tagline">
-        {{"Wir laden euch herzlich ein"}}
+        {"Wir laden euch herzlich ein"}
       </p>
       <h1 className="bm-hero-script">
         Bruna <span className="bm-amp">&amp;</span> Marc
       </h1>
       <div className="bm-ornament">— ✦ —</div>
       <p className="bm-hero-date">
-        {{"Sonntag, 18. Oktober 2026"}}
+        {"Sonntag, 18. Oktober 2026"}
       </p>
       <p className="bm-hero-location">Belo Horizonte · Minas Gerais · Brasil 🇧🇷</p>
 
@@ -229,7 +229,7 @@ function TravelSection() {
       <RowList rows={rows} />
       <InfoBox>
         ✅ <strong>"Tipp:"</strong>{" "}
-        {{"Flüge am besten 6–9 Monate vorher buchen — Direktverbindungen nach São Paulo sind gefragt und teuer."}}
+        {"Flüge am besten 6–9 Monate vorher buchen — Direktverbindungen nach São Paulo sind gefragt und teuer."}
       </InfoBox>
     </Section>
   );
@@ -245,14 +245,14 @@ function VisaSection() {
       eyebrow="Einreise"
       title="Visum & Einreiseformalitäten"
     >
-      <div className="bm-card-grid" style={{ marginTop: "1.5rem" }}>
+      <div className="bm-card-grid" style= marginTop: "1.5rem" >
         <div className="bm-card">
           <div className="bm-card-top">
             <span className="bm-card-icon">🇩🇪🇪🇺</span>
             <h3>"Deutschland & EU"</h3>
           </div>
           <p>
-            {{<>Kein Visum erforderlich für touristische Aufenthalte bis zu <strong>90 Tage</strong>. Reisepass muss noch mindestens 6 Monate gültig sein.</>}}
+            {<>Kein Visum erforderlich für touristische Aufenthalte bis zu <strong>90 Tage</strong>. Reisepass muss noch mindestens 6 Monate gültig sein.</>}
           </p>
           <span className="bm-tag bm-tag-green">
             "Visumsfrei"
@@ -264,7 +264,7 @@ function VisaSection() {
             <h3>"Andere Länder"</h3>
           </div>
           <p>
-            {{"Bitte prüft die aktuellen Einreisebestimmungen auf der Seite des brasilianischen Außenministeriums."}}
+            {"Bitte prüft die aktuellen Einreisebestimmungen auf der Seite des brasilianischen Außenministeriums."}
           </p>
           <span className="bm-tag bm-tag-gold">
             "Bitte prüfen"
@@ -273,7 +273,7 @@ function VisaSection() {
       </div>
       <WarnBox>
         ⚠️ <strong>"Wichtig:"</strong>{" "}
-        {{"Alle Gäste sollten eine Krankenversicherung mit internationalem Krankentransport abschließen."}}
+        {"Alle Gäste sollten eine Krankenversicherung mit internationalem Krankentransport abschließen."}
       </WarnBox>
     </Section>
   );
@@ -334,7 +334,7 @@ function HealthSection() {
       </table>
       <InfoBox>
         🧳 <strong>"Reiseapotheke:"</strong>{" "}
-        {{"Mückenspray (mind. 30% DEET), Sonnencreme (LSF 50+), Durchfallmittel, Pflaster, persönliche Medikamente."}}
+        {"Mückenspray (mind. 30% DEET), Sonnencreme (LSF 50+), Durchfallmittel, Pflaster, persönliche Medikamente."}
       </InfoBox>
     </Section>
   );
@@ -468,14 +468,14 @@ function DiscoverSection() {
         <span className="bm-eyebrow">"Sightseeing"</span>
         <h2 className="bm-title">"Sehenswürdigkeiten in Belo Horizonte"</h2>
         <p className="bm-lead">
-          {{"BH überrascht mit Oscar-Niemeyer-Architektur, lebhaften Märkten und einer der lebendigsten Essensszenen Brasiliens."}}
+          {"BH überrascht mit Oscar-Niemeyer-Architektur, lebhaften Märkten und einer der lebendigsten Essensszenen Brasiliens."}
         </p>
         <CardGrid cards={sights} />
         <div className="bm-ornament-divider">— ✦ —</div>
         <span className="bm-eyebrow">"Tagesausflüge"</span>
         <h2 className="bm-title">"Die schönsten Ausflugsziele"</h2>
         <p className="bm-lead">
-          {{"Rund um BH liegen echte Highlights — von UNESCO-Städten bis zu Kunstmuseen mitten in der Natur."}}
+          {"Rund um BH liegen echte Highlights — von UNESCO-Städten bis zu Kunstmuseen mitten in der Natur."}
         </p>
         <CardGrid cards={daytrips} />
       </div>
@@ -656,11 +656,11 @@ function FaqSection() {
 
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" style={{ background: "var(--bm-ivory2)" }}>
+    <section id="faq" style= background: "var(--bm-ivory2)" >
       <div className="bm-container">
         <span className="bm-eyebrow">FAQ</span>
         <h2 className="bm-title">"Häufige Fragen"</h2>
-        <div style={{ marginTop: "2rem" }}>
+        <div style= marginTop: "2rem" >
           {faqs.map((f, i) => (
             <div className="bm-faq-item" key={i}>
               <div
@@ -690,7 +690,7 @@ function ContactSection() {
         <span className="bm-eyebrow">"Anmeldung"</span>
         <h2 className="bm-title">"Bitte meldet euch an!"</h2>
         <p className="bm-lead">
-          {{"Damit wir gut planen können, bitten wir um eine Rückmeldung bis zum angegebenen Datum."}}
+          {"Damit wir gut planen können, bitten wir um eine Rückmeldung bis zum angegebenen Datum."}
         </p>
         <a className="bm-rsvp-btn" href="mailto:eure-email@beispiel.de">
           "Jetzt zusagen"
