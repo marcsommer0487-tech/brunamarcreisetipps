@@ -36,7 +36,9 @@ jobs:
         run: bun run build
 
       - name: Inject CNAME into build
-        run: cp CNAME .output/public/CNAME || echo "hochzeit.finanzsommer.com" > .output/public/CNAME
+        run: |
+          mkdir -p .output/public
+          echo "hochzeit.finanzsommer.com" > .output/public/CNAME
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
