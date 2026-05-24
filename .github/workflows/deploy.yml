@@ -28,13 +28,13 @@ jobs:
       - name: Build Web App
         run: bun run build
       - name: Inject CNAME into build
-        run: echo "hochzeit.finanzsommer.com" > .output/public/CNAME
+        run: echo "hochzeit.finanzsommer.com" > ./dist/CNAME
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload Build Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './.output/public'
+          path: './dist'
       - name: Deploy Live
         id: deployment
         uses: actions/deploy-pages@v4
