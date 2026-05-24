@@ -468,9 +468,17 @@ function FoodSection() {
       title: "Açaí & Guaraná",
       body: "Frischer Açaí mit Granola ist unschlagbar. Guaraná: leicht koffeinhaltiges Softgetränk."},
     {
-      icon: "⚖️",
-      title: "Comida a Quilo",
-      body: "Mittagessen nach Gewicht — riesige Auswahl, frisch, günstig und lecker."},
+      icon: "🍗",
+      title: "Coxinha",
+      body: "Beliebter brasilianischer Snack: zartes Hühnerfleisch in Teig, paniert und frittiert."},
+    {
+      icon: "🫘",
+      title: "Feijão Tropeiro",
+      body: "Typisch mineirisch: Bohnen mit Speck, Wurst, Maniokmehl, Knoblauch und Ei."},
+    {
+      icon: "🥩",
+      title: "Picanha",
+      body: "Das berühmteste brasilianische Steak — saftig, marmoriert und perfekt vom Grill."},
     {
       icon: "🍦",
       title: "Queijo & Goiabada",
