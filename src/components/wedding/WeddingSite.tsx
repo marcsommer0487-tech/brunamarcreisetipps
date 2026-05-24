@@ -404,7 +404,7 @@ function DiscoverSection() {
         <p className="bm-lead">
           Rund um BH liegen echte Highlights — von UNESCO-Städten bis zu Kunstmuseen mitten in der Natur.
         </p>
-        <CardGrid cards={daytrips} />
+        <CardGrid cards={daytrips} variant="3-2" />
         <div className="bm-rio-box">
           <h3>🎉 Rio de Janeiro — Mit dabei!</h3>
           <p>
