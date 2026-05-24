@@ -511,8 +511,8 @@ function PracticalSection() {
       lbl: "Strom & Steckdosen",
       val: <>⚠️ 127 V / 60 Hz. Steckdosen-Typ <strong>N</strong> — Adapter mitbringen!</>},
     {
-      lbl: "SIM-Karte",
-      val: "Tim, Vivo, Claro. Touristen-SIM ab ca. R$ 40–80. Alternative: eSIM via Airalo."},
+      lbl: "Internet",
+      val: <>Die meisten Restaurants, Cafés und Unterkünfte haben WLAN. Wer unterwegs online sein möchte, braucht für eine brasilianische SIM-Karte eine CPF-Nummer. Meldet euch bei uns, wenn ihr Hilfe dabei braucht!</>},
     {
       lbl: "Zeitzone",
       val: "UTC-3 (keine Sommerzeit). Differenz zu DE: -5 Std. (Sommer) / -4 Std. (Winter)."},
