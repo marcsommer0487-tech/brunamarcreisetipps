@@ -160,7 +160,6 @@ function TravelSection() {
       title="Anreise nach Belo Horizonte"
       lead="Belo Horizonte liegt im Herzen von Minas Gerais. Die Anreise aus Europa dauert mit Zwischenstopp ca. 16–18 Stunden."
     >
-      <RowList rows={rows} />
       <div className="bm-table-wrap">
         <table className="bm-table">
           <thead>
@@ -179,10 +178,6 @@ function TravelSection() {
           </tbody>
         </table>
       </div>
-      <InfoBox>
-        ✅ <strong>Tipp:</strong>{" "}
-        {"Flüge am besten 6–9 Monate vorher buchen — Direktverbindungen nach São Paulo sind gefragt und teuer."}
-      </InfoBox>
     </Section>
   );
 }
