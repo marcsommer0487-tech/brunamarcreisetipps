@@ -645,6 +645,7 @@ export function WeddingSite() {
       <FoodSection />
       <PracticalSection />
       <LanguageSection />
+      <MoreInfoSection />
       <footer className="bm-footer">
         <p>18. Oktober 2026 · Belo Horizonte, Brasil · Made with ♥</p>
       </footer>
