@@ -397,7 +397,7 @@ function DiscoverSection() {
         <p className="bm-lead">
           BH überrascht mit Oscar-Niemeyer-Architektur, lebhaften Märkten und einer der lebendigsten Essensszenen Brasiliens.
         </p>
-        <CardGrid cards={sights} />
+        <CardGrid cards={sights} variant="3-2" />
         <div className="bm-ornament-divider">— ✦ —</div>
         <span className="bm-eyebrow">Tagesausflüge</span>
         <h2 className="bm-title">Die schönsten Ausflugsziele</h2>
