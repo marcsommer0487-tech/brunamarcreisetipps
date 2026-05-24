@@ -7,7 +7,6 @@ import logo from "@/assets/bm-logo.png";
 function Nav() {
   const [open, setOpen] = useState(false);
   const links: { href: string; label: string }[] = [
-    
     { href: "#travel", label: "Anreise" },
     { href: "#health", label: "Gesundheit" },
     { href: "#hotels", label: "Unterkünfte" },
@@ -15,7 +14,6 @@ function Nav() {
     { href: "#safety", label: "Sicherheit" },
     { href: "#practical", label: "Praktisches" },
     { href: "#language", label: "Sprache" },
-    { href: "#contact", label: "RSVP" },
   ];
 
   return (
@@ -628,38 +626,6 @@ function LanguageSection() {
 }
 
 /* ─────────────────────────────────────────────────────────
-   CONTACT / RSVP
-   ───────────────────────────────────────────────────────── */
-function ContactSection() {
-  return (
-    <section id="contact">
-      <div className="bm-container">
-        <span className="bm-eyebrow">Anmeldung</span>
-        <h2 className="bm-title">Bitte meldet euch an!</h2>
-        <p className="bm-lead">
-          Damit wir gut planen können, bitten wir um eine Rückmeldung bis zum angegebenen Datum.
-        </p>
-        <a className="bm-rsvp-btn" href="mailto:eure-email@beispiel.de">Jetzt zusagen</a>
-        <div className="bm-contact-details">
-          <div className="bm-contact-item">
-            <div className="bm-ci-label">Anmeldefrist</div>
-            <div className="bm-ci-value bm-placeholder">TT.MM.JJJJ — wird bekannt gegeben</div>
-          </div>
-          <div className="bm-contact-item">
-            <div className="bm-ci-label">WhatsApp-Gruppe</div>
-            <div className="bm-ci-value"><a href="#">Link folgt</a></div>
-          </div>
-          <div className="bm-contact-item">
-            <div className="bm-ci-label">Email</div>
-            <div className="bm-ci-value"><a href="mailto:eure-email@beispiel.de">eure-email@beispiel.de</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────────────────────────────────────
    ROOT
    ───────────────────────────────────────────────────────── */
 export function WeddingSite() {
@@ -679,7 +645,6 @@ export function WeddingSite() {
       <FoodSection />
       <PracticalSection />
       <LanguageSection />
-      <ContactSection />
       <footer className="bm-footer">
         <p>18. Oktober 2026 · Belo Horizonte, Brasil · Made with ♥</p>
       </footer>
@@ -799,17 +764,7 @@ section:nth-of-type(even):not(#hero){background:var(--bm-ivory2);}
 .bm-phrase-pt{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--bm-green);font-size:1rem;}
 .bm-phrase-de{color:var(--bm-brown2);font-size:0.9rem;text-align:right;}
 
-/* CONTACT */
-#contact .bm-title{color:var(--bm-gold2);}
-#contact .bm-lead{color:rgba(255,255,255,0.7);max-width:540px;margin-left:auto;margin-right:auto;}
-#contact .bm-eyebrow{color:rgba(255,255,255,0.4);}
-.bm-rsvp-btn{display:inline-block;background:var(--bm-gold);color:#fff;padding:1rem 2.8rem;text-decoration:none;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;border-radius:2px;margin-top:2rem;transition:background 0.2s;font-family:'Lato',sans-serif;font-weight:700;}
-.bm-rsvp-btn:hover{background:var(--bm-gold2);}
-.bm-contact-details{display:flex;justify-content:center;gap:3rem;margin-top:2.5rem;flex-wrap:wrap;}
-.bm-contact-item{text-align:center;}
-.bm-ci-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.4rem;}
-.bm-ci-value{color:rgba(255,255,255,0.85);font-size:0.95rem;}
-.bm-contact-item a{color:var(--bm-gold2);text-decoration:none;}
+/* FOOTER */
 
 /* FOOTER */
 .bm-footer{background:#0C1F14;color:rgba(255,255,255,0.3);text-align:center;padding:2rem;font-size:0.78rem;letter-spacing:0.06em;}
@@ -826,6 +781,5 @@ section:nth-of-type(even):not(#hero){background:var(--bm-ivory2);}
   .bm-dot{font-size:1.4rem;}
   .bm-vac-table{font-size:0.8rem;}
   .bm-vac-table th,.bm-vac-table td{padding:0.5rem 0.6rem;}
-  .bm-contact-details{gap:1.5rem;}
 }
 `;
