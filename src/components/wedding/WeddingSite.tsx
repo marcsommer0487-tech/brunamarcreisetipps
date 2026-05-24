@@ -365,7 +365,7 @@ function DiscoverSection() {
     {
       icon: "🏚️",
       title: "Ouro Preto",
-      body: "Ca. 1,5 Std. — UNESCO-Welterbe. Barocke Kolonialarchitektur, steile Gassen, Goldschmiede.",
+      body: "Ca. 1,5 Std. — UNESCO-Welterbe. Barocke Kolonialarchitektur, steile Gassen, Goldschmiede. Marc und Bruna planen ebenfalls, dorthin zu fahren — wer möchte, kann sich gerne anschließen.",
       tag: { cls: "bm-tag-green", label: "★★★ Top-Empfehlung" }},
     {
       icon: "🎭",
