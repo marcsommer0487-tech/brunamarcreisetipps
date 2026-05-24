@@ -781,6 +781,5 @@ section:nth-of-type(even):not(#hero){background:var(--bm-ivory2);}
   .bm-dot{font-size:1.4rem;}
   .bm-vac-table{font-size:0.8rem;}
   .bm-vac-table th,.bm-vac-table td{padding:0.5rem 0.6rem;}
-  .bm-contact-details{gap:1.5rem;}
 }
 `;
