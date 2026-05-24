@@ -280,9 +280,9 @@ type Card = {
   body: ReactNode;
   tag?: { cls: string; label: string };
 };
-function CardGrid({ cards }: { cards: Card[] }) {
+function CardGrid({ cards, variant }: { cards: Card[]; variant?: "3-2" }) {
   return (
-    <div className="bm-card-grid">
+    <div className={`bm-card-grid${variant === "3-2" ? " bm-card-grid-3-2" : ""}`}>
       {cards.map((c, i) => (
         <div className="bm-card" key={i}>
           <div className="bm-card-top">
