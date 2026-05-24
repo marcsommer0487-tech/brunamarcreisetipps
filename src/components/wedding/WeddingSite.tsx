@@ -10,7 +10,7 @@ function Nav() {
     
     { href: "#travel", label: "Anreise" },
     { href: "#health", label: "Gesundheit" },
-    { href: "#hotels", label: "Hotels" },
+    { href: "#hotels", label: "Unterkünfte" },
     { href: "#discover", label: "Entdecken" },
     { href: "#safety", label: "Sicherheit" },
     { href: "#practical", label: "Praktisches" },
@@ -305,32 +305,31 @@ function CardGrid({ cards }: { cards: Card[] }) {
 function HotelsSection() {
   const cards: Card[] = [
     {
-      icon: "⭐⭐⭐⭐⭐",
-      title: "Luxus",
-      body: <><strong>Ouro Minas Palace Hotel</strong> — Traditionshotel, elegantes Interieur, Pool, hervorragendes Frühstück.<br /><br /><strong>Hotel Mercure BH Lourdes</strong> — Modern, zentral, sehr guter Service.</>,
-      tag: { cls: "bm-tag-green", label: "Savassi / Lourdes" }},
+      icon: "🏙️",
+      title: "Savassi & Lourdes",
+      body: <>Moderne und sichere Viertel mit vielen Restaurants, Bars und Cafés. Zentral gelegen und ideal, um die Stadt zu Fuß zu erkunden.</>,
+      tag: { cls: "bm-tag-green", label: "Top-Empfehlung" }},
     {
-      icon: "⭐⭐⭐⭐",
-      title: "Mittelklasse",
-      body: <><strong>Ibis Styles BH Savassi</strong> — Komfortabel, gute Lage, faire Preise.<br /><br /><strong>Slaviero Essential BH</strong> — Preis-Leistungs-Sieger.</>,
-      tag: { cls: "bm-tag-gold", label: "Savassi" }},
+      icon: "🏘️",
+      title: "Funcionários & Santa Teresa",
+      body: <>Ebenfalls sehr gute Wahl — angesagte Viertel mit lokaler Atmosphäre, Galerien und alternativen Läden.</>,
+      tag: { cls: "bm-tag-green", label: "Sehr empfohlen" }},
     {
-      icon: "⭐⭐⭐",
-      title: "Budget-freundlich",
-      body: <><strong>Hostels & Pousadas in Savassi</strong> — Verschiedene günstige Gästehäuser im sicheren Savassi-Viertel.</>,
-      tag: { cls: "bm-tag-blue", label: "Ab R$ 80 / Nacht" }},
+      icon: "🌳",
+      title: "Pampulha",
+      body: <>Nicht ganz zentral, dafür viel Natur und direkt in der Nähe unserer Hochzeitslocation. Ruhiger und grüner.</>,
+      tag: { cls: "bm-tag-gold", label: "Nähe Location" }},
   ];
   return (
     <Section
       id="hotels"
       eyebrow="Übernachtung"
-      title="Hotelempfehlungen"
-      lead="Wir empfehlen Hotels in den Vierteln Savassi oder Lourdes — zentral, sicher und mit vielen Restaurants."
+      title="Unterkünfte"
+      lead="Hotels und Airbnb sind beide gute Optionen. Wir empfehlen diese Viertel, da sie modern, sicher und gastronomisch vielfältig sind."
     >
       <CardGrid cards={cards} />
       <InfoBox>
-        📍 <strong>Empfohlene Viertel:</strong> 
-        <strong>Savassi</strong>und<strong>Lourdes</strong>.
+        💡 <strong>Tipp:</strong> Bucht am besten frühzeitig — besonders um die Hochzeitsdaten herum ist die Nachfrage hoch.
       </InfoBox>
     </Section>
   );
