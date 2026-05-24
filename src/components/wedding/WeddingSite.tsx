@@ -392,26 +392,31 @@ function DiscoverSection() {
     {
       icon: "🏚️",
       title: "Ouro Preto",
+      image: imgOuroPreto,
       body: "Ca. 1,5 Std. — UNESCO-Welterbe. Barocke Kolonialarchitektur, steile Gassen, Goldschmiede. Marc und Bruna planen ebenfalls, dorthin zu fahren — wer möchte, kann sich gerne anschließen.",
       tag: { cls: "bm-tag-green", label: "★★★ Top-Empfehlung" }},
     {
       icon: "🎭",
       title: "Inhotim",
+      image: imgInhotim,
       body: "Ca. 1,5 Std. — Weltklasse Freilicht-Kunstmuseum mit botanischem Garten. Mindestens 1 ganzer Tag!",
       tag: { cls: "bm-tag-green", label: "★★★ Top-Empfehlung" }},
     {
       icon: "🕍",
       title: "Tiradentes",
+      image: imgTiradentes,
       body: "Ca. 2,5 Std. — Charmantes Kolonialstädtchen mit Barockkirchen und hervorragenden Restaurants.",
       tag: { cls: "bm-tag-gold", label: "★★ Sehr empfehlenswert" }},
     {
       icon: "🏔️",
       title: "Serra do Cipó",
+      image: imgSerraDoCipo,
       body: "Ca. 1,5 Std. — Nationalpark mit Wasserfällen, Wanderwegen und Naturbädern.",
       tag: { cls: "bm-tag-gold", label: "★★ Sehr empfehlenswert" }},
     {
       icon: "🚂",
       title: "São João del-Rei",
+      image: imgSaoJoao,
       body: "Ca. 2 Std. — Historische Stadt mit einem der schönsten Kolonialkerne Minas Gerais. Mit der dampfbetriebenen Maria-Fumaça nach Tiradentes fahren — ein echtes Erlebnis!",
       tag: { cls: "bm-tag-gold", label: "★★ Sehr empfohlenswert" }},
   ];
