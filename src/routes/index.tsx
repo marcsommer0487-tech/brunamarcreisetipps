@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Hero } from "@/components/wedding/Hero";
+import { WeddingSite } from "@/components/wedding/WeddingSite";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,24 +21,5 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
     ],
   }),
-  component: Index,
+  component: WeddingSite,
 });
-
-function Index() {
-  return (
-    <div style={{ minHeight: "100vh" }}>
-      <Hero />
-      <iframe
-        id="rest"
-        src="/api/wedding"
-        title="Wedding details"
-        style={{
-          width: "100%",
-          height: "100vh",
-          border: "none",
-          display: "block",
-        }}
-      />
-    </div>
-  );
-}
