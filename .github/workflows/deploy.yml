@@ -27,6 +27,14 @@ jobs:
         run: bun install
       - name: Build Web App
         run: bun run build
+      - name: Debug - show build output
+        run: |
+          echo "=== Root ===" && ls -la
+          echo "=== dist/ ===" && ls -la dist/ 2>/dev/null || echo "no dist folder"
+          echo "=== .output/ ===" && ls -la .output/ 2>/dev/null || echo "no .output folder"
+          echo "=== dist/client/ ===" && ls -la dist/client/ 2>/dev/null || echo "no dist/client folder"
+          echo "=== dist/public/ ===" && ls -la dist/public/ 2>/dev/null || echo "no dist/public folder"
+          echo "=== dist/static/ ===" && ls -la dist/static/ 2>/dev/null || echo "no dist/static folder"
       - name: Inject CNAME into build
         run: echo "hochzeit.finanzsommer.com" > ./dist/CNAME
       - name: Setup Pages
