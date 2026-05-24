@@ -7,7 +7,7 @@ import logo from "@/assets/bm-logo.png";
 function Nav() {
   const [open, setOpen] = useState(false);
   const links: { href: string; label: string }[] = [
-    { href: "#wedding", label: "Die Hochzeit" },
+    
     { href: "#travel", label: "Anreise" },
     { href: "#health", label: "Gesundheit" },
     { href: "#hotels", label: "Hotels" },
@@ -80,10 +80,6 @@ function Hero() {
         <CdUnit n={cd.s} l="Sekunden" />
       </div>
 
-      <a href="#wedding" className="bm-scroll-hint">
-        <span>Mehr erfahren</span>
-        <span className="bm-scroll-arrow" />
-      </a>
     </section>
   );
 }
@@ -120,61 +116,6 @@ function Section({
   );
 }
 
-/* ─────────────────────────────────────────────────────────
-   WEDDING DETAILS
-   ───────────────────────────────────────────────────────── */
-function WeddingDetails() {
-  return (
-    <Section
-      id="wedding"
-      eyebrow="Der große Tag"
-      title="Die Hochzeit"
-      lead="Wir freuen uns riesig, diesen besonderen Tag mit euch in Brasilien zu feiern. Alle wichtigen Details findet ihr hier."
-    >
-      <div className="bm-wedding-grid">
-        <DetailCard icon="📅"
-          h="Datum"
-          p="Sonntag, 18. Oktober 2026"
-        />
-        <DetailCard icon="⏰"
-          h="Uhrzeit"
-          p="Wird noch bekannt gegeben"
-          placeholder
-        />
-        <DetailCard icon="📍"
-          h="Location"
-          p="Adresse wird noch bekannt gegeben"
-          placeholder
-          sub="Belo Horizonte, MG"
-        />
-        <DetailCard icon="👔"
-          h="Dresscode"
-          p="Elegant / Festlich — Oktober in BH ist warm (~28°C), leichte Stoffe empfohlen."
-        />
-      </div>
-    </Section>
-  );
-}
-
-function DetailCard({
-  icon, h, p, placeholder, sub}: {
-  icon: string;
-  h: string;
-  p: string;
-  placeholder?: boolean;
-  sub?: string;
-}) {
-  return (
-    <div className="bm-detail-card">
-      <div className="bm-detail-icon">{icon}</div>
-      <h3>{h}</h3>
-      <p>
-        <span className={placeholder ? "bm-placeholder" : ""}>{p}</span>
-        {sub && <><br /><small>{sub}</small></>}
-      </p>
-    </div>
-  );
-}
 
 /* ─────────────────────────────────────────────────────────
    ROW LIST (Travel, Safety, Transport, Practical)
@@ -717,7 +658,7 @@ export function WeddingSite() {
       <style>{CSS}</style>
       <Nav />
       <Hero />
-      <WeddingDetails />
+      
       <TravelSection />
       <VisaSection />
       <HealthSection />
@@ -794,12 +735,6 @@ section:nth-of-type(even):not(#hero){background:var(--bm-ivory2);}
 .bm-ornament-divider{text-align:center;margin:2.5rem 0;color:var(--bm-gold2);letter-spacing:0.7rem;font-size:0.9rem;opacity:0.5;}
 .bm-placeholder{color:var(--bm-gold);font-style:italic;}
 
-/* WEDDING DETAIL CARDS */
-.bm-wedding-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem;}
-.bm-detail-card{background:#fff;border:1px solid var(--bm-ivory3);border-radius:3px;padding:1.8rem 1.5rem;text-align:center;}
-.bm-detail-icon{font-size:1.6rem;margin-bottom:0.8rem;}
-.bm-detail-card h3{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--bm-green);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.6rem;}
-.bm-detail-card p{font-size:0.9rem;color:var(--bm-brown2);margin:0;line-height:1.5;}
 
 /* ROWS */
 .bm-rows{list-style:none;margin:1.5rem 0;padding:0;}
