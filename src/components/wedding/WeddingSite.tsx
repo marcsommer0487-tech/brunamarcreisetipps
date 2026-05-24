@@ -62,7 +62,7 @@ function Hero() {
       <p className="bm-hero-date">
         Sonntag, 18. Oktober 2026
       </p>
-      <p className="bm-hero-location">Belo Horizonte · Minas Gerais · Brasil 🇧🇷</p>
+      <p className="bm-hero-location">La Toscana (Pamplulha)  · Belo Horizonte · Minas Gerais · Brasil 🇧🇷</p>
 
       <div className="bm-countdown">
         <CdUnit n={cd.d} l="Tage" />
