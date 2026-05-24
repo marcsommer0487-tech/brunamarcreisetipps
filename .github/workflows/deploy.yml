@@ -35,7 +35,7 @@ jobs:
       - name: Build Web App
         run: bun run build
 
-     - name: Inject CNAME into build
+      - name: Inject CNAME into build
         run: cp CNAME dist/CNAME || echo "hochzeit.finanzsommer.com" > dist/CNAME
 
       - name: Setup Pages
