@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/wedding/Hero";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,16 +26,19 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <iframe
-      src="/api/wedding"
-      title="Wedding Website"
-      style={{
-        position: "fixed",
-        inset: 0,
-        width: "100vw",
-        height: "100vh",
-        border: "none",
-      }}
-    />
+    <div style={{ minHeight: "100vh" }}>
+      <Hero />
+      <iframe
+        id="rest"
+        src="/api/wedding"
+        title="Wedding details"
+        style={{
+          width: "100%",
+          height: "100vh",
+          border: "none",
+          display: "block",
+        }}
+      />
+    </div>
   );
 }
