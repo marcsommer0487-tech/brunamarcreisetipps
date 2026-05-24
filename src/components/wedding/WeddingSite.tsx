@@ -289,12 +289,24 @@ type Card = {
   title: string;
   body: ReactNode;
   tag?: { cls: string; label: string };
+  image?: string;
+  imageAlt?: string;
 };
 function CardGrid({ cards, variant }: { cards: Card[]; variant?: "3-2" }) {
   return (
     <div className={`bm-card-grid${variant === "3-2" ? " bm-card-grid-3-2" : ""}`}>
       {cards.map((c, i) => (
         <div className="bm-card" key={i}>
+          {c.image && (
+            <img
+              src={c.image}
+              alt={c.imageAlt ?? c.title}
+              className="bm-card-img"
+              loading="lazy"
+              width={640}
+              height={512}
+            />
+          )}
           <div className="bm-card-top">
             <span className="bm-card-icon">{c.icon}</span>
             <h3>{c.title}</h3>
