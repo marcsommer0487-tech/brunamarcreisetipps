@@ -363,22 +363,27 @@ function DiscoverSection() {
     {
       icon: "🏛️",
       title: "Conjunto Pampulha",
+      image: imgPampulha,
       body: "UNESCO-Welterbe seit 2016. Oscar Niemeyers modernistisches Meisterwerk an der Lagoa da Pampulha — inklusive Igreja São Francisco de Assis, seiner bekanntesten Kirche, dekoriert mit Azulejos von Portinari."},
     {
       icon: "🏪",
       title: "Mercado Central",
+      image: imgMercado,
       body: "Riesiger Markt mit über 400 Ständen: Cachaça, Pão de queijo, Gewürze, Handwerk."},
     {
       icon: "🌿",
       title: "Praça da Liberdade",
+      image: imgLiberdade,
       body: "Eleganter Kulturplatz mit kostenlosem Zugang zu mehreren Museen."},
     {
       icon: "🌄",
       title: "Mirante das Mangabeiras",
+      image: imgMirante,
       body: "Aussichtspunkt mit Panoramablick über ganz BH."},
     {
       icon: "🏟️",
       title: "Mineirão",
+      image: imgMineirao,
       body: "Legendäres Fußballstadion — bekannt für die 7:1-Halbfinale 2014. Für Fußballfans empfohlen: Führungen buchbar.",
       tag: { cls: "bm-tag-blue", label: "Für Fans" }},
   ];
