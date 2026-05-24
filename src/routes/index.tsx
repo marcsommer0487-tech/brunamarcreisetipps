@@ -4,7 +4,7 @@ import { WeddingSite } from "@/components/wedding/WeddingSite";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Hochzeit · Wedding · Casamento — 18.10.2026 · Belo Horizonte" },
+      { title: "Reisetipps - Hochzeit Bruna & Marc" },
       {
         name: "description",
         content:
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "Hochzeit · Wedding · Casamento — 18.10.2026 · Belo Horizonte",
+        content: "Reisetipps - Hochzeit Bruna & Marc",
       },
       {
         property: "og:description",
