@@ -495,7 +495,7 @@ function FoodSection() {
       title="Essen & Trinken"
       lead="Belo Horizonte gilt in Brasilien als die Hauptstadt des guten Essens. Die Küche Minas Gerais' ist herzhaft und absolut lecker."
     >
-      <CardGrid cards={cards} />
+      <CardGrid cards={cards} variant="3-2" />
     </Section>
   );
 }
