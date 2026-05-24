@@ -445,34 +445,6 @@ function SafetySection() {
   );
 }
 
-/* ─────────────────────────────────────────────────────────
-   TRANSPORT
-   ───────────────────────────────────────────────────────── */
-function TransportSection() {
-  const rows: Row[] = [
-    {
-      lbl: "Uber / 99",
-      val: "Die beste Option. Günstig, sicher, flächendeckend. 99 ist die brasilianische Alternative zu Uber."},
-    {
-      lbl: "MOVE BH (BRT)",
-      val: "Bus-Schnellsystem — gut ausgebaut, aber für Touristen komplexer."},
-    {
-      lbl: "Mietwagen",
-      val: "Für Tagesausflüge sinnvoll. Anbieter am Flughafen: Localiza, Movida, Unidas."},
-    {
-      lbl: "Vom Flughafen",
-      val: "Uber oder 99 direkt beim Ausgang. Ca. 45–60 Min. ins Zentrum."},
-  ];
-  return (
-    <Section
-      id="transport"
-      eyebrow="Fortbewegung"
-      title="Transport vor Ort"
-    >
-      <RowList rows={rows} />
-    </Section>
-  );
-}
 
 /* ─────────────────────────────────────────────────────────
    FOOD
@@ -658,7 +630,6 @@ export function WeddingSite() {
       <HotelsSection />
       <DiscoverSection />
       <SafetySection />
-      <TransportSection />
       <FoodSection />
       <PracticalSection />
       <FaqSection />
