@@ -14,7 +14,7 @@ function Nav() {
     { href: "#discover", label: "Entdecken" },
     { href: "#safety", label: "Sicherheit" },
     { href: "#practical", label: "Praktisches" },
-    { href: "#faq", label: "FAQ" },
+    { href: "#language", label: "Sprache" },
     { href: "#contact", label: "RSVP" },
   ];
 
