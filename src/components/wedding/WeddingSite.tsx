@@ -149,7 +149,7 @@ function TravelSection() {
       val: <>Uber: ca. 45–60 Min., R$ 80–130 (ca. 13–22 €).</>},
     {
       lbl: "Beste Anreisezeit",
-      val: "2–3 Tage vor der Hochzeit — um die Stadt kennenzulernen und den Jetlag zu überwinden."},
+      val: "2–3 Tage vor der Hochzeit — um die Stadt kennenzulernen und den Jetlag zu überwinden. Marc ist vom 14.10. bis 30.10. in Brasilien."},
   ];
   return (
     <Section
