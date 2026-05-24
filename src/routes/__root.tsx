@@ -32,16 +32,12 @@ export const Route = createRootRoute({
       { name: "robots", content: "noindex, nofollow" },
       { title: "Reisetipps: Hochzeit Bruna & Marc" },
       { name: "description", content: "Reisetipps zur Hochzeit von Marc & Bruna in Brasilien im Oktober." },
-      { name: "author", content: "Lovable" },
       { property: "og:title", content: "Reisetipps: Hochzeit Bruna & Marc" },
       { property: "og:description", content: "Reisetipps zur Hochzeit von Marc & Bruna in Brasilien im Oktober." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Reisetipps: Hochzeit Bruna & Marc" },
       { name: "twitter:description", content: "Reisetipps zur Hochzeit von Marc & Bruna in Brasilien im Oktober." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/67cdc7c4-98c3-4bbf-92b1-56f93ef501e3/id-preview-be73fd64--32e0d384-e79b-421c-8716-d3641669cfcf.lovable.app-1779627595892.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/67cdc7c4-98c3-4bbf-92b1-56f93ef501e3/id-preview-be73fd64--32e0d384-e79b-421c-8716-d3641669cfcf.lovable.app-1779627595892.png" },
     ],
     links: [
       {
