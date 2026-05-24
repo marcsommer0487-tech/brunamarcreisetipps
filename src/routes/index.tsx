@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Trilingual wedding website (DE/EN/PT) — 18 October 2026, Belo Horizonte, Brazil.",
+          "Nützliche Tipps rund um die Anreise, zu Brasilien und möglichen Ausflügen.",
       },
       {
         property: "og:title",
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:description",
-        content: "Join us in Belo Horizonte on 18 October 2026.",
+        content: "Nützliche Tipps rund um die Anreise, zu Brasilien und möglichen Ausflügen.",
       },
       { property: "og:type", content: "website" },
     ],
