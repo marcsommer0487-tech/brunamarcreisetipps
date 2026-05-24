@@ -49,8 +49,7 @@ function Hero() {
         d: pad(Math.floor(diff / 86400000)),
         h: pad(Math.floor((diff % 86400000) / 3600000)),
         m: pad(Math.floor((diff % 3600000) / 60000)),
-        s: pad(Math.floor((diff % 60000) / 1000)),
-      });
+        s: pad(Math.floor((diff % 60000) / 1000))});
     };
     tick();
     const id = setInterval(tick, 1000);
@@ -61,18 +60,14 @@ function Hero() {
     <section id="hero" className="bm-hero">
       <img className="bm-hero-logo" src={logo} alt="Bruna & Marc" />
       <p className="bm-hero-tagline">
-        {{
-          de: "Wir laden euch herzlich ein",
-        }}
+        {{"Wir laden euch herzlich ein"}}
       </p>
       <h1 className="bm-hero-script">
         Bruna <span className="bm-amp">&amp;</span> Marc
       </h1>
       <div className="bm-ornament">— ✦ —</div>
       <p className="bm-hero-date">
-        {{
-          de: "Sonntag, 18. Oktober 2026",
-        }}
+        {{"Sonntag, 18. Oktober 2026"}}
       </p>
       <p className="bm-hero-location">Belo Horizonte · Minas Gerais · Brasil 🇧🇷</p>
 
@@ -87,7 +82,7 @@ function Hero() {
       </div>
 
       <a href="#wedding" className="bm-scroll-hint">
-        <span>{"Mehr erfahren", en: "Scroll to explore", pt: "Role para baixo"}</span>
+        <span>"Mehr erfahren"</span>
         <span className="bm-scroll-arrow" />
       </a>
     </section>
@@ -107,8 +102,7 @@ function CdUnit({ n, l }: { n: string; l: string }) {
    GENERIC SECTION SHELL
    ───────────────────────────────────────────────────────── */
 function Section({
-  id, eyebrow, title, lead, children,
-}: {
+  id, eyebrow, title, lead, children}: {
   id: string;
   eyebrow: string;
   title: string;
@@ -164,8 +158,7 @@ function WeddingDetails() {
 }
 
 function DetailCard({
-  icon, h, p, placeholder, sub,
-}: {
+  icon, h, p, placeholder, sub}: {
   icon: string;
   h: string;
   p: string;
@@ -215,20 +208,16 @@ function TravelSection() {
   const rows: Row[] = [
     {
       lbl: "Flughafen",
-      val: "Aeroporto Internacional Tancredo Neves (CNF / Confins) — 38 km nordöstlich vom Stadtzentrum. Für Inlandsflüge: Aeroporto Carlos Drummond de Andrade (PLU).",
-    },
+      val: "Aeroporto Internacional Tancredo Neves (CNF / Confins) — 38 km nordöstlich vom Stadtzentrum. Für Inlandsflüge: Aeroporto Carlos Drummond de Andrade (PLU)."},
     {
       lbl: "Flüge aus DE/EU",
-      val: "Typischerweise mit Zwischenstopp in São Paulo (GRU) oder Lissabon (LIS). Airlines: Lufthansa, TAP, LATAM, Azul. Flugzeit: ca. 14–16 Std. + Stopover.",
-    },
+      val: "Typischerweise mit Zwischenstopp in São Paulo (GRU) oder Lissabon (LIS). Airlines: Lufthansa, TAP, LATAM, Azul. Flugzeit: ca. 14–16 Std. + Stopover."},
     {
       lbl: "Transfer vom Flughafen",
-      val: <>Uber: ca. 45–60 Min., R$ 80–130. Empfehlenswert. Alternativ: <strong>Executivo</strong>-Shuttle-Bus.</>,
-    },
+      val: <>Uber: ca. 45–60 Min., R$ 80–130. Empfehlenswert. Alternativ: <strong>Executivo</strong>-Shuttle-Bus.</>},
     {
       lbl: "Beste Anreisezeit",
-      val: "2–3 Tage vor der Hochzeit — um die Stadt kennenzulernen und den Jetlag zu überwinden.",
-    },
+      val: "2–3 Tage vor der Hochzeit — um die Stadt kennenzulernen und den Jetlag zu überwinden."},
   ];
   return (
     <Section
@@ -239,10 +228,8 @@ function TravelSection() {
     >
       <RowList rows={rows} />
       <InfoBox>
-        ✅ <strong>{"Tipp:", en: "Tip:", pt: "Dica:"}</strong>{" "}
-        {{
-          de: "Flüge am besten 6–9 Monate vorher buchen — Direktverbindungen nach São Paulo sind gefragt und teuer.",
-        }}
+        ✅ <strong>"Tipp:"</strong>{" "}
+        {{"Flüge am besten 6–9 Monate vorher buchen — Direktverbindungen nach São Paulo sind gefragt und teuer."}}
       </InfoBox>
     </Section>
   );
@@ -262,37 +249,31 @@ function VisaSection() {
         <div className="bm-card">
           <div className="bm-card-top">
             <span className="bm-card-icon">🇩🇪🇪🇺</span>
-            <h3>{"Deutschland & EU", en: "Germany, UK & EU", pt: "Cidadãos Brasileiros"}</h3>
+            <h3>"Deutschland & EU"</h3>
           </div>
           <p>
-            {{
-              de: <>Kein Visum erforderlich für touristische Aufenthalte bis zu <strong>90 Tage</strong>. Reisepass muss noch mindestens 6 Monate gültig sein.</>,
-            }}
+            {{<>Kein Visum erforderlich für touristische Aufenthalte bis zu <strong>90 Tage</strong>. Reisepass muss noch mindestens 6 Monate gültig sein.</>}}
           </p>
           <span className="bm-tag bm-tag-green">
-            {"Visumsfrei", en: "Visa-free", pt: "Sem restrições"}
+            "Visumsfrei"
           </span>
         </div>
         <div className="bm-card">
           <div className="bm-card-top">
             <span className="bm-card-icon">🌍</span>
-            <h3>{"Andere Länder", en: "Other Countries", pt: "Convidados Internacionais"}</h3>
+            <h3>"Andere Länder"</h3>
           </div>
           <p>
-            {{
-              de: "Bitte prüft die aktuellen Einreisebestimmungen auf der Seite des brasilianischen Außenministeriums.",
-            }}
+            {{"Bitte prüft die aktuellen Einreisebestimmungen auf der Seite des brasilianischen Außenministeriums."}}
           </p>
           <span className="bm-tag bm-tag-gold">
-            {"Bitte prüfen", en: "Please verify", pt: "Verifique seu país"}
+            "Bitte prüfen"
           </span>
         </div>
       </div>
       <WarnBox>
-        ⚠️ <strong>{"Wichtig:", en: "Important:", pt: "Importante:"}</strong>{" "}
-        {{
-          de: "Alle Gäste sollten eine Krankenversicherung mit internationalem Krankentransport abschließen.",
-        }}
+        ⚠️ <strong>"Wichtig:"</strong>{" "}
+        {{"Alle Gäste sollten eine Krankenversicherung mit internationalem Krankentransport abschließen."}}
       </WarnBox>
     </Section>
   );
@@ -307,28 +288,23 @@ function HealthSection() {
     {
       name: "Yellow Fever / Gelbfieber / Febre Amarela",
       tag: { cls: "bm-tag-gold", label: "Empfohlen" },
-      note: "Für BH Stadt nicht zwingend. Für Ausflüge in bestimmte Bundesstaaten nötig. Impfausweis mitführen.",
-    },
+      note: "Für BH Stadt nicht zwingend. Für Ausflüge in bestimmte Bundesstaaten nötig. Impfausweis mitführen."},
     {
       name: "Hepatitis A",
       tag: { cls: "bm-tag-red", label: "Dringend empfohlen" },
-      note: "Standardimpfung für Reisen nach Brasilien.",
-    },
+      note: "Standardimpfung für Reisen nach Brasilien."},
     {
       name: "Hepatitis B",
       tag: { cls: "bm-tag-gold", label: "Empfohlen" },
-      note: "Bei nicht vorhandener Immunität empfehlenswert.",
-    },
+      note: "Bei nicht vorhandener Immunität empfehlenswert."},
     {
       name: "Dengue",
       tag: { cls: "bm-tag-gold", label: "Vorbeugung" },
-      note: "Mückenschutz: DEET-Spray, lange Kleidung morgens/abends.",
-    },
+      note: "Mückenschutz: DEET-Spray, lange Kleidung morgens/abends."},
     {
       name: "MMR / Tetanus",
       tag: { cls: "bm-tag-red", label: "Auffrischen" },
-      note: "Impfschutz prüfen und ggf. auffrischen lassen.",
-    },
+      note: "Impfschutz prüfen und ggf. auffrischen lassen."},
   ];
 
   return (
@@ -341,9 +317,9 @@ function HealthSection() {
       <table className="bm-vac-table">
         <thead>
           <tr>
-            <th>{"Impfung", en: "Vaccination", pt: "Vacina"}</th>
-            <th>{"Empfehlung", en: "Recommendation", pt: "Recomendação"}</th>
-            <th>{"Hinweis", en: "Notes", pt: "Observações"}</th>
+            <th>"Impfung"</th>
+            <th>"Empfehlung"</th>
+            <th>"Hinweis"</th>
           </tr>
         </thead>
         <tbody>
@@ -357,10 +333,8 @@ function HealthSection() {
         </tbody>
       </table>
       <InfoBox>
-        🧳 <strong>{"Reiseapotheke:", en: "Travel kit:", pt: "Kit de viagem:"}</strong>{" "}
-        {{
-          de: "Mückenspray (mind. 30% DEET), Sonnencreme (LSF 50+), Durchfallmittel, Pflaster, persönliche Medikamente.",
-        }}
+        🧳 <strong>"Reiseapotheke:"</strong>{" "}
+        {{"Mückenspray (mind. 30% DEET), Sonnencreme (LSF 50+), Durchfallmittel, Pflaster, persönliche Medikamente."}}
       </InfoBox>
     </Section>
   );
@@ -401,20 +375,17 @@ function HotelsSection() {
       icon: "⭐⭐⭐⭐⭐",
       title: "Luxus",
       body: <><strong>Ouro Minas Palace Hotel</strong> — Traditionshotel, elegantes Interieur, Pool, hervorragendes Frühstück.<br /><br /><strong>Hotel Mercure BH Lourdes</strong> — Modern, zentral, sehr guter Service.</>,
-      tag: { cls: "bm-tag-green", label: "Savassi / Lourdes" },
-    },
+      tag: { cls: "bm-tag-green", label: "Savassi / Lourdes" }},
     {
       icon: "⭐⭐⭐⭐",
       title: "Mittelklasse",
       body: <><strong>Ibis Styles BH Savassi</strong> — Komfortabel, gute Lage, faire Preise.<br /><br /><strong>Slaviero Essential BH</strong> — Preis-Leistungs-Sieger.</>,
-      tag: { cls: "bm-tag-gold", label: "Savassi" },
-    },
+      tag: { cls: "bm-tag-gold", label: "Savassi" }},
     {
       icon: "⭐⭐⭐",
       title: "Budget-freundlich",
       body: <><strong>Hostels & Pousadas in Savassi</strong> — Verschiedene günstige Gästehäuser im sicheren Savassi-Viertel.</>,
-      tag: { cls: "bm-tag-blue", label: "Ab R$ 80 / Nacht" },
-    },
+      tag: { cls: "bm-tag-blue", label: "Ab R$ 80 / Nacht" }},
   ];
   return (
     <Section
@@ -425,8 +396,8 @@ function HotelsSection() {
     >
       <CardGrid cards={cards} />
       <InfoBox>
-        📍 <strong>{"Empfohlene Viertel:", en: "Recommended areas:", pt: "Bairros recomendados:"}</strong>{" "}
-        <strong>Savassi</strong> {"und", en: "and", pt: "e"} <strong>Lourdes</strong>.
+        📍 <strong>"Empfohlene Viertel:"</strong>{" "}
+        <strong>Savassi</strong> "und" <strong>Lourdes</strong>.
       </InfoBox>
     </Section>
   );
@@ -440,33 +411,27 @@ function DiscoverSection() {
     {
       icon: "🏛️",
       title: "Conjunto Pampulha",
-      body: "UNESCO-Kandidat. Oscar Niemeyers modernistisches Meisterwerk an der Lagoa da Pampulha.",
-    },
+      body: "UNESCO-Kandidat. Oscar Niemeyers modernistisches Meisterwerk an der Lagoa da Pampulha."},
     {
       icon: "🏪",
       title: "Mercado Central",
-      body: "Riesiger Markt mit über 400 Ständen: Cachaça, Pão de queijo, Gewürze, Handwerk.",
-    },
+      body: "Riesiger Markt mit über 400 Ständen: Cachaça, Pão de queijo, Gewürze, Handwerk."},
     {
       icon: "🌿",
       title: "Praça da Liberdade",
-      body: "Eleganter Kulturplatz mit kostenlosem Zugang zu mehreren Museen.",
-    },
+      body: "Eleganter Kulturplatz mit kostenlosem Zugang zu mehreren Museen."},
     {
       icon: "🌄",
       title: "Mirante das Mangabeiras",
-      body: "Aussichtspunkt mit Panoramablick über ganz BH.",
-    },
+      body: "Aussichtspunkt mit Panoramablick über ganz BH."},
     {
       icon: "🎨",
       title: "Bairro Santa Teresa",
-      body: "Trendy Künstlerviertel mit Galerien, Cafés und Wochenendmarkt.",
-    },
+      body: "Trendy Künstlerviertel mit Galerien, Cafés und Wochenendmarkt."},
     {
       icon: "⛪",
       title: "Igreja São Francisco",
-      body: "Niemeyers bekannteste Kirche, dekoriert mit Azulejos von Portinari.",
-    },
+      body: "Niemeyers bekannteste Kirche, dekoriert mit Azulejos von Portinari."},
   ];
 
   const daytrips: Card[] = [
@@ -474,52 +439,43 @@ function DiscoverSection() {
       icon: "🏚️",
       title: "Ouro Preto",
       body: "Ca. 1,5 Std. — UNESCO-Welterbe. Barocke Kolonialarchitektur, steile Gassen, Goldschmiede.",
-      tag: { cls: "bm-tag-green", label: "★★★ Top-Empfehlung" },
-    },
+      tag: { cls: "bm-tag-green", label: "★★★ Top-Empfehlung" }},
     {
       icon: "🎭",
       title: "Inhotim",
       body: "Ca. 1,5 Std. — Weltklasse Freilicht-Kunstmuseum mit botanischem Garten. Mindestens 1 ganzer Tag!",
-      tag: { cls: "bm-tag-green", label: "★★★ Top-Empfehlung" },
-    },
+      tag: { cls: "bm-tag-green", label: "★★★ Top-Empfehlung" }},
     {
       icon: "🕍",
       title: "Tiradentes",
       body: "Ca. 2,5 Std. — Charmantes Kolonialstädtchen mit Barockkirchen und hervorragenden Restaurants.",
-      tag: { cls: "bm-tag-gold", label: "★★ Sehr empfehlenswert" },
-    },
+      tag: { cls: "bm-tag-gold", label: "★★ Sehr empfehlenswert" }},
     {
       icon: "🏔️",
       title: "Serra do Cipó",
       body: "Ca. 1,5 Std. — Nationalpark mit Wasserfällen, Wanderwegen und Naturbädern.",
-      tag: { cls: "bm-tag-gold", label: "★★ Sehr empfehlenswert" },
-    },
+      tag: { cls: "bm-tag-gold", label: "★★ Sehr empfehlenswert" }},
     {
       icon: "🏘️",
       title: "Sabará",
       body: "Ca. 30 Min. — Kleines Kolonialstädtchen vor den Toren von BH mit Barockkirchen.",
-      tag: { cls: "bm-tag-blue", label: "★ Lohnt sich" },
-    },
+      tag: { cls: "bm-tag-blue", label: "★ Lohnt sich" }},
   ];
 
   return (
     <section id="discover">
       <div className="bm-container">
-        <span className="bm-eyebrow">{"Sightseeing", en: "Sightseeing", pt: "Turismo"}</span>
-        <h2 className="bm-title">{"Sehenswürdigkeiten in Belo Horizonte", en: "Sights in Belo Horizonte", pt: "O Que Ver em Belo Horizonte"}</h2>
+        <span className="bm-eyebrow">"Sightseeing"</span>
+        <h2 className="bm-title">"Sehenswürdigkeiten in Belo Horizonte"</h2>
         <p className="bm-lead">
-          {{
-            de: "BH überrascht mit Oscar-Niemeyer-Architektur, lebhaften Märkten und einer der lebendigsten Essensszenen Brasiliens.",
-          }}
+          {{"BH überrascht mit Oscar-Niemeyer-Architektur, lebhaften Märkten und einer der lebendigsten Essensszenen Brasiliens."}}
         </p>
         <CardGrid cards={sights} />
         <div className="bm-ornament-divider">— ✦ —</div>
-        <span className="bm-eyebrow">{"Tagesausflüge", en: "Day Trips", pt: "Passeios"}</span>
-        <h2 className="bm-title">{"Die schönsten Ausflugsziele", en: "Best Day Trips", pt: "Melhores Passeios de Um Dia"}</h2>
+        <span className="bm-eyebrow">"Tagesausflüge"</span>
+        <h2 className="bm-title">"Die schönsten Ausflugsziele"</h2>
         <p className="bm-lead">
-          {{
-            de: "Rund um BH liegen echte Highlights — von UNESCO-Städten bis zu Kunstmuseen mitten in der Natur.",
-          }}
+          {{"Rund um BH liegen echte Highlights — von UNESCO-Städten bis zu Kunstmuseen mitten in der Natur."}}
         </p>
         <CardGrid cards={daytrips} />
       </div>
@@ -534,24 +490,19 @@ function SafetySection() {
   const rows: Row[] = [
     {
       lbl: "Viertel",
-      val: "Bleibt in Savassi, Lourdes, Funcionários und Mangabeiras. Centro nach Einbruch der Dunkelheit meiden.",
-    },
+      val: "Bleibt in Savassi, Lourdes, Funcionários und Mangabeiras. Centro nach Einbruch der Dunkelheit meiden."},
     {
       lbl: "Wertsachen",
-      val: "Keine teuren Uhren, Schmuck oder Kamera offen tragen. Handy nicht auf der Straße zücken.",
-    },
+      val: "Keine teuren Uhren, Schmuck oder Kamera offen tragen. Handy nicht auf der Straße zücken."},
     {
       lbl: "Transport",
-      val: "Immer Uber oder 99 (App) nehmen. Keine Straßentaxis heranwinken.",
-    },
+      val: "Immer Uber oder 99 (App) nehmen. Keine Straßentaxis heranwinken."},
     {
       lbl: "Geld",
-      val: "Wenig Bargeld bei sich führen. An Geldautomaten von Bradesco oder Itaú abheben.",
-    },
+      val: "Wenig Bargeld bei sich führen. An Geldautomaten von Bradesco oder Itaú abheben."},
     {
       lbl: "Notfallnummern",
-      val: <>🚓 Polizei: <strong>190</strong> | 🚑 SAMU: <strong>192</strong> | 🚒 Feuerwehr: <strong>193</strong></>,
-    },
+      val: <>🚓 Polizei: <strong>190</strong> | 🚑 SAMU: <strong>192</strong> | 🚒 Feuerwehr: <strong>193</strong></>},
   ];
   return (
     <Section
@@ -572,20 +523,16 @@ function TransportSection() {
   const rows: Row[] = [
     {
       lbl: "Uber / 99",
-      val: "Die beste Option. Günstig, sicher, flächendeckend. 99 ist die brasilianische Alternative zu Uber.",
-    },
+      val: "Die beste Option. Günstig, sicher, flächendeckend. 99 ist die brasilianische Alternative zu Uber."},
     {
       lbl: "MOVE BH (BRT)",
-      val: "Bus-Schnellsystem — gut ausgebaut, aber für Touristen komplexer.",
-    },
+      val: "Bus-Schnellsystem — gut ausgebaut, aber für Touristen komplexer."},
     {
       lbl: "Mietwagen",
-      val: "Für Tagesausflüge sinnvoll. Anbieter am Flughafen: Localiza, Movida, Unidas.",
-    },
+      val: "Für Tagesausflüge sinnvoll. Anbieter am Flughafen: Localiza, Movida, Unidas."},
     {
       lbl: "Vom Flughafen",
-      val: "Uber oder 99 direkt beim Ausgang. Ca. 45–60 Min. ins Zentrum.",
-    },
+      val: "Uber oder 99 direkt beim Ausgang. Ca. 45–60 Min. ins Zentrum."},
   ];
   return (
     <Section
@@ -606,33 +553,27 @@ function FoodSection() {
     {
       icon: "🧀",
       title: "Pão de Queijo",
-      body: "Brasiliens beliebtester Snack — warme Käsebrötchen aus Maniokstärke. Ursprünglich aus Minas Gerais!",
-    },
+      body: "Brasiliens beliebtester Snack — warme Käsebrötchen aus Maniokstärke. Ursprünglich aus Minas Gerais!"},
     {
       icon: "🍖",
       title: "Tutu à Mineira",
-      body: "Herzhafter Klassiker: Maniokbrei mit schwarzen Bohnen, Würstchen, Kohl und Ei.",
-    },
+      body: "Herzhafter Klassiker: Maniokbrei mit schwarzen Bohnen, Würstchen, Kohl und Ei."},
     {
       icon: "🍹",
       title: "Caipirinha",
-      body: "Brasiliens Nationalcocktail aus Cachaça, Limette und Zucker.",
-    },
+      body: "Brasiliens Nationalcocktail aus Cachaça, Limette und Zucker."},
     {
       icon: "🥤",
       title: "Açaí & Guaraná",
-      body: "Frischer Açaí mit Granola ist unschlagbar. Guaraná: leicht koffeinhaltiges Softgetränk.",
-    },
+      body: "Frischer Açaí mit Granola ist unschlagbar. Guaraná: leicht koffeinhaltiges Softgetränk."},
     {
       icon: "⚖️",
       title: "Comida a Quilo",
-      body: "Mittagessen nach Gewicht — riesige Auswahl, frisch, günstig und lecker.",
-    },
+      body: "Mittagessen nach Gewicht — riesige Auswahl, frisch, günstig und lecker."},
     {
       icon: "🍦",
       title: "Queijo & Goiabada",
-      body: "Mineirischer Klassiker: reifer Käse mit Guavengelee ('Romeo e Julieta').",
-    },
+      body: "Mineirischer Klassiker: reifer Käse mit Guavengelee ('Romeo e Julieta')."},
   ];
   return (
     <Section
@@ -653,36 +594,28 @@ function PracticalSection() {
   const rows: Row[] = [
     {
       lbl: "Währung",
-      val: "Brasilianischer Real (BRL / R$). 1 EUR ≈ 5,5–6,5 BRL. Am besten am Geldautomaten abheben.",
-    },
+      val: "Brasilianischer Real (BRL / R$). 1 EUR ≈ 5,5–6,5 BRL. Am besten am Geldautomaten abheben."},
     {
       lbl: "Kartenzahlung",
-      val: "Meistens möglich. Etwas Bargeld für Märkte und Kleinhändler empfohlen.",
-    },
+      val: "Meistens möglich. Etwas Bargeld für Märkte und Kleinhändler empfohlen."},
     {
       lbl: "Strom & Steckdosen",
-      val: <>⚠️ 127 V / 60 Hz. Steckdosen-Typ <strong>N</strong> — Adapter mitbringen!</>,
-    },
+      val: <>⚠️ 127 V / 60 Hz. Steckdosen-Typ <strong>N</strong> — Adapter mitbringen!</>},
     {
       lbl: "SIM-Karte",
-      val: "Tim, Vivo, Claro. Touristen-SIM ab ca. R$ 40–80. Alternative: eSIM via Airalo.",
-    },
+      val: "Tim, Vivo, Claro. Touristen-SIM ab ca. R$ 40–80. Alternative: eSIM via Airalo."},
     {
       lbl: "Zeitzone",
-      val: "UTC-3 (keine Sommerzeit). Differenz zu DE: -5 Std. (Sommer) / -4 Std. (Winter).",
-    },
+      val: "UTC-3 (keine Sommerzeit). Differenz zu DE: -5 Std. (Sommer) / -4 Std. (Winter)."},
     {
       lbl: "Wetter Oktober",
-      val: "22–30°C, meistens sonnig. Gelegentlich Schauer am Nachmittag. Leichte Sommersachen.",
-    },
+      val: "22–30°C, meistens sonnig. Gelegentlich Schauer am Nachmittag. Leichte Sommersachen."},
     {
       lbl: "Sprache",
-      val: <>Brasilianisches Portugiesisch — <strong>kein Spanisch!</strong> Ein paar Basics werden geschätzt.</>,
-    },
+      val: <>Brasilianisches Portugiesisch — <strong>kein Spanisch!</strong> Ein paar Basics werden geschätzt.</>},
     {
       lbl: "Trinkgeld",
-      val: "10% sind oft schon im Preis enthalten. Bei Uber/Taxi kein Trinkgeld erforderlich.",
-    },
+      val: "10% sind oft schon im Preis enthalten. Bei Uber/Taxi kein Trinkgeld erforderlich."},
   ];
   return (
     <Section
@@ -703,28 +636,22 @@ function FaqSection() {
   const faqs: Faq[] = [
     {
       q: "Brauche ich ein Visum für Brasilien?",
-      a: "Deutsche und EU-Bürger benötigen kein Visum — bis zu 90 Tage visumsfrei. Reisepass muss noch 6 Monate gültig sein.",
-    },
+      a: "Deutsche und EU-Bürger benötigen kein Visum — bis zu 90 Tage visumsfrei. Reisepass muss noch 6 Monate gültig sein."},
     {
       q: "Wie ist das Wetter im Oktober in Belo Horizonte?",
-      a: "Warm bis heiß (22–30°C), meistens sonnig, gelegentlich Regenschauer am Nachmittag.",
-    },
+      a: "Warm bis heiß (22–30°C), meistens sonnig, gelegentlich Regenschauer am Nachmittag."},
     {
       q: "Welchen Dresscode gibt es für die Hochzeit?",
-      a: "Festlich / elegant. Leichte Stoffe (Leinen, Viskose, Chiffon) sind sehr empfehlenswert.",
-    },
+      a: "Festlich / elegant. Leichte Stoffe (Leinen, Viskose, Chiffon) sind sehr empfehlenswert."},
     {
       q: "Wie reise ich am besten an und was kostet es?",
-      a: "Flüge typischerweise über São Paulo (GRU). Gesamtreisezeit ~16 h. Kosten: ca. 800–1.400 EUR hin und zurück.",
-    },
+      a: "Flüge typischerweise über São Paulo (GRU). Gesamtreisezeit ~16 h. Kosten: ca. 800–1.400 EUR hin und zurück."},
     {
       q: "Wie teuer ist Brasilien?",
-      a: "Sehr günstig für Europäer. Restaurant-Mittag R$ 40–80, Uber R$ 15–40, Hotels ab R$ 150.",
-    },
+      a: "Sehr günstig für Europäer. Restaurant-Mittag R$ 40–80, Uber R$ 15–40, Hotels ab R$ 150."},
     {
       q: "Ist Brasilien sicher?",
-      a: "Savassi und Lourdes sind sehr sicher. Keine teuren Sachen tragen, immer Uber nehmen, Centro nachts meiden.",
-    },
+      a: "Savassi und Lourdes sind sehr sicher. Keine teuren Sachen tragen, immer Uber nehmen, Centro nachts meiden."},
   ];
 
   const [open, setOpen] = useState<number | null>(0);
@@ -732,7 +659,7 @@ function FaqSection() {
     <section id="faq" style={{ background: "var(--bm-ivory2)" }}>
       <div className="bm-container">
         <span className="bm-eyebrow">FAQ</span>
-        <h2 className="bm-title">{"Häufige Fragen", en: "Frequently Asked Questions", pt: "Perguntas Frequentes"}</h2>
+        <h2 className="bm-title">"Häufige Fragen"</h2>
         <div style={{ marginTop: "2rem" }}>
           {faqs.map((f, i) => (
             <div className="bm-faq-item" key={i}>
@@ -760,24 +687,22 @@ function ContactSection() {
   return (
     <section id="contact">
       <div className="bm-container">
-        <span className="bm-eyebrow">{"Anmeldung", en: "RSVP", pt: "Confirmação"}</span>
-        <h2 className="bm-title">{"Bitte meldet euch an!", en: "Please let us know you're coming!", pt: "Confirme sua presença!"}</h2>
+        <span className="bm-eyebrow">"Anmeldung"</span>
+        <h2 className="bm-title">"Bitte meldet euch an!"</h2>
         <p className="bm-lead">
-          {{
-            de: "Damit wir gut planen können, bitten wir um eine Rückmeldung bis zum angegebenen Datum.",
-          }}
+          {{"Damit wir gut planen können, bitten wir um eine Rückmeldung bis zum angegebenen Datum."}}
         </p>
         <a className="bm-rsvp-btn" href="mailto:eure-email@beispiel.de">
-          {"Jetzt zusagen", en: "Confirm attendance", pt: "Confirmar presença"}
+          "Jetzt zusagen"
         </a>
         <div className="bm-contact-details">
           <div className="bm-contact-item">
-            <div className="bm-ci-label">{"Anmeldefrist", en: "RSVP by", pt: "Confirmar até"}</div>
-            <div className="bm-ci-value bm-placeholder">{"TT.MM.JJJJ — wird bekannt gegeben", en: "DD/MM/YYYY — to be announced", pt: "DD/MM/AAAA — a confirmar"}</div>
+            <div className="bm-ci-label">"Anmeldefrist"</div>
+            <div className="bm-ci-value bm-placeholder">"TT.MM.JJJJ — wird bekannt gegeben"</div>
           </div>
           <div className="bm-contact-item">
-            <div className="bm-ci-label">{"WhatsApp-Gruppe", en: "WhatsApp group", pt: "Grupo WhatsApp"}</div>
-            <div className="bm-ci-value"><a href="#">{"Link folgt", en: "Link coming soon", pt: "Link em breve"}</a></div>
+            <div className="bm-ci-label">"WhatsApp-Gruppe"</div>
+            <div className="bm-ci-value"><a href="#">"Link folgt"</a></div>
           </div>
           <div className="bm-contact-item">
             <div className="bm-ci-label">Email</div>
