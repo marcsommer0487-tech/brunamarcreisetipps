@@ -148,7 +148,7 @@ function TravelSection() {
       val: "Typischerweise mit Zwischenstopp in São Paulo, Rio de Janeiro oder Lissabon. Wenn nicht via Lissabon, dann Inlandsflug bis nach Belo Horizonte (z.B. Azul oder Latam)."},
     {
       lbl: "Transfer vom Flughafen",
-      val: <>Uber: ca. 45–60 Min., R$ 80–130 (ca. 13–22 €). Empfehlenswert.</>},
+      val: <>Uber: ca. 45–60 Min., R$ 80–130 (ca. 13–22 €).</>},
     {
       lbl: "Beste Anreisezeit",
       val: "2–3 Tage vor der Hochzeit — um die Stadt kennenzulernen und den Jetlag zu überwinden."},
@@ -161,6 +161,24 @@ function TravelSection() {
       lead="Belo Horizonte liegt im Herzen von Minas Gerais. Die Anreise aus Europa dauert mit Zwischenstopp ca. 16–18 Stunden."
     >
       <RowList rows={rows} />
+      <div className="bm-table-wrap">
+        <table className="bm-table">
+          <thead>
+            <tr>
+              <th>Thema</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r, i) => (
+              <tr key={i}>
+                <td>{r.lbl}</td>
+                <td>{r.val}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <InfoBox>
         ✅ <strong>Tipp:</strong>{" "}
         {"Flüge am besten 6–9 Monate vorher buchen — Direktverbindungen nach São Paulo sind gefragt und teuer."}
@@ -734,6 +752,12 @@ section:nth-of-type(even):not(#hero){background:var(--bm-ivory2);}
 .bm-rows{list-style:none;margin:1.5rem 0;padding:0;}
 .bm-rows li{display:flex;gap:1rem;padding:0.75rem 0;border-bottom:1px solid var(--bm-ivory3);font-size:0.93rem;color:var(--bm-brown2);align-items:flex-start;}
 .bm-rows li:last-child{border-bottom:none;}
+.bm-table-wrap{margin:2rem 0;overflow-x:auto;}
+.bm-table{width:100%;border-collapse:collapse;font-size:0.93rem;color:var(--bm-brown2);background:var(--bm-ivory);}
+.bm-table th,.bm-table td{padding:0.85rem 1rem;text-align:left;border-bottom:1px solid var(--bm-ivory3);vertical-align:top;}
+.bm-table thead th{background:var(--bm-ivory2);font-family:var(--bm-serif,serif);font-weight:600;color:var(--bm-brown);letter-spacing:0.04em;text-transform:uppercase;font-size:0.78rem;}
+.bm-table tbody tr:last-child td{border-bottom:none;}
+.bm-table td:first-child{font-weight:600;color:var(--bm-brown);white-space:nowrap;}
 .bm-lbl{font-weight:700;color:var(--bm-green);min-width:150px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;padding-top:0.05rem;flex-shrink:0;}
 
 /* CARDS */
