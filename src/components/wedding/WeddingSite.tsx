@@ -1,5 +1,15 @@
 import { useState, useEffect, type ReactNode } from "react";
 import logo from "@/assets/bm-logo.png";
+import imgPampulha from "@/assets/discover/pampulha.jpg";
+import imgMercado from "@/assets/discover/mercado.jpg";
+import imgLiberdade from "@/assets/discover/liberdade.jpg";
+import imgMirante from "@/assets/discover/mirante.jpg";
+import imgMineirao from "@/assets/discover/mineirao.jpg";
+import imgOuroPreto from "@/assets/discover/ouropreto.jpg";
+import imgInhotim from "@/assets/discover/inhotim.jpg";
+import imgTiradentes from "@/assets/discover/tiradentes.jpg";
+import imgSerraDoCipo from "@/assets/discover/serradocipo.jpg";
+import imgSaoJoao from "@/assets/discover/saojoao.jpg";
 
 /* ─────────────────────────────────────────────────────────
    NAV
