@@ -204,7 +204,7 @@ function VisaSection() {
       </div>
       <WarnBox>
         ⚠️ <strong>Wichtig:</strong>{" "}
-        {"Alle Gäste sollten eine Krankenversicherung mit internationalem Krankentransport abschließen."}
+        {"Wir empfehlen, eine Auslandskrankenversicherung abzuschließen."}
       </WarnBox>
     </Section>
   );
