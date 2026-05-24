@@ -390,8 +390,7 @@ function DiscoverSection() {
     {
       icon: "🏖️",
       title: "Rio de Janeiro",
-      body: "Ca. 6–7 Std. — Ende Oktober sind Marc und Bruna in Rio de Janeiro. Wer Lust hat mitzukommen, ist herzlich willkommen!",
-      tag: { cls: "bm-tag-rio", label: "🎉 Mit dabei!" }},
+      body: "Ca. 6–7 Std. — Ende Oktober sind Marc und Bruna in Rio de Janeiro. Wer Lust hat mitzukommen, ist herzlich willkommen!"},
   ];
 
   return (
@@ -410,6 +409,12 @@ function DiscoverSection() {
           Rund um BH liegen echte Highlights — von UNESCO-Städten bis zu Kunstmuseen mitten in der Natur.
         </p>
         <CardGrid cards={daytrips} />
+        <div className="bm-rio-box">
+          <h3>🎉 Rio de Janeiro — Mit dabei!</h3>
+          <p>
+            Ende Oktober sind Marc und Bruna in Rio de Janeiro. Wer Lust hat mitzukommen, ist herzlich willkommen! Meldet euch einfach bei uns.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -761,8 +766,12 @@ section:nth-of-type(even):not(#hero){background:var(--bm-ivory2);}
 .bm-tag-green{background:#E8F5E9;color:#1B4332;}
 .bm-tag-gold{background:#FFF8E1;color:#6D4C00;}
 .bm-tag-red{background:#FFEBEE;color:#7B1F1F;}
-.bm-tag-rio{background:#F3E5F5;color:#4A148C;}
 .bm-tag-blue{background:#E3F2FD;color:#0D47A1;}
+
+/* RIO HIGHLIGHT BOX */
+.bm-rio-box{background:linear-gradient(135deg,#FFF8E1 0%,#F3E5F5 100%);border:1px solid var(--bm-gold2);border-radius:4px;padding:1.6rem 2rem;margin:2.2rem 0 1rem;text-align:center;}
+.bm-rio-box h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--bm-green);margin:0 1.2rem;line-height:1.3;}
+.bm-rio-box p{font-size:0.95rem;color:var(--bm-brown2);margin:1.6rem 0 0 0;max-width:600px;margin-left:auto;margin-right:auto;}
 
 /* INFO BOXES */
 .bm-info-box{background:#F1F8F4;border-left:3px solid var(--bm-green3);padding:1rem 1.4rem;margin:1.5rem 0;border-radius:0 3px 3px 0;}
