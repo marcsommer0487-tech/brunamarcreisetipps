@@ -5,7 +5,6 @@ import logo from "@/assets/bm-logo.png";
    NAV
    ───────────────────────────────────────────────────────── */
 function Nav() {
-
   const [open, setOpen] = useState(false);
   const links: { href: string; label: string }[] = [
     { href: "#wedding", label: "Die Hochzeit" },
@@ -60,14 +59,14 @@ function Hero() {
     <section id="hero" className="bm-hero">
       <img className="bm-hero-logo" src={logo} alt="Bruna & Marc" />
       <p className="bm-hero-tagline">
-        {"Wir laden euch herzlich ein"}
+        Wir laden euch herzlich ein
       </p>
       <h1 className="bm-hero-script">
         Bruna <span className="bm-amp">&amp;</span> Marc
       </h1>
       <div className="bm-ornament">— ✦ —</div>
       <p className="bm-hero-date">
-        {"Sonntag, 18. Oktober 2026"}
+        Sonntag, 18. Oktober 2026
       </p>
       <p className="bm-hero-location">Belo Horizonte · Minas Gerais · Brasil 🇧🇷</p>
 
@@ -262,7 +261,7 @@ function VisaSection() {
             <h3>Andere Länder</h3>
           </div>
           <p>
-            {"Bitte prüft die aktuellen Einreisebestimmungen auf der Seite des brasilianischen Außenministeriums."}
+            Bitte prüft die aktuellen Einreisebestimmungen auf der Seite des brasilianischen Außenministeriums.
           </p>
           <span className="bm-tag bm-tag-gold">Bitte prüfen</span>
         </div>
@@ -392,7 +391,7 @@ function HotelsSection() {
     >
       <CardGrid cards={cards} />
       <InfoBox>
-        📍 <strong>Empfohlene Viertel:</strong>{" "}
+        📍 <strong>Empfohlene Viertel:</strong> 
         <strong>Savassi</strong>und<strong>Lourdes</strong>.
       </InfoBox>
     </Section>
@@ -464,14 +463,14 @@ function DiscoverSection() {
         <span className="bm-eyebrow">Sightseeing</span>
         <h2 className="bm-title">Sehenswürdigkeiten in Belo Horizonte</h2>
         <p className="bm-lead">
-          {"BH überrascht mit Oscar-Niemeyer-Architektur, lebhaften Märkten und einer der lebendigsten Essensszenen Brasiliens."}
+          BH überrascht mit Oscar-Niemeyer-Architektur, lebhaften Märkten und einer der lebendigsten Essensszenen Brasiliens.
         </p>
         <CardGrid cards={sights} />
         <div className="bm-ornament-divider">— ✦ —</div>
         <span className="bm-eyebrow">Tagesausflüge</span>
         <h2 className="bm-title">Die schönsten Ausflugsziele</h2>
         <p className="bm-lead">
-          {"Rund um BH liegen echte Highlights — von UNESCO-Städten bis zu Kunstmuseen mitten in der Natur."}
+          Rund um BH liegen echte Highlights — von UNESCO-Städten bis zu Kunstmuseen mitten in der Natur.
         </p>
         <CardGrid cards={daytrips} />
       </div>
@@ -686,7 +685,7 @@ function ContactSection() {
         <span className="bm-eyebrow">Anmeldung</span>
         <h2 className="bm-title">Bitte meldet euch an!</h2>
         <p className="bm-lead">
-          {"Damit wir gut planen können, bitten wir um eine Rückmeldung bis zum angegebenen Datum."}
+          Damit wir gut planen können, bitten wir um eine Rückmeldung bis zum angegebenen Datum.
         </p>
         <a className="bm-rsvp-btn" href="mailto:eure-email@beispiel.de">Jetzt zusagen</a>
         <div className="bm-contact-details">
