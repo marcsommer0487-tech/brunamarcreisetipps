@@ -58,12 +58,6 @@ function Hero() {
   return (
     <section id="hero" className="bm-hero">
       <img className="bm-hero-logo" src={logo} alt="Bruna & Marc" />
-      <p className="bm-hero-tagline">
-        Wir laden euch herzlich ein
-      </p>
-      <h1 className="bm-hero-script">
-        Bruna <span className="bm-amp">&amp;</span> Marc
-      </h1>
       <div className="bm-ornament">— ✦ —</div>
       <p className="bm-hero-date">
         Sonntag, 18. Oktober 2026
