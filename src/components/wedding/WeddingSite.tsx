@@ -7,7 +7,6 @@ import logo from "@/assets/bm-logo.png";
 function Nav() {
   const [open, setOpen] = useState(false);
   const links: { href: string; label: string }[] = [
-    
     { href: "#travel", label: "Anreise" },
     { href: "#health", label: "Gesundheit" },
     { href: "#hotels", label: "Unterkünfte" },
@@ -15,7 +14,6 @@ function Nav() {
     { href: "#safety", label: "Sicherheit" },
     { href: "#practical", label: "Praktisches" },
     { href: "#language", label: "Sprache" },
-    { href: "#contact", label: "RSVP" },
   ];
 
   return (
