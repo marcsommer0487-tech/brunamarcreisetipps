@@ -387,6 +387,11 @@ function DiscoverSection() {
       title: "São João del-Rei",
       body: "Ca. 2 Std. — Historische Stadt mit einem der schönsten Kolonialkerne Minas Gerais. Mit der dampfbetriebenen Maria-Fumaça nach Tiradentes fahren — ein echtes Erlebnis!",
       tag: { cls: "bm-tag-gold", label: "★★ Sehr empfohlenswert" }},
+    {
+      icon: "🏖️",
+      title: "Rio de Janeiro",
+      body: "Ca. 6–7 Std. — Ende Oktober sind Marc und Bruna in Rio de Janeiro. Wer Lust hat mitzukommen, ist herzlich willkommen!",
+      tag: { cls: "bm-tag-rio", label: "🎉 Mit dabei!" }},
   ];
 
   return (
@@ -756,6 +761,7 @@ section:nth-of-type(even):not(#hero){background:var(--bm-ivory2);}
 .bm-tag-green{background:#E8F5E9;color:#1B4332;}
 .bm-tag-gold{background:#FFF8E1;color:#6D4C00;}
 .bm-tag-red{background:#FFEBEE;color:#7B1F1F;}
+.bm-tag-rio{background:#F3E5F5;color:#4A148C;}
 .bm-tag-blue{background:#E3F2FD;color:#0D47A1;}
 
 /* INFO BOXES */
