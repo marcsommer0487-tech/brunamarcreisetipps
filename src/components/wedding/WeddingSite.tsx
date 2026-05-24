@@ -440,7 +440,7 @@ function DiscoverSection() {
         <div className="bm-rio-box">
           <h3>🎉 Rio de Janeiro — Mit dabei!</h3>
           <p>
-            Ende Oktober sind Marc und Bruna in Rio de Janeiro. Wer Lust hat mitzukommen, ist herzlich willkommen! Meldet euch einfach bei uns.
+            Ende Oktober sind Marc und Bruna mit Familie in Rio de Janeiro. Wir fliegen von da dann zurück nach Europa. Wer Lust hat mitzukommen, ist herzlich willkommen! Meldet euch einfach bei uns.
           </p>
         </div>
       </div>
