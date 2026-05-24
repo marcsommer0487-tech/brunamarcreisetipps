@@ -142,13 +142,13 @@ function TravelSection() {
   const rows: Row[] = [
     {
       lbl: "Flughafen",
-      val: "Aeroporto Internacional Tancredo Neves (CNF / Confins) — 38 km nordöstlich vom Stadtzentrum. Für Inlandsflüge: Aeroporto Carlos Drummond de Andrade (PLU)."},
+      val: "Aeroporto Internacional Tancredo Neves (CNF / Confins) — 38 km nordöstlich vom Stadtzentrum."},
     {
       lbl: "Flüge aus DE/EU",
-      val: "Typischerweise mit Zwischenstopp in São Paulo (GRU) oder Lissabon (LIS). Airlines: Lufthansa, TAP, LATAM, Azul. Flugzeit: ca. 14–16 Std. + Stopover."},
+      val: "Typischerweise mit Zwischenstopp in São Paulo, Rio de Janeiro oder Lissabon. Wenn nicht via Lissabon, dann Inlandsflug bis nach Belo Horizonte (z.B. Azul oder Latam)."},
     {
       lbl: "Transfer vom Flughafen",
-      val: <>Uber: ca. 45–60 Min., R$ 80–130. Empfehlenswert. Alternativ: <strong>Executivo</strong>-Shuttle-Bus.</>},
+      val: <>Uber: ca. 45–60 Min., R$ 80–130 (ca. 13–22 €). Empfehlenswert.</>},
     {
       lbl: "Beste Anreisezeit",
       val: "2–3 Tage vor der Hochzeit — um die Stadt kennenzulernen und den Jetlag zu überwinden."},
@@ -575,7 +575,7 @@ function FaqSection() {
       a: "Festlich / elegant. Leichte Stoffe (Leinen, Viskose, Chiffon) sind sehr empfehlenswert."},
     {
       q: "Wie reise ich am besten an und was kostet es?",
-      a: "Flüge typischerweise über São Paulo (GRU). Gesamtreisezeit ~16 h. Kosten: ca. 800–1.400 EUR hin und zurück."},
+      a: "Flüge typischerweise über São Paulo (GRU). Gesamtreisezeit ~16 h. Kosten: ca. 800–1.400 € (ca. R$ 4.800–8.400) hin und zurück."},
     {
       q: "Wie teuer ist Brasilien?",
       a: "Sehr günstig für Europäer. Restaurant-Mittag R$ 40–80, Uber R$ 15–40, Hotels ab R$ 150."},
