@@ -82,7 +82,7 @@ function Hero() {
       </div>
 
       <a href="#wedding" className="bm-scroll-hint">
-        <span>"Mehr erfahren"</span>
+        <span>Mehr erfahren</span>
         <span className="bm-scroll-arrow" />
       </a>
     </section>
@@ -228,7 +228,7 @@ function TravelSection() {
     >
       <RowList rows={rows} />
       <InfoBox>
-        ✅ <strong>"Tipp:"</strong>{" "}
+        ✅ <strong>Tipp:</strong>{" "}
         {"Flüge am besten 6–9 Monate vorher buchen — Direktverbindungen nach São Paulo sind gefragt und teuer."}
       </InfoBox>
     </Section>
@@ -245,34 +245,30 @@ function VisaSection() {
       eyebrow="Einreise"
       title="Visum & Einreiseformalitäten"
     >
-      <div className="bm-card-grid" style= marginTop: "1.5rem" >
+      <div className="bm-card-grid" style={{ marginTop: "1.5rem" }}>
         <div className="bm-card">
           <div className="bm-card-top">
             <span className="bm-card-icon">🇩🇪🇪🇺</span>
-            <h3>"Deutschland & EU"</h3>
+            <h3>Deutschland & EU</h3>
           </div>
           <p>
             {<>Kein Visum erforderlich für touristische Aufenthalte bis zu <strong>90 Tage</strong>. Reisepass muss noch mindestens 6 Monate gültig sein.</>}
           </p>
-          <span className="bm-tag bm-tag-green">
-            "Visumsfrei"
-          </span>
+          <span className="bm-tag bm-tag-green">Visumsfrei</span>
         </div>
         <div className="bm-card">
           <div className="bm-card-top">
             <span className="bm-card-icon">🌍</span>
-            <h3>"Andere Länder"</h3>
+            <h3>Andere Länder</h3>
           </div>
           <p>
             {"Bitte prüft die aktuellen Einreisebestimmungen auf der Seite des brasilianischen Außenministeriums."}
           </p>
-          <span className="bm-tag bm-tag-gold">
-            "Bitte prüfen"
-          </span>
+          <span className="bm-tag bm-tag-gold">Bitte prüfen</span>
         </div>
       </div>
       <WarnBox>
-        ⚠️ <strong>"Wichtig:"</strong>{" "}
+        ⚠️ <strong>Wichtig:</strong>{" "}
         {"Alle Gäste sollten eine Krankenversicherung mit internationalem Krankentransport abschließen."}
       </WarnBox>
     </Section>
@@ -317,9 +313,9 @@ function HealthSection() {
       <table className="bm-vac-table">
         <thead>
           <tr>
-            <th>"Impfung"</th>
-            <th>"Empfehlung"</th>
-            <th>"Hinweis"</th>
+            <th>Impfung</th>
+            <th>Empfehlung</th>
+            <th>Hinweis</th>
           </tr>
         </thead>
         <tbody>
@@ -333,7 +329,7 @@ function HealthSection() {
         </tbody>
       </table>
       <InfoBox>
-        🧳 <strong>"Reiseapotheke:"</strong>{" "}
+        🧳 <strong>Reiseapotheke:</strong>{" "}
         {"Mückenspray (mind. 30% DEET), Sonnencreme (LSF 50+), Durchfallmittel, Pflaster, persönliche Medikamente."}
       </InfoBox>
     </Section>
@@ -396,8 +392,8 @@ function HotelsSection() {
     >
       <CardGrid cards={cards} />
       <InfoBox>
-        📍 <strong>"Empfohlene Viertel:"</strong>{" "}
-        <strong>Savassi</strong> "und" <strong>Lourdes</strong>.
+        📍 <strong>Empfohlene Viertel:</strong>{" "}
+        <strong>Savassi</strong>und<strong>Lourdes</strong>.
       </InfoBox>
     </Section>
   );
@@ -465,15 +461,15 @@ function DiscoverSection() {
   return (
     <section id="discover">
       <div className="bm-container">
-        <span className="bm-eyebrow">"Sightseeing"</span>
-        <h2 className="bm-title">"Sehenswürdigkeiten in Belo Horizonte"</h2>
+        <span className="bm-eyebrow">Sightseeing</span>
+        <h2 className="bm-title">Sehenswürdigkeiten in Belo Horizonte</h2>
         <p className="bm-lead">
           {"BH überrascht mit Oscar-Niemeyer-Architektur, lebhaften Märkten und einer der lebendigsten Essensszenen Brasiliens."}
         </p>
         <CardGrid cards={sights} />
         <div className="bm-ornament-divider">— ✦ —</div>
-        <span className="bm-eyebrow">"Tagesausflüge"</span>
-        <h2 className="bm-title">"Die schönsten Ausflugsziele"</h2>
+        <span className="bm-eyebrow">Tagesausflüge</span>
+        <h2 className="bm-title">Die schönsten Ausflugsziele</h2>
         <p className="bm-lead">
           {"Rund um BH liegen echte Highlights — von UNESCO-Städten bis zu Kunstmuseen mitten in der Natur."}
         </p>
@@ -656,11 +652,11 @@ function FaqSection() {
 
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" style= background: "var(--bm-ivory2)" >
+    <section id="faq" style={{ background: "var(--bm-ivory2)" }}>
       <div className="bm-container">
         <span className="bm-eyebrow">FAQ</span>
-        <h2 className="bm-title">"Häufige Fragen"</h2>
-        <div style= marginTop: "2rem" >
+        <h2 className="bm-title">Häufige Fragen</h2>
+        <div style={{ marginTop: "2rem" }}>
           {faqs.map((f, i) => (
             <div className="bm-faq-item" key={i}>
               <div
@@ -687,22 +683,20 @@ function ContactSection() {
   return (
     <section id="contact">
       <div className="bm-container">
-        <span className="bm-eyebrow">"Anmeldung"</span>
-        <h2 className="bm-title">"Bitte meldet euch an!"</h2>
+        <span className="bm-eyebrow">Anmeldung</span>
+        <h2 className="bm-title">Bitte meldet euch an!</h2>
         <p className="bm-lead">
           {"Damit wir gut planen können, bitten wir um eine Rückmeldung bis zum angegebenen Datum."}
         </p>
-        <a className="bm-rsvp-btn" href="mailto:eure-email@beispiel.de">
-          "Jetzt zusagen"
-        </a>
+        <a className="bm-rsvp-btn" href="mailto:eure-email@beispiel.de">Jetzt zusagen</a>
         <div className="bm-contact-details">
           <div className="bm-contact-item">
-            <div className="bm-ci-label">"Anmeldefrist"</div>
-            <div className="bm-ci-value bm-placeholder">"TT.MM.JJJJ — wird bekannt gegeben"</div>
+            <div className="bm-ci-label">Anmeldefrist</div>
+            <div className="bm-ci-value bm-placeholder">TT.MM.JJJJ — wird bekannt gegeben</div>
           </div>
           <div className="bm-contact-item">
-            <div className="bm-ci-label">"WhatsApp-Gruppe"</div>
-            <div className="bm-ci-value"><a href="#">"Link folgt"</a></div>
+            <div className="bm-ci-label">WhatsApp-Gruppe</div>
+            <div className="bm-ci-value"><a href="#">Link folgt</a></div>
           </div>
           <div className="bm-contact-item">
             <div className="bm-ci-label">Email</div>
