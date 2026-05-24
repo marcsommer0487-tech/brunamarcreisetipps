@@ -538,48 +538,86 @@ function PracticalSection() {
 }
 
 /* ─────────────────────────────────────────────────────────
-   FAQ
+   LANGUAGE — Portugiesisch für Anfänger
    ───────────────────────────────────────────────────────── */
-type Faq = { q: string; a: string };
-function FaqSection() {
-  const faqs: Faq[] = [
+type Phrase = { pt: string; de: string };
+function LanguageSection() {
+  const groups: { title: string; items: Phrase[] }[] = [
     {
-      q: "Brauche ich ein Visum für Brasilien?",
-      a: "Deutsche und EU-Bürger benötigen kein Visum — bis zu 90 Tage visumsfrei. Reisepass muss noch 6 Monate gültig sein."},
+      title: "Begrüßung & Höflichkeit",
+      items: [
+        { pt: "Oi / Olá", de: "Hi / Hallo" },
+        { pt: "Bom dia", de: "Guten Morgen" },
+        { pt: "Boa tarde", de: "Guten Tag (nachmittags)" },
+        { pt: "Boa noite", de: "Guten Abend / Gute Nacht" },
+        { pt: "Tchau", de: "Tschüss" },
+        { pt: "Até logo", de: "Bis später" },
+        { pt: "Por favor", de: "Bitte" },
+        { pt: "Obrigado / Obrigada", de: "Danke (m./w. Sprecher)" },
+        { pt: "De nada", de: "Gern geschehen" },
+        { pt: "Desculpa", de: "Entschuldigung" },
+      ],
+    },
     {
-      q: "Wie ist das Wetter im Oktober in Belo Horizonte?",
-      a: "Warm bis heiß (22–30°C), meistens sonnig, gelegentlich Regenschauer am Nachmittag."},
+      title: "Kennenlernen",
+      items: [
+        { pt: "Tudo bem?", de: "Wie geht's? / Alles gut?" },
+        { pt: "Tudo bem!", de: "Alles gut!" },
+        { pt: "Qual é o seu nome?", de: "Wie heißt du?" },
+        { pt: "Meu nome é …", de: "Ich heiße …" },
+        { pt: "Prazer!", de: "Freut mich!" },
+        { pt: "Eu sou da Alemanha", de: "Ich komme aus Deutschland" },
+      ],
+    },
     {
-      q: "Welchen Dresscode gibt es für die Hochzeit?",
-      a: "Festlich / elegant. Leichte Stoffe (Leinen, Viskose, Chiffon) sind sehr empfehlenswert."},
+      title: "Im Restaurant & unterwegs",
+      items: [
+        { pt: "A conta, por favor", de: "Die Rechnung, bitte" },
+        { pt: "Uma cerveja, por favor", de: "Ein Bier, bitte" },
+        { pt: "Água, por favor", de: "Wasser, bitte" },
+        { pt: "Saúde!", de: "Prost! / Gesundheit!" },
+        { pt: "Está delicioso!", de: "Es ist köstlich!" },
+        { pt: "Quanto custa?", de: "Wie viel kostet das?" },
+        { pt: "Onde fica o banheiro?", de: "Wo ist die Toilette?" },
+      ],
+    },
     {
-      q: "Wie reise ich am besten an und was kostet es?",
-      a: "Flüge typischerweise über São Paulo (GRU). Gesamtreisezeit ~16 h. Kosten: ca. 800–1.400 € (ca. R$ 4.800–8.400) hin und zurück."},
-    {
-      q: "Wie teuer ist Brasilien?",
-      a: "Sehr günstig für Europäer. Restaurant-Mittag R$ 40–80, Uber R$ 15–40, Hotels ab R$ 150."},
-    {
-      q: "Ist Brasilien sicher?",
-      a: "Savassi und Lourdes sind sehr sicher. Keine teuren Sachen tragen, immer Uber nehmen, Centro nachts meiden."},
+      title: "Nützliches",
+      items: [
+        { pt: "Sim / Não", de: "Ja / Nein" },
+        { pt: "Não falo português", de: "Ich spreche kein Portugiesisch" },
+        { pt: "Você fala inglês?", de: "Sprichst du Englisch?" },
+      ],
+    },
   ];
 
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" style={{ background: "var(--bm-ivory2)" }}>
+    <section id="language" style={{ background: "var(--bm-ivory2)" }}>
       <div className="bm-container">
-        <span className="bm-eyebrow">FAQ</span>
-        <h2 className="bm-title">Häufige Fragen</h2>
-        <div style={{ marginTop: "2rem" }}>
-          {faqs.map((f, i) => (
+        <span className="bm-eyebrow">Sprache</span>
+        <h2 className="bm-title">Portugiesisch für Anfänger</h2>
+        <p className="bm-lead" style={{ marginBottom: "2rem" }}>
+          Die 25 wichtigsten Wörter und Sätze, um in Brasilien zu glänzen.
+        </p>
+        <div>
+          {groups.map((g, i) => (
             <div className="bm-faq-item" key={i}>
               <div
                 className={`bm-faq-q ${open === i ? "open" : ""}`}
                 onClick={() => setOpen(open === i ? null : i)}
               >
-                {f.q}
+                {g.title}
               </div>
               <div className={`bm-faq-a ${open === i ? "open" : ""}`}>
-                <p>{f.a}</p>
+                <ul className="bm-phrase-list">
+                  {g.items.map((p, j) => (
+                    <li key={j}>
+                      <span className="bm-phrase-pt">{p.pt}</span>
+                      <span className="bm-phrase-de">{p.de}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}
