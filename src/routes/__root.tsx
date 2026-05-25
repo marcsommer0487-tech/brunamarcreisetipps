@@ -50,6 +50,15 @@ export const Route = createRootRoute({
         href: "/favicon.png",
       },
     ],
+    scripts: [
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-26V7X8PH1F",
+        async: true,
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-26V7X8PH1F');`,
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
