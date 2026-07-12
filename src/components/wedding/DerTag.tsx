@@ -232,5 +232,6 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
   .bm-nav{padding:0.8rem 1.2rem;}
   .bm-nav-links{gap:1rem;}
   .dt-section{padding:3.5rem 1.2rem;}
+  .dt-grid>*{flex:0 1 100%;max-width:100%;}
 }
 `;
