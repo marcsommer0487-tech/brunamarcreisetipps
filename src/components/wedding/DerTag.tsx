@@ -58,6 +58,7 @@ export function DerTag() {
   const closeModal = () => {
     setIsModalOpen(false);
     setForm({
+      attending: "yes",
       name: "",
       guests: "",
       arrival: "",
