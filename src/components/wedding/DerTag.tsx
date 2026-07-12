@@ -463,7 +463,7 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-card{background:#fff;border:1px solid var(--bm-ivory3);border-radius:4px;padding:1.2rem 1rem;display:flex;flex-direction:column;gap:0.45rem;}
 .dt-card-primary{background:var(--bm-green);color:#fff;border-color:var(--bm-green);}
 .dt-card-primary .dt-card-label{color:var(--bm-gold2);}
-.dt-card-primary p{color:#fff;font-weight:700;font-size:1rem;text-shadow:0 1px 2px rgba(0,0,0,0.25);}
+.dt-card-primary .dt-card-body p{color:#fff;font-weight:700;font-size:1rem;text-shadow:0 1px 2px rgba(0,0,0,0.25);}
 .dt-card-primary .dt-btn{background:var(--bm-ivory);color:var(--bm-green);}
 .dt-card-primary .dt-btn:hover{background:var(--bm-gold3);color:var(--bm-green);}
 .dt-card-icon{font-size:1.3rem;line-height:1;}
