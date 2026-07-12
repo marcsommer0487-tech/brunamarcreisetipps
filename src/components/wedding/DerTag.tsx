@@ -21,7 +21,13 @@ const NAV_LINKS: { href: string; label: string }[] = [
 
 export function DerTag() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [form, setForm] = useState({ name: "", guests: "", arrival: "" });
+  const [form, setForm] = useState({
+    name: "",
+    guests: "",
+    arrival: "",
+    dietary: "",
+    dietaryNote: "",
+  });
   const [submitted, setSubmitted] = useState(false);
 
   const openModal = () => {
@@ -31,7 +37,13 @@ export function DerTag() {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setForm({ name: "", guests: "", arrival: "" });
+    setForm({
+      name: "",
+      guests: "",
+      arrival: "",
+      dietary: "",
+      dietaryNote: "",
+    });
     setSubmitted(false);
   };
 
@@ -147,6 +159,42 @@ export function DerTag() {
                     onChange={(e) => setForm({ ...form, arrival: e.target.value })}
                   />
                 </label>
+                <div className="dt-field">
+                  <span>Essen – Unverträglichkeiten & Wünsche</span>
+                  <div className="dt-radio-group">
+                    <label className="dt-radio">
+                      <input
+                        type="radio"
+                        name="dietary"
+                        value="no"
+                        checked={form.dietary === "no"}
+                        onChange={(e) =>
+                          setForm({ ...form, dietary: e.target.value, dietaryNote: "" })
+                        }
+                      />
+                      <span>Nein</span>
+                    </label>
+                    <label className="dt-radio">
+                      <input
+                        type="radio"
+                        name="dietary"
+                        value="yes"
+                        checked={form.dietary === "yes"}
+                        onChange={(e) => setForm({ ...form, dietary: e.target.value })}
+                      />
+                      <span>Ja</span>
+                    </label>
+                  </div>
+                  {form.dietary === "yes" && (
+                    <input
+                      className="dt-dietary-note"
+                      type="text"
+                      value={form.dietaryNote}
+                      onChange={(e) => setForm({ ...form, dietaryNote: e.target.value })}
+                      placeholder="z. B. Glutenunverträglichkeit, vegetarisch, vegan"
+                    />
+                  )}
+                </div>
                 <button className="dt-modal-submit" type="submit">
                   Absenden
                 </button>
@@ -360,6 +408,12 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-field input,.dt-field select{padding:0.75rem 0.9rem;border:1px solid var(--bm-ivory3);border-radius:3px;background:var(--bm-ivory);font-family:'Lato',sans-serif;font-size:1rem;color:var(--bm-brown);outline:none;transition:border-color 0.2s;}
 .dt-field input:focus,.dt-field select:focus{border-color:var(--bm-gold);}
 .dt-field input::placeholder{color:var(--bm-brown3);}
+.dt-radio-group{display:flex;gap:1.2rem;padding:0.4rem 0;}
+.dt-radio{display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:1rem;color:var(--bm-brown);text-transform:none;letter-spacing:0;font-weight:400;}
+.dt-radio input[type="radio"]{width:1.1rem;height:1.1rem;accent-color:var(--bm-green);cursor:pointer;}
+.dt-dietary-note{margin-top:0.4rem;padding:0.75rem 0.9rem;border:1px solid var(--bm-ivory3);border-radius:3px;background:var(--bm-ivory);font-family:'Lato',sans-serif;font-size:1rem;color:var(--bm-brown);outline:none;transition:border-color 0.2s;}
+.dt-dietary-note:focus{border-color:var(--bm-gold);}
+.dt-dietary-note::placeholder{color:var(--bm-brown3);}
 .dt-modal-submit{margin-top:0.4rem;padding:0.9rem 1.2rem;background:var(--bm-green);color:#fff;border:0;border-radius:3px;font-family:'Lato',sans-serif;font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background 0.2s;}
 .dt-modal-submit:hover{background:var(--bm-green2);}
 .dt-modal-success{text-align:center;padding:1.5rem 0;}
