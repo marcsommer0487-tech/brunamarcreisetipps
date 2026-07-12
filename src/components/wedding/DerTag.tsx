@@ -35,6 +35,7 @@ const NAV_LINKS: { href: string; label: string }[] = [
 const FIRST_NAV_LINK = { to: "/dertag", label: "Der große Tag" };
 
 export function DerTag() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form, setForm] = useState({
     attending: "yes",
@@ -129,7 +130,18 @@ export function DerTag() {
       <style>{CSS}</style>
       <nav className="bm-nav">
         <Link to="/" className="bm-nav-logo">18.10.2026</Link>
-        <ul className="bm-nav-links">
+        <button
+          className="bm-hamburger"
+          type="button"
+          aria-label="Menü"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <ul className={`bm-nav-links ${menuOpen ? "open" : ""}`}>
           <li>
             <Link to={FIRST_NAV_LINK.to} activeProps={{ className: "active" }}>
               {FIRST_NAV_LINK.label}
@@ -137,7 +149,7 @@ export function DerTag() {
           </li>
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
-              <a href={l.href}>{l.label}</a>
+              <a href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
             </li>
           ))}
         </ul>
@@ -442,6 +454,8 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .bm-nav-links{display:flex;gap:1.8rem;list-style:none;margin:0;padding:0;}
 .bm-nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;}
 .bm-nav-links a:hover,.bm-nav-links a.active{color:var(--bm-gold2);}
+.bm-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:transparent;border:0;}
+.bm-hamburger span{display:block;width:22px;height:1.5px;background:rgba(255,255,255,0.8);}
 
 .dt-hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--bm-green);padding:8rem 2rem 4rem;position:relative;overflow:hidden;color:#fff;}
 .dt-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(64,145,108,0.25) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(184,150,46,0.12) 0%,transparent 50%);pointer-events:none;}
@@ -529,7 +543,9 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 
 @media(max-width:640px){
   .bm-nav{padding:0.8rem 1.2rem;}
-  .bm-nav-links{gap:1rem;}
+  .bm-nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,28,18,0.98);flex-direction:column;padding:1.2rem 1.5rem;gap:1rem;}
+  .bm-nav-links.open{display:flex;}
+  .bm-hamburger{display:flex;}
   .dt-section{padding:3.5rem 1.2rem;}
   .dt-grid>*{flex:0 1 100%;max-width:100%;}
 }
