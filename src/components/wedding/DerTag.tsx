@@ -223,8 +223,17 @@ export function DerTag() {
                     />
                   )}
                 </div>
-                <button className="dt-modal-submit" type="submit">
-                  Absenden
+                {submitError && (
+                  <p className="dt-modal-error" role="alert">
+                    {submitError}
+                  </p>
+                )}
+                <button
+                  className="dt-modal-submit"
+                  type="submit"
+                  disabled={submitting}
+                >
+                  {submitting ? "Wird gesendet…" : "Absenden"}
                 </button>
               </form>
             )}
