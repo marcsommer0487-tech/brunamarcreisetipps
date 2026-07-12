@@ -101,6 +101,13 @@ export function DerTag() {
                 erreichbar ist.
               </p>
             </InfoCard>
+
+            <InfoCard icon="🎁" label="Hochzeitsgeschenke">
+              <p>
+                Wir erwarten keine Geschenke, sondern freuen uns über jeden, der
+                die lange Reise nach Brasilien auf sich nimmt.
+              </p>
+            </InfoCard>
           </div>
         </div>
       </section>
