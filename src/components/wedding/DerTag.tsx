@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/bm-logo.png";
 import latoscanaAsset from "@/assets/latoscana.jpg.asset.json";
