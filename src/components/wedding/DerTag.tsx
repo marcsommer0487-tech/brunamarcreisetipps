@@ -31,9 +31,14 @@ export function DerTag() {
     dietaryNote: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const submitRsvp = useServerFn(saveRsvp);
 
   const openModal = () => {
     setSubmitted(false);
+    setSubmitting(false);
+    setSubmitError("");
     setIsModalOpen(true);
   };
 
@@ -47,12 +52,33 @@ export function DerTag() {
       dietaryNote: "",
     });
     setSubmitted(false);
+    setSubmitting(false);
+    setSubmitError("");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.guests.trim()) return;
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      await submitRsvp({
+        data: {
+          name: form.name.trim(),
+          guests: Number(form.guests),
+          arrival: form.arrival || undefined,
+          dietary: form.dietary || undefined,
+          dietaryNote: form.dietaryNote?.trim() || undefined,
+        },
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error ? err.message : "Etwas ist schiefgelaufen."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   useEffect(() => {
