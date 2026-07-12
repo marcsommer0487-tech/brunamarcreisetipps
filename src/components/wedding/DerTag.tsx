@@ -320,7 +320,7 @@ export function DerTag() {
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                In Google Maps öffnen ↗
+                Auf Google öffnen ↗
               </a>
             </InfoCard>
 
