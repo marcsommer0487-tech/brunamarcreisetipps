@@ -74,7 +74,7 @@ function Hero() {
       <p className="bm-hero-date">
         Sonntag, 18. Oktober 2026
       </p>
-      <p className="bm-hero-location">La Toscana (Pampulha)  · Belo Horizonte · Minas Gerais · Brasil 🇧🇷</p>
+      <p className="bm-hero-location">La Toscana (Pampulha)  · Belo Horizonte · Minas Gerais · Brasilien 🇧🇷</p>
 
       <div className="bm-countdown">
         <CdUnit n={cd.d} l="Tage" />
@@ -708,7 +708,7 @@ export function WeddingSite() {
       <LanguageSection />
       <MoreInfoSection />
       <footer className="bm-footer">
-        <p>18. Oktober 2026 · Belo Horizonte, Brasil · Made with ♥</p>
+        <p>18. Oktober 2026 · Belo Horizonte, Brasilien · Made with ♥</p>
       </footer>
     </>
   );
