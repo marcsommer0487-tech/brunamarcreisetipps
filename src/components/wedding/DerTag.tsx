@@ -73,8 +73,74 @@ export function DerTag() {
       <section className="dt-photo-section">
         <div className="dt-photo">
           <img src={latoscanaAsset.url} alt="La Toscana – Blick auf die Lagoa da Pampulha" />
+          <div className="dt-photo-overlay">
+            <button className="dt-rsvp-btn" type="button" onClick={openModal}>
+              Bist du dabei? Hier kurz Rückmeldung geben
+            </button>
+          </div>
         </div>
       </section>
+
+      {isModalOpen && (
+        <div className="dt-modal-backdrop" onClick={closeModal}>
+          <div className="dt-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="dt-modal-close" type="button" onClick={closeModal} aria-label="Schließen">
+              ×
+            </button>
+            <h2 className="dt-modal-title">Rückmeldung</h2>
+            <p className="dt-modal-lead">
+              Wir freuen uns auf euch! Bitte gebt uns kurz Bescheid, wer von euch dabei ist.
+            </p>
+            {submitted ? (
+              <div className="dt-modal-success">
+                <div className="dt-modal-success-icon">✓</div>
+                <p>Vielen Dank für eure Rückmeldung!</p>
+              </div>
+            ) : (
+              <form className="dt-modal-form" onSubmit={handleSubmit}>
+                <label className="dt-field">
+                  <span>Name</span>
+                  <input
+                    type="text"
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    placeholder="Vor- und Nachname"
+                    required
+                  />
+                </label>
+                <label className="dt-field">
+                  <span>Anzahl der Gäste</span>
+                  <select
+                    value={form.guests}
+                    onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                    required
+                  >
+                    <option value="" disabled>
+                      Bitte wählen
+                    </option>
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <option key={n} value={n}>
+                        {n} {n === 1 ? "Person" : "Personen"}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="dt-field">
+                  <span>Anreisetag (optional)</span>
+                  <input
+                    type="date"
+                    value={form.arrival}
+                    onChange={(e) => setForm({ ...form, arrival: e.target.value })}
+                  />
+                </label>
+                <button className="dt-modal-submit" type="submit">
+                  Absenden
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
 
       <section className="dt-section">
         <div className="bm-container">
