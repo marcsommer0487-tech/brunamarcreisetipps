@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
-import { saveRsvp } from "@/lib/rsvp.functions";
 import logo from "@/assets/bm-logo.png";
 import latoscanaAsset from "@/assets/latoscana.jpg.asset.json";
 
@@ -10,6 +8,20 @@ const MAPS_EMBED_QUERY = encodeURIComponent(
   "La Toscana Pampulha, Belo Horizonte, Minas Gerais, Brasil",
 );
 const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output=embed`;
+
+// Google Form configuration
+// 1. Create a Google Form with these fields: Name, Anzahl der Gäste, Anreisetag, Essen (Ja/Nein), Essen Notiz
+// 2. Get the form ID from the URL: https://docs.google.com/forms/d/e/{FORM_ID}/viewform
+// 3. Get entry IDs by clicking "Get pre-filled link" ("Vorausgefüllter Link abrufen") and inspecting the generated URL
+const GOOGLE_FORM_ID = "YOUR_FORM_ID_HERE";
+const GOOGLE_FORM_ENTRIES = {
+  name: "entry.YOUR_NAME_ENTRY_ID",
+  guests: "entry.YOUR_GUESTS_ENTRY_ID",
+  arrival: "entry.YOUR_ARRIVAL_ENTRY_ID",
+  dietary: "entry.YOUR_DIETARY_ENTRY_ID",
+  dietaryNote: "entry.YOUR_DIETARY_NOTE_ENTRY_ID",
+};
+const GOOGLE_FORM_ACTION = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
 
 const NAV_LINKS: { href: string; label: string }[] = [
   { href: "/#travel", label: "Anreise" },
