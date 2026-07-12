@@ -342,6 +342,11 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-rsvp-btn:hover{background:var(--bm-gold2);transform:translateY(-2px);box-shadow:0 12px 34px rgba(0,0,0,0.45);}
 @media(max-width:640px){.dt-rsvp-btn{padding:0.95rem 1.4rem;font-size:0.8rem;}}
 
+.dt-rsvp-standalone,.dt-rsvp-below-map{display:flex;justify-content:center;}
+.dt-rsvp-standalone{padding:3rem 1.2rem;background:var(--bm-ivory);}
+.dt-rsvp-below-map{padding-top:2rem;}
+@media(max-width:640px){.dt-rsvp-standalone{padding:2.2rem 1.2rem;}.dt-rsvp-below-map{padding-top:1.6rem;}}
+
 .dt-modal-backdrop{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(15,40,25,0.82);backdrop-filter:blur(4px);padding:1.2rem;}
 .dt-modal{position:relative;width:100%;max-width:460px;background:#fff;border-radius:4px;padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,0.35);animation:dt-modal-in 0.25s ease-out;}
 @keyframes dt-modal-in{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
