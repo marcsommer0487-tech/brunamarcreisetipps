@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { saveRsvp } from "@/lib/rsvp.functions";
 import logo from "@/assets/bm-logo.png";
 import latoscanaAsset from "@/assets/latoscana.jpg.asset.json";
 
