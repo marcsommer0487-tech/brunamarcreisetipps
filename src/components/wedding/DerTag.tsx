@@ -130,16 +130,16 @@ export function DerTag() {
       <nav className="bm-nav">
         <Link to="/" className="bm-nav-logo">18.10.2026</Link>
         <ul className="bm-nav-links">
+          <li>
+            <Link to={FIRST_NAV_LINK.to} activeProps={{ className: "active" }}>
+              {FIRST_NAV_LINK.label}
+            </Link>
+          </li>
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <a href={l.href}>{l.label}</a>
             </li>
           ))}
-          <li>
-            <Link to="/dertag" activeProps={{ className: "active" }}>
-              Der große Tag
-            </Link>
-          </li>
         </ul>
       </nav>
 
