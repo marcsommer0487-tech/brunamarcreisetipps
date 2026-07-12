@@ -130,7 +130,18 @@ export function DerTag() {
       <style>{CSS}</style>
       <nav className="bm-nav">
         <Link to="/" className="bm-nav-logo">18.10.2026</Link>
-        <ul className="bm-nav-links">
+        <button
+          className="bm-hamburger"
+          type="button"
+          aria-label="Menü"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <ul className={`bm-nav-links ${menuOpen ? "open" : ""}`}>
           <li>
             <Link to={FIRST_NAV_LINK.to} activeProps={{ className: "active" }}>
               {FIRST_NAV_LINK.label}
@@ -138,7 +149,7 @@ export function DerTag() {
           </li>
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
-              <a href={l.href}>{l.label}</a>
+              <a href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
             </li>
           ))}
         </ul>
