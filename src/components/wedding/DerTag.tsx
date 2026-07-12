@@ -463,7 +463,9 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-card{background:#fff;border:1px solid var(--bm-ivory3);border-radius:4px;padding:1.2rem 1rem;display:flex;flex-direction:column;gap:0.45rem;}
 .dt-card-primary{background:var(--bm-green);color:#fff;border-color:var(--bm-green);}
 .dt-card-primary .dt-card-label{color:var(--bm-gold2);}
-.dt-card-primary p{color:rgba(255,255,255,0.88);}
+.dt-card-primary p{color:#fff;}
+.dt-card-primary .dt-btn{background:var(--bm-ivory);color:var(--bm-green);}
+.dt-card-primary .dt-btn:hover{background:var(--bm-gold3);color:var(--bm-green);}
 .dt-card-icon{font-size:1.3rem;line-height:1;}
 .dt-card-label{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--bm-gold);font-weight:600;}
 .dt-card-body p{margin:0 0 0.4rem;color:var(--bm-brown2);font-size:0.92rem;}
