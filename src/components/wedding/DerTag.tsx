@@ -1,11 +1,22 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/bm-logo.png";
+import latoscanaAsset from "@/assets/latoscana.jpg.asset.json";
 
 const ADDRESS_SHARE_URL = "https://share.google/RfJ5xwi1vwSWgSfvn";
 const MAPS_EMBED_QUERY = encodeURIComponent(
   "La Toscana Pampulha, Belo Horizonte, Minas Gerais, Brasil",
 );
 const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output=embed`;
+
+const NAV_LINKS: { href: string; label: string }[] = [
+  { href: "/#travel", label: "Anreise" },
+  { href: "/#health", label: "Gesundheit" },
+  { href: "/#hotels", label: "Unterkünfte" },
+  { href: "/#discover", label: "Entdecken" },
+  { href: "/#safety", label: "Sicherheit" },
+  { href: "/#practical", label: "Praktisches" },
+  { href: "/#language", label: "Sprache" },
+];
 
 export function DerTag() {
   return (
@@ -14,12 +25,14 @@ export function DerTag() {
       <nav className="bm-nav">
         <Link to="/" className="bm-nav-logo">18.10.2026</Link>
         <ul className="bm-nav-links">
-          <li>
-            <Link to="/">Reisetipps</Link>
-          </li>
+          {NAV_LINKS.map((l) => (
+            <li key={l.href}>
+              <a href={l.href}>{l.label}</a>
+            </li>
+          ))}
           <li>
             <Link to="/dertag" activeProps={{ className: "active" }}>
-              Der Tag
+              Der große Tag
             </Link>
           </li>
         </ul>
@@ -29,11 +42,17 @@ export function DerTag() {
         <img className="dt-hero-logo" src={logo} alt="Bruna & Marc" />
         <div className="bm-ornament">— ✦ —</div>
         <p className="dt-hero-date">Sonntag, 18. Oktober 2026</p>
-        <h1 className="dt-hero-title">Der Tag</h1>
+        <h1 className="dt-hero-title">Der große Tag</h1>
         <p className="dt-hero-sub">
           Alles Wichtige für den Hochzeitstag auf einen Blick
         </p>
       </header>
+
+      <section className="dt-photo-section">
+        <div className="dt-photo">
+          <img src={latoscanaAsset.url} alt="La Toscana – Blick auf die Lagoa da Pampulha" />
+        </div>
+      </section>
 
       <section className="dt-section">
         <div className="bm-container">
