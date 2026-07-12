@@ -154,7 +154,7 @@ export function DerTag() {
 
       <section className="dt-photo-section">
         <div className="dt-photo">
-          <img src={latoscanaAsset.url} alt="La Toscana – Blick auf die Lagoa da Pampulha" />
+          <img src="/pampulha.jpg" alt="La Toscana – Blick auf die Lagoa da Pampulha" />
           <div className="dt-photo-overlay">
             <button className="dt-rsvp-btn" type="button" onClick={openModal}>
               Bist du dabei? Hier kurz Rückmeldung geben
