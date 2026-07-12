@@ -76,7 +76,7 @@ export function DerTag() {
             </InfoCard>
 
             <InfoCard icon="🕰️" label="Beginn">
-              <p className="dt-big">16:30 Uhr</p>
+              <p className="dt-big">16:00 Uhr</p>
               <p className="dt-note">
                 Bitte plant etwas Puffer für die Anfahrt ein.
               </p>
