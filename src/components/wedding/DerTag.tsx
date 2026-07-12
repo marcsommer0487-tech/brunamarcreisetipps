@@ -15,6 +15,7 @@ const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output
 // 3. Get entry IDs by clicking "Get pre-filled link" ("Vorausgefüllter Link abrufen") and inspecting the generated URL
 const GOOGLE_FORM_ID = "YOUR_FORM_ID_HERE";
 const GOOGLE_FORM_ENTRIES = {
+  attending: "entry.YOUR_ATTENDING_ENTRY_ID",
   name: "entry.YOUR_NAME_ENTRY_ID",
   guests: "entry.YOUR_GUESTS_ENTRY_ID",
   arrival: "entry.YOUR_ARRIVAL_ENTRY_ID",
