@@ -20,6 +20,27 @@ const NAV_LINKS: { href: string; label: string }[] = [
 ];
 
 export function DerTag() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", guests: "", arrival: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const openModal = () => {
+    setSubmitted(false);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setForm({ name: "", guests: "", arrival: "" });
+    setSubmitted(false);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name.trim() || !form.guests.trim()) return;
+    setSubmitted(true);
+  };
+
   return (
     <>
       <style>{CSS}</style>
