@@ -39,7 +39,7 @@ export function DerTag() {
     name: "",
     guests: "",
     arrival: "",
-    dietary: "",
+    dietary: "no",
     dietaryNote: "",
   });
   const [submitted, setSubmitted] = useState(false);
