@@ -45,7 +45,6 @@ export function DerTag() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const submitRsvp = useServerFn(saveRsvp);
 
   const openModal = () => {
     setSubmitted(false);
@@ -60,7 +59,7 @@ export function DerTag() {
       name: "",
       guests: "",
       arrival: "",
-      dietary: "",
+      dietary: "no",
       dietaryNote: "",
     });
     setSubmitted(false);
@@ -71,17 +70,29 @@ export function DerTag() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.guests.trim()) return;
+    if (GOOGLE_FORM_ID === "YOUR_FORM_ID_HERE") {
+      setSubmitError("Google Form ist noch nicht konfiguriert.");
+      return;
+    }
     setSubmitting(true);
     setSubmitError("");
     try {
-      await submitRsvp({
-        data: {
-          name: form.name.trim(),
-          guests: Number(form.guests),
-          arrival: form.arrival || undefined,
-          dietary: form.dietary || undefined,
-          dietaryNote: form.dietaryNote?.trim() || undefined,
-        },
+      const body = new FormData();
+      body.append(GOOGLE_FORM_ENTRIES.name, form.name.trim());
+      body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
+      if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
+      body.append(
+        GOOGLE_FORM_ENTRIES.dietary,
+        form.dietary === "yes" ? "Ja" : "Nein"
+      );
+      if (form.dietaryNote.trim()) {
+        body.append(GOOGLE_FORM_ENTRIES.dietaryNote, form.dietaryNote.trim());
+      }
+
+      await fetch(GOOGLE_FORM_ACTION, {
+        method: "POST",
+        mode: "no-cors",
+        body,
       });
       setSubmitted(true);
     } catch (err) {
