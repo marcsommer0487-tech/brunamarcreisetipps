@@ -13,14 +13,14 @@ const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output
 // 1. Create a Google Form with these fields: Name, Anzahl der Gäste, Anreisetag, Essen (Ja/Nein), Essen Notiz
 // 2. Get the form ID from the URL: https://docs.google.com/forms/d/e/{FORM_ID}/viewform
 // 3. Get entry IDs by clicking "Get pre-filled link" ("Vorausgefüllter Link abrufen") and inspecting the generated URL
-const GOOGLE_FORM_ID = "YOUR_FORM_ID_HERE";
+const GOOGLE_FORM_ID = "1FAIpQLScoh3aeiLybfF1kXRynPoO90LNyQxjRxRlZKZw3U8eDbrKxyg";
 const GOOGLE_FORM_ENTRIES = {
-  attending: "entry.YOUR_ATTENDING_ENTRY_ID",
-  name: "entry.YOUR_NAME_ENTRY_ID",
-  guests: "entry.YOUR_GUESTS_ENTRY_ID",
-  arrival: "entry.YOUR_ARRIVAL_ENTRY_ID",
-  dietary: "entry.YOUR_DIETARY_ENTRY_ID",
-  dietaryNote: "entry.YOUR_DIETARY_NOTE_ENTRY_ID",
+  attending: "entry.375662700",
+  name: "entry.958544039",
+  guests: "entry.116323640",
+  arrival: "entry.1121964792",
+  dietary: "entry.2138633738",
+  dietaryNote: "entry.257800192",
 };
 const GOOGLE_FORM_ACTION = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
 
