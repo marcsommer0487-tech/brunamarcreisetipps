@@ -543,7 +543,9 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 
 @media(max-width:640px){
   .bm-nav{padding:0.8rem 1.2rem;}
-  .bm-nav-links{gap:1rem;}
+  .bm-nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,28,18,0.98);flex-direction:column;padding:1.2rem 1.5rem;gap:1rem;}
+  .bm-nav-links.open{display:flex;}
+  .bm-hamburger{display:flex;}
   .dt-section{padding:3.5rem 1.2rem;}
   .dt-grid>*{flex:0 1 100%;max-width:100%;}
 }
