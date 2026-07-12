@@ -74,10 +74,6 @@ export function DerTag() {
     e.preventDefault();
     if (!form.name.trim()) return;
     if (form.attending === "yes" && !form.guests.trim()) return;
-    if (GOOGLE_FORM_ID === "YOUR_FORM_ID_HERE") {
-      setSubmitError("Google Form ist noch nicht konfiguriert.");
-      return;
-    }
     setSubmitting(true);
     setSubmitError("");
     try {
