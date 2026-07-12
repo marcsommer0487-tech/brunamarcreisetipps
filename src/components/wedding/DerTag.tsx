@@ -399,7 +399,7 @@ export function DerTag() {
           <p className="dt-map-hint">
             Für die exakte Adresse und Navigation:{" "}
             <a href={ADDRESS_SHARE_URL} target="_blank" rel="noreferrer noopener">
-              in Google Maps öffnen ↗
+              Auf Google öffnen ↗
             </a>
           </p>
           <div className="dt-rsvp-below-map">
