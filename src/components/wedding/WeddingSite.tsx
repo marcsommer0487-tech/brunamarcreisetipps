@@ -1,4 +1,5 @@
 import { useState, useEffect, type ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/bm-logo.png";
 import imgPampulha from "@/assets/discover/pampulha.jpg";
 import imgMercado from "@/assets/discover/mercado.jpg";
@@ -15,7 +16,7 @@ import imgSaoJoao from "@/assets/discover/saojoao.jpg";
    NAV
    ───────────────────────────────────────────────────────── */
 function Nav() {
-  const [open, setOpen] = useState(false);
+  const [open] = useState(false);
   const links: { href: string; label: string }[] = [
     { href: "#travel", label: "Anreise" },
     { href: "#health", label: "Gesundheit" },
@@ -35,6 +36,9 @@ function Nav() {
             <a href={l.href}>{l.label}</a>
           </li>
         ))}
+        <li>
+          <Link to="/dertag">Der Tag</Link>
+        </li>
       </ul>
       </nav>
   );
