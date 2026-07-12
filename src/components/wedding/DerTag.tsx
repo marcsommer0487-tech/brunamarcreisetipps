@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { saveRsvp } from "@/lib/rsvp.functions";
 import logo from "@/assets/bm-logo.png";
 import latoscanaAsset from "@/assets/latoscana.jpg.asset.json";
 
@@ -29,9 +31,14 @@ export function DerTag() {
     dietaryNote: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const submitRsvp = useServerFn(saveRsvp);
 
   const openModal = () => {
     setSubmitted(false);
+    setSubmitting(false);
+    setSubmitError("");
     setIsModalOpen(true);
   };
 
@@ -45,12 +52,33 @@ export function DerTag() {
       dietaryNote: "",
     });
     setSubmitted(false);
+    setSubmitting(false);
+    setSubmitError("");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.guests.trim()) return;
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      await submitRsvp({
+        data: {
+          name: form.name.trim(),
+          guests: Number(form.guests),
+          arrival: form.arrival || undefined,
+          dietary: form.dietary || undefined,
+          dietaryNote: form.dietaryNote?.trim() || undefined,
+        },
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error ? err.message : "Etwas ist schiefgelaufen."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -195,8 +223,17 @@ export function DerTag() {
                     />
                   )}
                 </div>
-                <button className="dt-modal-submit" type="submit">
-                  Absenden
+                {submitError && (
+                  <p className="dt-modal-error" role="alert">
+                    {submitError}
+                  </p>
+                )}
+                <button
+                  className="dt-modal-submit"
+                  type="submit"
+                  disabled={submitting}
+                >
+                  {submitting ? "Wird gesendet…" : "Absenden"}
                 </button>
               </form>
             )}
@@ -416,6 +453,8 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-dietary-note::placeholder{color:var(--bm-brown3);}
 .dt-modal-submit{margin-top:0.4rem;padding:0.9rem 1.2rem;background:var(--bm-green);color:#fff;border:0;border-radius:3px;font-family:'Lato',sans-serif;font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background 0.2s;}
 .dt-modal-submit:hover{background:var(--bm-green2);}
+.dt-modal-submit:disabled{background:var(--bm-brown3);cursor:not-allowed;}
+.dt-modal-error{margin:0;font-size:0.9rem;color:#b91c1c;background:#fef2f2;padding:0.6rem 0.8rem;border-radius:3px;border:1px solid #fecaca;}
 .dt-modal-success{text-align:center;padding:1.5rem 0;}
 .dt-modal-success-icon{width:56px;height:56px;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:var(--bm-green);color:#fff;border-radius:50%;font-size:1.6rem;}
 .dt-modal-success p{font-size:1.05rem;color:var(--bm-brown2);margin:0;}
