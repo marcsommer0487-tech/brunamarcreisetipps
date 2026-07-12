@@ -214,6 +214,12 @@ export function DerTag() {
         </div>
       </section>
 
+      <div className="dt-rsvp-standalone">
+        <button className="dt-rsvp-btn" type="button" onClick={openModal}>
+          Bist du dabei? Hier kurz Rückmeldung geben
+        </button>
+      </div>
+
       <section className="dt-section dt-section-alt">
         <div className="bm-container">
           <span className="bm-eyebrow">Location</span>
@@ -237,6 +243,11 @@ export function DerTag() {
               in Google Maps öffnen ↗
             </a>
           </p>
+          <div className="dt-rsvp-below-map">
+            <button className="dt-rsvp-btn" type="button" onClick={openModal}>
+              Bist du dabei? Hier kurz Rückmeldung geben
+            </button>
+          </div>
         </div>
       </section>
 
