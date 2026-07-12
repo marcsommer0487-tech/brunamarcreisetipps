@@ -686,9 +686,6 @@ function MoreInfoSection() {
     <section id="more-info">
       <div className="bm-container" style={{ textAlign: "center", maxWidth: "620px" }}>
         <div className="bm-ornament-divider">— ✦ —</div>
-        <p className="bm-lead" style={{ margin: "0 auto 1.2rem" }}>
-          Weitere Details zur Hochzeit — zum Beispiel zum Dresscode — folgen in Kürze.
-        </p>
         <p className="bm-placeholder">
           Bei Fragen meldet euch gerne bei uns!
         </p>
