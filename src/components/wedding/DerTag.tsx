@@ -213,6 +213,11 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-map-hint a{color:var(--bm-gold);text-decoration:none;border-bottom:1px solid var(--bm-gold3);}
 .dt-map-hint a:hover{color:var(--bm-green2);}
 
+.dt-photo-section{background:var(--bm-green);padding:0;}
+.dt-photo{max-width:1200px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;position:relative;}
+.dt-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+@media(max-width:640px){.dt-photo{aspect-ratio:4/3;}}
+
 .bm-footer{background:var(--bm-green);color:rgba(255,255,255,0.6);text-align:center;padding:2rem;font-size:0.8rem;letter-spacing:0.1em;}
 
 @media(max-width:640px){
