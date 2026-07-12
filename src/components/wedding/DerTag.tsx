@@ -15,6 +15,7 @@ const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output
 // 3. Get entry IDs by clicking "Get pre-filled link" ("Vorausgefüllter Link abrufen") and inspecting the generated URL
 const GOOGLE_FORM_ID = "YOUR_FORM_ID_HERE";
 const GOOGLE_FORM_ENTRIES = {
+  attending: "entry.YOUR_ATTENDING_ENTRY_ID",
   name: "entry.YOUR_NAME_ENTRY_ID",
   guests: "entry.YOUR_GUESTS_ENTRY_ID",
   arrival: "entry.YOUR_ARRIVAL_ENTRY_ID",
@@ -36,6 +37,7 @@ const NAV_LINKS: { href: string; label: string }[] = [
 export function DerTag() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form, setForm] = useState({
+    attending: "yes",
     name: "",
     guests: "",
     arrival: "",
@@ -56,6 +58,7 @@ export function DerTag() {
   const closeModal = () => {
     setIsModalOpen(false);
     setForm({
+      attending: "yes",
       name: "",
       guests: "",
       arrival: "",
@@ -69,7 +72,8 @@ export function DerTag() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.guests.trim()) return;
+    if (!form.name.trim()) return;
+    if (form.attending === "yes" && !form.guests.trim()) return;
     if (GOOGLE_FORM_ID === "YOUR_FORM_ID_HERE") {
       setSubmitError("Google Form ist noch nicht konfiguriert.");
       return;
@@ -78,15 +82,21 @@ export function DerTag() {
     setSubmitError("");
     try {
       const body = new FormData();
-      body.append(GOOGLE_FORM_ENTRIES.name, form.name.trim());
-      body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
-      if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
       body.append(
-        GOOGLE_FORM_ENTRIES.dietary,
-        form.dietary === "yes" ? "Ja" : "Nein"
+        GOOGLE_FORM_ENTRIES.attending,
+        form.attending === "yes" ? "Ich bin dabei" : "Ich kann leider nicht dabei sein"
       );
-      if (form.dietaryNote.trim()) {
-        body.append(GOOGLE_FORM_ENTRIES.dietaryNote, form.dietaryNote.trim());
+      body.append(GOOGLE_FORM_ENTRIES.name, form.name.trim());
+      if (form.attending === "yes") {
+        body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
+        if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
+        body.append(
+          GOOGLE_FORM_ENTRIES.dietary,
+          form.dietary === "yes" ? "Ja" : "Nein"
+        );
+        if (form.dietaryNote.trim()) {
+          body.append(GOOGLE_FORM_ENTRIES.dietaryNote, form.dietaryNote.trim());
+        }
       }
 
       await fetch(GOOGLE_FORM_ACTION, {
@@ -175,6 +185,35 @@ export function DerTag() {
               </div>
             ) : (
               <form className="dt-modal-form" onSubmit={handleSubmit}>
+                <div className="dt-field">
+                  <span>Kommst du?</span>
+                  <div className="dt-radio-group dt-radio-group-attending">
+                    <label className="dt-radio">
+                      <input
+                        type="radio"
+                        name="attending"
+                        value="yes"
+                        checked={form.attending === "yes"}
+                        onChange={(e) =>
+                          setForm({ ...form, attending: e.target.value })
+                        }
+                      />
+                      <span>Ich bin dabei</span>
+                    </label>
+                    <label className="dt-radio">
+                      <input
+                        type="radio"
+                        name="attending"
+                        value="no"
+                        checked={form.attending === "no"}
+                        onChange={(e) =>
+                          setForm({ ...form, attending: e.target.value })
+                        }
+                      />
+                      <span>Ich kann leider nicht dabei sein</span>
+                    </label>
+                  </div>
+                </div>
                 <label className="dt-field">
                   <span>Name</span>
                   <input
@@ -185,67 +224,71 @@ export function DerTag() {
                     required
                   />
                 </label>
-                <label className="dt-field">
-                  <span>Anzahl der Gäste</span>
-                  <select
-                    value={form.guests}
-                    onChange={(e) => setForm({ ...form, guests: e.target.value })}
-                    required
-                  >
-                    <option value="" disabled>
-                      Bitte wählen
-                    </option>
-                    {[1, 2, 3, 4, 5].map((n) => (
-                      <option key={n} value={n}>
-                        {n} {n === 1 ? "Person" : "Personen"}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="dt-field">
-                  <span>Anreisetag (optional)</span>
-                  <input
-                    type="date"
-                    value={form.arrival}
-                    onChange={(e) => setForm({ ...form, arrival: e.target.value })}
-                  />
-                </label>
-                <div className="dt-field">
-                  <span>Essen – Unverträglichkeiten & Wünsche</span>
-                  <div className="dt-radio-group">
-                    <label className="dt-radio">
-                      <input
-                        type="radio"
-                        name="dietary"
-                        value="no"
-                        checked={form.dietary === "no"}
-                        onChange={(e) =>
-                          setForm({ ...form, dietary: e.target.value, dietaryNote: "" })
-                        }
-                      />
-                      <span>Nein</span>
+                {form.attending === "yes" && (
+                  <>
+                    <label className="dt-field">
+                      <span>Anzahl der Gäste</span>
+                      <select
+                        value={form.guests}
+                        onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                        required
+                      >
+                        <option value="" disabled>
+                          Bitte wählen
+                        </option>
+                        {[1, 2, 3, 4, 5].map((n) => (
+                          <option key={n} value={n}>
+                            {n} {n === 1 ? "Person" : "Personen"}
+                          </option>
+                        ))}
+                      </select>
                     </label>
-                    <label className="dt-radio">
+                    <label className="dt-field">
+                      <span>Anreisetag (optional)</span>
                       <input
-                        type="radio"
-                        name="dietary"
-                        value="yes"
-                        checked={form.dietary === "yes"}
-                        onChange={(e) => setForm({ ...form, dietary: e.target.value })}
+                        type="date"
+                        value={form.arrival}
+                        onChange={(e) => setForm({ ...form, arrival: e.target.value })}
                       />
-                      <span>Ja</span>
                     </label>
-                  </div>
-                  {form.dietary === "yes" && (
-                    <input
-                      className="dt-dietary-note"
-                      type="text"
-                      value={form.dietaryNote}
-                      onChange={(e) => setForm({ ...form, dietaryNote: e.target.value })}
-                      placeholder="z. B. Glutenunverträglichkeit, vegetarisch, vegan"
-                    />
-                  )}
-                </div>
+                    <div className="dt-field">
+                      <span>Essen – Unverträglichkeiten & Wünsche</span>
+                      <div className="dt-radio-group">
+                        <label className="dt-radio">
+                          <input
+                            type="radio"
+                            name="dietary"
+                            value="no"
+                            checked={form.dietary === "no"}
+                            onChange={(e) =>
+                              setForm({ ...form, dietary: e.target.value, dietaryNote: "" })
+                            }
+                          />
+                          <span>Nein</span>
+                        </label>
+                        <label className="dt-radio">
+                          <input
+                            type="radio"
+                            name="dietary"
+                            value="yes"
+                            checked={form.dietary === "yes"}
+                            onChange={(e) => setForm({ ...form, dietary: e.target.value })}
+                          />
+                          <span>Ja</span>
+                        </label>
+                      </div>
+                      {form.dietary === "yes" && (
+                        <input
+                          className="dt-dietary-note"
+                          type="text"
+                          value={form.dietaryNote}
+                          onChange={(e) => setForm({ ...form, dietaryNote: e.target.value })}
+                          placeholder="z. B. Glutenunverträglichkeit, vegetarisch, vegan"
+                        />
+                      )}
+                    </div>
+                  </>
+                )}
                 {submitError && (
                   <p className="dt-modal-error" role="alert">
                     {submitError}
@@ -469,6 +512,7 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-field input:focus,.dt-field select:focus{border-color:var(--bm-gold);}
 .dt-field input::placeholder{color:var(--bm-brown3);}
 .dt-radio-group{display:flex;gap:1.2rem;padding:0.4rem 0;}
+.dt-radio-group-attending{flex-direction:column;gap:0.7rem;padding:0.55rem 0;}
 .dt-radio{display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:1rem;color:var(--bm-brown);text-transform:none;letter-spacing:0;font-weight:400;}
 .dt-radio input[type="radio"]{width:1.1rem;height:1.1rem;accent-color:var(--bm-green);cursor:pointer;}
 .dt-dietary-note{margin-top:0.4rem;padding:0.75rem 0.9rem;border:1px solid var(--bm-ivory3);border-radius:3px;background:var(--bm-ivory);font-family:'Lato',sans-serif;font-size:1rem;color:var(--bm-brown);outline:none;transition:border-color 0.2s;}
