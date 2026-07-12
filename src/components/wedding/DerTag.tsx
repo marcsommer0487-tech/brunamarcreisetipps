@@ -185,6 +185,35 @@ export function DerTag() {
               </div>
             ) : (
               <form className="dt-modal-form" onSubmit={handleSubmit}>
+                <div className="dt-field">
+                  <span>Kommst du?</span>
+                  <div className="dt-radio-group dt-radio-group-attending">
+                    <label className="dt-radio">
+                      <input
+                        type="radio"
+                        name="attending"
+                        value="yes"
+                        checked={form.attending === "yes"}
+                        onChange={(e) =>
+                          setForm({ ...form, attending: e.target.value })
+                        }
+                      />
+                      <span>Ich bin dabei</span>
+                    </label>
+                    <label className="dt-radio">
+                      <input
+                        type="radio"
+                        name="attending"
+                        value="no"
+                        checked={form.attending === "no"}
+                        onChange={(e) =>
+                          setForm({ ...form, attending: e.target.value })
+                        }
+                      />
+                      <span>Ich kann leider nicht dabei sein</span>
+                    </label>
+                  </div>
+                </div>
                 <label className="dt-field">
                   <span>Name</span>
                   <input
@@ -195,67 +224,71 @@ export function DerTag() {
                     required
                   />
                 </label>
-                <label className="dt-field">
-                  <span>Anzahl der Gäste</span>
-                  <select
-                    value={form.guests}
-                    onChange={(e) => setForm({ ...form, guests: e.target.value })}
-                    required
-                  >
-                    <option value="" disabled>
-                      Bitte wählen
-                    </option>
-                    {[1, 2, 3, 4, 5].map((n) => (
-                      <option key={n} value={n}>
-                        {n} {n === 1 ? "Person" : "Personen"}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="dt-field">
-                  <span>Anreisetag (optional)</span>
-                  <input
-                    type="date"
-                    value={form.arrival}
-                    onChange={(e) => setForm({ ...form, arrival: e.target.value })}
-                  />
-                </label>
-                <div className="dt-field">
-                  <span>Essen – Unverträglichkeiten & Wünsche</span>
-                  <div className="dt-radio-group">
-                    <label className="dt-radio">
-                      <input
-                        type="radio"
-                        name="dietary"
-                        value="no"
-                        checked={form.dietary === "no"}
-                        onChange={(e) =>
-                          setForm({ ...form, dietary: e.target.value, dietaryNote: "" })
-                        }
-                      />
-                      <span>Nein</span>
+                {form.attending === "yes" && (
+                  <>
+                    <label className="dt-field">
+                      <span>Anzahl der Gäste</span>
+                      <select
+                        value={form.guests}
+                        onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                        required
+                      >
+                        <option value="" disabled>
+                          Bitte wählen
+                        </option>
+                        {[1, 2, 3, 4, 5].map((n) => (
+                          <option key={n} value={n}>
+                            {n} {n === 1 ? "Person" : "Personen"}
+                          </option>
+                        ))}
+                      </select>
                     </label>
-                    <label className="dt-radio">
+                    <label className="dt-field">
+                      <span>Anreisetag (optional)</span>
                       <input
-                        type="radio"
-                        name="dietary"
-                        value="yes"
-                        checked={form.dietary === "yes"}
-                        onChange={(e) => setForm({ ...form, dietary: e.target.value })}
+                        type="date"
+                        value={form.arrival}
+                        onChange={(e) => setForm({ ...form, arrival: e.target.value })}
                       />
-                      <span>Ja</span>
                     </label>
-                  </div>
-                  {form.dietary === "yes" && (
-                    <input
-                      className="dt-dietary-note"
-                      type="text"
-                      value={form.dietaryNote}
-                      onChange={(e) => setForm({ ...form, dietaryNote: e.target.value })}
-                      placeholder="z. B. Glutenunverträglichkeit, vegetarisch, vegan"
-                    />
-                  )}
-                </div>
+                    <div className="dt-field">
+                      <span>Essen – Unverträglichkeiten & Wünsche</span>
+                      <div className="dt-radio-group">
+                        <label className="dt-radio">
+                          <input
+                            type="radio"
+                            name="dietary"
+                            value="no"
+                            checked={form.dietary === "no"}
+                            onChange={(e) =>
+                              setForm({ ...form, dietary: e.target.value, dietaryNote: "" })
+                            }
+                          />
+                          <span>Nein</span>
+                        </label>
+                        <label className="dt-radio">
+                          <input
+                            type="radio"
+                            name="dietary"
+                            value="yes"
+                            checked={form.dietary === "yes"}
+                            onChange={(e) => setForm({ ...form, dietary: e.target.value })}
+                          />
+                          <span>Ja</span>
+                        </label>
+                      </div>
+                      {form.dietary === "yes" && (
+                        <input
+                          className="dt-dietary-note"
+                          type="text"
+                          value={form.dietaryNote}
+                          onChange={(e) => setForm({ ...form, dietaryNote: e.target.value })}
+                          placeholder="z. B. Glutenunverträglichkeit, vegetarisch, vegan"
+                        />
+                      )}
+                    </div>
+                  </>
+                )}
                 {submitError && (
                   <p className="dt-modal-error" role="alert">
                     {submitError}
