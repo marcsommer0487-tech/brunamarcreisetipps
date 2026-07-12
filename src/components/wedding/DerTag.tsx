@@ -214,6 +214,12 @@ export function DerTag() {
         </div>
       </section>
 
+      <div className="dt-rsvp-standalone">
+        <button className="dt-rsvp-btn" type="button" onClick={openModal}>
+          Bist du dabei? Hier kurz Rückmeldung geben
+        </button>
+      </div>
+
       <section className="dt-section dt-section-alt">
         <div className="bm-container">
           <span className="bm-eyebrow">Location</span>
@@ -237,6 +243,11 @@ export function DerTag() {
               in Google Maps öffnen ↗
             </a>
           </p>
+          <div className="dt-rsvp-below-map">
+            <button className="dt-rsvp-btn" type="button" onClick={openModal}>
+              Bist du dabei? Hier kurz Rückmeldung geben
+            </button>
+          </div>
         </div>
       </section>
 
@@ -330,6 +341,11 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-rsvp-btn{pointer-events:auto;border:0;padding:1.1rem 2rem;background:var(--bm-gold);color:#fff;font-family:'Lato',sans-serif;font-size:0.95rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border-radius:4px;box-shadow:0 8px 28px rgba(0,0,0,0.35);cursor:pointer;transition:transform 0.2s,background 0.2s,box-shadow 0.2s;}
 .dt-rsvp-btn:hover{background:var(--bm-gold2);transform:translateY(-2px);box-shadow:0 12px 34px rgba(0,0,0,0.45);}
 @media(max-width:640px){.dt-rsvp-btn{padding:0.95rem 1.4rem;font-size:0.8rem;}}
+
+.dt-rsvp-standalone,.dt-rsvp-below-map{display:flex;justify-content:center;}
+.dt-rsvp-standalone{padding:3rem 1.2rem;background:var(--bm-ivory);}
+.dt-rsvp-below-map{padding-top:2rem;}
+@media(max-width:640px){.dt-rsvp-standalone{padding:2.2rem 1.2rem;}.dt-rsvp-below-map{padding-top:1.6rem;}}
 
 .dt-modal-backdrop{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(15,40,25,0.82);backdrop-filter:blur(4px);padding:1.2rem;}
 .dt-modal{position:relative;width:100%;max-width:460px;background:#fff;border-radius:4px;padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,0.35);animation:dt-modal-in 0.25s ease-out;}
