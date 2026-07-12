@@ -35,6 +35,7 @@ const NAV_LINKS: { href: string; label: string }[] = [
 const FIRST_NAV_LINK = { to: "/dertag", label: "Der große Tag" };
 
 export function DerTag() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form, setForm] = useState({
     attending: "yes",

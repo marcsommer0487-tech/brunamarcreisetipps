@@ -16,7 +16,7 @@ import imgSaoJoao from "@/assets/discover/saojoao.jpg";
    NAV
    ───────────────────────────────────────────────────────── */
 function Nav() {
-  const [open] = useState(false);
+  const [open, setOpen] = useState(false);
   const links: { href: string; label: string }[] = [
     { href: "#travel", label: "Anreise" },
     { href: "#health", label: "Gesundheit" },
@@ -30,13 +30,24 @@ function Nav() {
   return (
     <nav className="bm-nav">
       <a href="#hero" className="bm-nav-logo">18.10.2026</a>
+      <button
+        className="bm-hamburger"
+        type="button"
+        aria-label="Menü"
+        aria-expanded={open}
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
       <ul className={`bm-nav-links ${open ? "open" : ""}`}>
         <li>
           <Link to="/dertag">Der große Tag</Link>
         </li>
         {links.map((l) => (
           <li key={l.href}>
-            <a href={l.href}>{l.label}</a>
+            <a href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
           </li>
         ))}
       </ul>
