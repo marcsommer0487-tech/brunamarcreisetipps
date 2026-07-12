@@ -31,16 +31,16 @@ function Nav() {
     <nav className="bm-nav">
       <a href="#hero" className="bm-nav-logo">18.10.2026</a>
       <ul className={`bm-nav-links ${open ? "open" : ""}`}>
+        <li>
+          <Link to="/dertag">Der große Tag</Link>
+        </li>
         {links.map((l) => (
           <li key={l.href}>
             <a href={l.href}>{l.label}</a>
           </li>
         ))}
-        <li>
-          <Link to="/dertag">Der große Tag</Link>
-        </li>
       </ul>
-      </nav>
+    </nav>
   );
 }
 
