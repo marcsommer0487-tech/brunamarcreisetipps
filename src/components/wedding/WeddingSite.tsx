@@ -37,7 +37,7 @@ function Nav() {
           </li>
         ))}
         <li>
-          <Link to="/dertag">Der Tag</Link>
+          <Link to="/dertag">Der große Tag</Link>
         </li>
       </ul>
       </nav>
