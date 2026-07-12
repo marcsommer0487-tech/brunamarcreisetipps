@@ -72,7 +72,8 @@ export function DerTag() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.guests.trim()) return;
+    if (!form.name.trim()) return;
+    if (form.attending === "yes" && !form.guests.trim()) return;
     if (GOOGLE_FORM_ID === "YOUR_FORM_ID_HERE") {
       setSubmitError("Google Form ist noch nicht konfiguriert.");
       return;
@@ -81,15 +82,21 @@ export function DerTag() {
     setSubmitError("");
     try {
       const body = new FormData();
-      body.append(GOOGLE_FORM_ENTRIES.name, form.name.trim());
-      body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
-      if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
       body.append(
-        GOOGLE_FORM_ENTRIES.dietary,
-        form.dietary === "yes" ? "Ja" : "Nein"
+        GOOGLE_FORM_ENTRIES.attending,
+        form.attending === "yes" ? "Ich bin dabei" : "Ich kann leider nicht dabei sein"
       );
-      if (form.dietaryNote.trim()) {
-        body.append(GOOGLE_FORM_ENTRIES.dietaryNote, form.dietaryNote.trim());
+      body.append(GOOGLE_FORM_ENTRIES.name, form.name.trim());
+      if (form.attending === "yes") {
+        body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
+        if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
+        body.append(
+          GOOGLE_FORM_ENTRIES.dietary,
+          form.dietary === "yes" ? "Ja" : "Nein"
+        );
+        if (form.dietaryNote.trim()) {
+          body.append(GOOGLE_FORM_ENTRIES.dietaryNote, form.dietaryNote.trim());
+        }
       }
 
       await fetch(GOOGLE_FORM_ACTION, {
