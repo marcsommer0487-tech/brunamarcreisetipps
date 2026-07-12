@@ -1,11 +1,22 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/bm-logo.png";
+import latoscanaAsset from "@/assets/latoscana.jpg.asset.json";
 
 const ADDRESS_SHARE_URL = "https://share.google/RfJ5xwi1vwSWgSfvn";
 const MAPS_EMBED_QUERY = encodeURIComponent(
   "La Toscana Pampulha, Belo Horizonte, Minas Gerais, Brasil",
 );
 const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output=embed`;
+
+const NAV_LINKS: { href: string; label: string }[] = [
+  { href: "/#travel", label: "Anreise" },
+  { href: "/#health", label: "Gesundheit" },
+  { href: "/#hotels", label: "Unterkünfte" },
+  { href: "/#discover", label: "Entdecken" },
+  { href: "/#safety", label: "Sicherheit" },
+  { href: "/#practical", label: "Praktisches" },
+  { href: "/#language", label: "Sprache" },
+];
 
 export function DerTag() {
   return (
@@ -14,12 +25,14 @@ export function DerTag() {
       <nav className="bm-nav">
         <Link to="/" className="bm-nav-logo">18.10.2026</Link>
         <ul className="bm-nav-links">
-          <li>
-            <Link to="/">Reisetipps</Link>
-          </li>
+          {NAV_LINKS.map((l) => (
+            <li key={l.href}>
+              <a href={l.href}>{l.label}</a>
+            </li>
+          ))}
           <li>
             <Link to="/dertag" activeProps={{ className: "active" }}>
-              Der Tag
+              Der große Tag
             </Link>
           </li>
         </ul>
@@ -29,11 +42,17 @@ export function DerTag() {
         <img className="dt-hero-logo" src={logo} alt="Bruna & Marc" />
         <div className="bm-ornament">— ✦ —</div>
         <p className="dt-hero-date">Sonntag, 18. Oktober 2026</p>
-        <h1 className="dt-hero-title">Der Tag</h1>
+        <h1 className="dt-hero-title">Der große Tag</h1>
         <p className="dt-hero-sub">
           Alles Wichtige für den Hochzeitstag auf einen Blick
         </p>
       </header>
+
+      <section className="dt-photo-section">
+        <div className="dt-photo">
+          <img src={latoscanaAsset.url} alt="La Toscana – Blick auf die Lagoa da Pampulha" />
+        </div>
+      </section>
 
       <section className="dt-section">
         <div className="bm-container">
@@ -193,6 +212,11 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-map-hint{margin-top:1rem;font-size:0.9rem;color:var(--bm-brown2);}
 .dt-map-hint a{color:var(--bm-gold);text-decoration:none;border-bottom:1px solid var(--bm-gold3);}
 .dt-map-hint a:hover{color:var(--bm-green2);}
+
+.dt-photo-section{background:var(--bm-green);padding:0;}
+.dt-photo{max-width:1200px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;position:relative;}
+.dt-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+@media(max-width:640px){.dt-photo{aspect-ratio:4/3;}}
 
 .bm-footer{background:var(--bm-green);color:rgba(255,255,255,0.6);text-align:center;padding:2rem;font-size:0.8rem;letter-spacing:0.1em;}
 
