@@ -37,6 +37,7 @@ const NAV_LINKS: { href: string; label: string }[] = [
 export function DerTag() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form, setForm] = useState({
+    attending: "yes",
     name: "",
     guests: "",
     arrival: "",
