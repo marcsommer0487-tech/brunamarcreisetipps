@@ -11,7 +11,7 @@ const saveRsvpInput = (input: {
 }) => input;
 
 export const saveRsvp = createServerFn({ method: "POST" })
-  .inputValidator(saveRsvpInput)
+  .validator(saveRsvpInput)
   .handler(async ({ data }) => {
     const supabase = createClient<Database>(
       process.env.SUPABASE_URL!,
