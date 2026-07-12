@@ -32,6 +32,7 @@ const NAV_LINKS: { href: string; label: string }[] = [
   { href: "/#practical", label: "Praktisches" },
   { href: "/#language", label: "Sprache" },
 ];
+const FIRST_NAV_LINK = { to: "/dertag", label: "Der große Tag" };
 
 export function DerTag() {
   const [isModalOpen, setIsModalOpen] = useState(false);
