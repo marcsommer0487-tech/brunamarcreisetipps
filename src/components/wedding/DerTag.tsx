@@ -159,6 +159,42 @@ export function DerTag() {
                     onChange={(e) => setForm({ ...form, arrival: e.target.value })}
                   />
                 </label>
+                <div className="dt-field">
+                  <span>Essen – Unverträglichkeiten & Wünsche</span>
+                  <div className="dt-radio-group">
+                    <label className="dt-radio">
+                      <input
+                        type="radio"
+                        name="dietary"
+                        value="no"
+                        checked={form.dietary === "no"}
+                        onChange={(e) =>
+                          setForm({ ...form, dietary: e.target.value, dietaryNote: "" })
+                        }
+                      />
+                      <span>Nein</span>
+                    </label>
+                    <label className="dt-radio">
+                      <input
+                        type="radio"
+                        name="dietary"
+                        value="yes"
+                        checked={form.dietary === "yes"}
+                        onChange={(e) => setForm({ ...form, dietary: e.target.value })}
+                      />
+                      <span>Ja</span>
+                    </label>
+                  </div>
+                  {form.dietary === "yes" && (
+                    <input
+                      className="dt-dietary-note"
+                      type="text"
+                      value={form.dietaryNote}
+                      onChange={(e) => setForm({ ...form, dietaryNote: e.target.value })}
+                      placeholder="z. B. Glutenunverträglichkeit, vegetarisch, vegan"
+                    />
+                  )}
+                </div>
                 <button className="dt-modal-submit" type="submit">
                   Absenden
                 </button>
