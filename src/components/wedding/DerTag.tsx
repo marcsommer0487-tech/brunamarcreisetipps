@@ -4,7 +4,7 @@ import logo from "@/assets/bm-logo.png";
 
 const ADDRESS_SHARE_URL = "https://share.google/RfJ5xwi1vwSWgSfvn";
 const MAPS_EMBED_QUERY = encodeURIComponent(
-  "La Toscana Pampulha, Belo Horizonte, Minas Gerais, Brasil",
+  "La Toscana Pampulha, Belo Horizonte, Minas Gerais, Brasilien",
 );
 const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output=embed`;
 
@@ -312,7 +312,7 @@ export function DerTag() {
                 <br />
                 Pampulha · Belo Horizonte
                 <br />
-                Minas Gerais · Brasil
+                Minas Gerais · Brasilien
               </p>
               <a
                 className="dt-btn"
@@ -399,7 +399,7 @@ export function DerTag() {
       </section>
 
       <footer className="bm-footer">
-        <p>18. Oktober 2026 · Belo Horizonte, Brasil · Made with ♥</p>
+        <p>18. Oktober 2026 · Belo Horizonte, Brasilien · Made with ♥</p>
       </footer>
     </>
   );
