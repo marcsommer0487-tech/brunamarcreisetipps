@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/bm-logo.png";
 import latoscanaAsset from "@/assets/latoscana.jpg.asset.json";
@@ -19,6 +20,41 @@ const NAV_LINKS: { href: string; label: string }[] = [
 ];
 
 export function DerTag() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", guests: "", arrival: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const openModal = () => {
+    setSubmitted(false);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setForm({ name: "", guests: "", arrival: "" });
+    setSubmitted(false);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name.trim() || !form.guests.trim()) return;
+    setSubmitted(true);
+  };
+
+  useEffect(() => {
+    if (!isModalOpen) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isModalOpen]);
+
   return (
     <>
       <style>{CSS}</style>
@@ -51,8 +87,74 @@ export function DerTag() {
       <section className="dt-photo-section">
         <div className="dt-photo">
           <img src={latoscanaAsset.url} alt="La Toscana – Blick auf die Lagoa da Pampulha" />
+          <div className="dt-photo-overlay">
+            <button className="dt-rsvp-btn" type="button" onClick={openModal}>
+              Bist du dabei? Hier kurz Rückmeldung geben
+            </button>
+          </div>
         </div>
       </section>
+
+      {isModalOpen && (
+        <div className="dt-modal-backdrop" onClick={closeModal}>
+          <div className="dt-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="dt-modal-close" type="button" onClick={closeModal} aria-label="Schließen">
+              ×
+            </button>
+            <h2 className="dt-modal-title">Rückmeldung</h2>
+            <p className="dt-modal-lead">
+              Wir freuen uns auf euch! Bitte gebt uns kurz Bescheid, wer von euch dabei ist.
+            </p>
+            {submitted ? (
+              <div className="dt-modal-success">
+                <div className="dt-modal-success-icon">✓</div>
+                <p>Vielen Dank für eure Rückmeldung!</p>
+              </div>
+            ) : (
+              <form className="dt-modal-form" onSubmit={handleSubmit}>
+                <label className="dt-field">
+                  <span>Name</span>
+                  <input
+                    type="text"
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    placeholder="Vor- und Nachname"
+                    required
+                  />
+                </label>
+                <label className="dt-field">
+                  <span>Anzahl der Gäste</span>
+                  <select
+                    value={form.guests}
+                    onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                    required
+                  >
+                    <option value="" disabled>
+                      Bitte wählen
+                    </option>
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <option key={n} value={n}>
+                        {n} {n === 1 ? "Person" : "Personen"}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="dt-field">
+                  <span>Anreisetag (optional)</span>
+                  <input
+                    type="date"
+                    value={form.arrival}
+                    onChange={(e) => setForm({ ...form, arrival: e.target.value })}
+                  />
+                </label>
+                <button className="dt-modal-submit" type="submit">
+                  Absenden
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
 
       <section className="dt-section">
         <div className="bm-container">
@@ -224,7 +326,30 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-photo-section{background:var(--bm-green);padding:0;}
 .dt-photo{max-width:1200px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;position:relative;}
 .dt-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-@media(max-width:640px){.dt-photo{aspect-ratio:4/3;}}
+.dt-photo-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(to top,rgba(15,40,25,0.55) 0%,rgba(15,40,25,0.15) 50%,rgba(15,40,25,0.35) 100%);pointer-events:none;}
+.dt-rsvp-btn{pointer-events:auto;border:0;padding:1.1rem 2rem;background:var(--bm-gold);color:#fff;font-family:'Lato',sans-serif;font-size:0.95rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border-radius:4px;box-shadow:0 8px 28px rgba(0,0,0,0.35);cursor:pointer;transition:transform 0.2s,background 0.2s,box-shadow 0.2s;}
+.dt-rsvp-btn:hover{background:var(--bm-gold2);transform:translateY(-2px);box-shadow:0 12px 34px rgba(0,0,0,0.45);}
+@media(max-width:640px){.dt-rsvp-btn{padding:0.95rem 1.4rem;font-size:0.8rem;}}
+
+.dt-modal-backdrop{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(15,40,25,0.82);backdrop-filter:blur(4px);padding:1.2rem;}
+.dt-modal{position:relative;width:100%;max-width:460px;background:#fff;border-radius:4px;padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,0.35);animation:dt-modal-in 0.25s ease-out;}
+@keyframes dt-modal-in{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.dt-modal-close{position:absolute;top:0.8rem;right:1rem;border:0;background:transparent;font-size:1.6rem;line-height:1;color:var(--bm-brown3);cursor:pointer;transition:color 0.2s;}
+.dt-modal-close:hover{color:var(--bm-brown);}
+.dt-modal-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--bm-green);margin:0 0 0.4rem;line-height:1.1;}
+.dt-modal-lead{font-size:0.95rem;color:var(--bm-brown2);margin:0 0 1.6rem;line-height:1.6;}
+.dt-modal-form{display:flex;flex-direction:column;gap:1.1rem;}
+.dt-field{display:flex;flex-direction:column;gap:0.35rem;}
+.dt-field span{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--bm-brown2);font-weight:600;}
+.dt-field input,.dt-field select{padding:0.75rem 0.9rem;border:1px solid var(--bm-ivory3);border-radius:3px;background:var(--bm-ivory);font-family:'Lato',sans-serif;font-size:1rem;color:var(--bm-brown);outline:none;transition:border-color 0.2s;}
+.dt-field input:focus,.dt-field select:focus{border-color:var(--bm-gold);}
+.dt-field input::placeholder{color:var(--bm-brown3);}
+.dt-modal-submit{margin-top:0.4rem;padding:0.9rem 1.2rem;background:var(--bm-green);color:#fff;border:0;border-radius:3px;font-family:'Lato',sans-serif;font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background 0.2s;}
+.dt-modal-submit:hover{background:var(--bm-green2);}
+.dt-modal-success{text-align:center;padding:1.5rem 0;}
+.dt-modal-success-icon{width:56px;height:56px;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:var(--bm-green);color:#fff;border-radius:50%;font-size:1.6rem;}
+.dt-modal-success p{font-size:1.05rem;color:var(--bm-brown2);margin:0;}
+@media(max-width:640px){.dt-photo{aspect-ratio:4/3;}.dt-modal{padding:1.6rem 1.2rem;}}
 
 .bm-footer{background:var(--bm-green);color:rgba(255,255,255,0.6);text-align:center;padding:2rem;font-size:0.8rem;letter-spacing:0.1em;}
 
