@@ -396,9 +396,11 @@ export function DerTag() {
           </p>
           <div className="dt-dresscode-grid">
             <figure className="dt-dresscode-card">
-              <img src={dresscodeElas.url} alt="Dresscode für Frauen – elegante, dunkle Kleidung" />
+              <div className="dt-dresscode-card-media">
+                <img src={dresscodeElas.url} alt="Dresscode für Frauen – elegante, dunkle Kleidung" />
+              </div>
+              <h3>Für Sie</h3>
               <figcaption>
-                <h3>Für Sie</h3>
                 <p>
                   Langes oder Midi-Kleid, eleganter Jumpsuit oder ein festliches
                   Ensemble in <strong>dunklen Tönen</strong> (z. B. Schwarz,
@@ -407,9 +409,11 @@ export function DerTag() {
               </figcaption>
             </figure>
             <figure className="dt-dresscode-card">
-              <img src={dresscodeEles.url} alt="Dresscode für Männer – Anzughose und Hemd" />
+              <div className="dt-dresscode-card-media">
+                <img src={dresscodeEles.url} alt="Dresscode für Männer – Anzughose und Hemd" />
+              </div>
+              <h3>Für Ihn</h3>
               <figcaption>
-                <h3>Für Ihn</h3>
                 <p>
                   <strong>Anzughose, Hemd</strong> und, wenn möglich, eine{" "}
                   <strong>lange Krawatte</strong>. Sakko/Blazer sind optional.
@@ -421,9 +425,11 @@ export function DerTag() {
           <h3 className="dt-dresscode-nogo-title">Bitte vermeiden</h3>
           <div className="dt-dresscode-grid">
             <figure className="dt-dresscode-card dt-dresscode-card-nogo">
-              <img src={dresscodeElasNogo.url} alt="Nicht erwünscht – helle Kleider" />
+              <div className="dt-dresscode-card-media">
+                <img src={dresscodeElasNogo.url} alt="Nicht erwünscht – helle Kleider" />
+              </div>
+              <h3>Für Sie</h3>
               <figcaption>
-                <h3>Für Sie</h3>
                 <p>
                   Bitte <strong>keine hellen Farben</strong> wie Weiß, Off-White,
                   Beige, Elfenbein, Perle oder Champagner — diese sind der Braut
@@ -432,9 +438,11 @@ export function DerTag() {
               </figcaption>
             </figure>
             <figure className="dt-dresscode-card dt-dresscode-card-nogo">
-              <img src={dresscodeElesNogo.url} alt="Nicht erwünscht – zu legere Kleidung" />
+              <div className="dt-dresscode-card-media">
+                <img src={dresscodeElesNogo.url} alt="Nicht erwünscht – zu legere Kleidung" />
+              </div>
+              <h3>Für Ihn</h3>
               <figcaption>
-                <h3>Für Ihn</h3>
                 <p>
                   Bitte <strong>keine Shorts, T-Shirts, Trikots</strong> oder sehr
                   auffällige, bunte Outfits — wir bitten um festliche Kleidung,
@@ -443,6 +451,7 @@ export function DerTag() {
               </figcaption>
             </figure>
           </div>
+
         </div>
       </section>
 
