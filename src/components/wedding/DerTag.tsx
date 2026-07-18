@@ -622,6 +622,8 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-field input,.dt-field select{padding:0.75rem 0.9rem;border:1px solid var(--bm-ivory3);border-radius:3px;background:var(--bm-ivory);font-family:'Lato',sans-serif;font-size:1rem;color:var(--bm-brown);outline:none;transition:border-color 0.2s;}
 .dt-field input:focus,.dt-field select:focus{border-color:var(--bm-gold);}
 .dt-field input::placeholder{color:var(--bm-brown3);}
+.dt-guest-name{margin-top:0.35rem;}
+.dt-guest-name:first-of-type{margin-top:0;}
 .dt-radio-group{display:flex;gap:1.2rem;padding:0.4rem 0;}
 .dt-radio-group-attending{flex-direction:column;gap:0.7rem;padding:0.55rem 0;}
 .dt-radio{display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:1rem;color:var(--bm-brown);text-transform:none;letter-spacing:0;font-weight:400;}
