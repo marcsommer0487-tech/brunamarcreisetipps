@@ -40,8 +40,8 @@ export function DerTag() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form, setForm] = useState({
     attending: "yes",
-    name: "",
     guests: "",
+    guestNames: [""],
     arrival: "",
     dietary: "no",
     dietaryNote: "",
