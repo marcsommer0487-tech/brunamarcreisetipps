@@ -94,10 +94,12 @@ export function DerTag() {
         GOOGLE_FORM_ENTRIES.attending,
         form.attending === "yes" ? "Ich bin dabei / Wir sind dabei" : "Ich kann / wir können leider nicht dabei sein"
       );
-      const nameValue = form.attending === "yes"
-        ? form.guestNames.slice(0, guestCount).map((n) => n.trim()).join("\n")
-        : "";
-      body.append(GOOGLE_FORM_ENTRIES.name, nameValue);
+      if (form.attending === "yes") {
+        form.guestNames.slice(0, guestCount).forEach((n, i) => {
+          const entry = GOOGLE_FORM_ENTRIES.names[i];
+          if (entry) body.append(entry, n.trim());
+        });
+      }
       if (form.attending === "yes") {
         body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
         if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
