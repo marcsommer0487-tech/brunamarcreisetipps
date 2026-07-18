@@ -157,7 +157,7 @@ export function DerTag() {
       </nav>
 
       <header className="dt-hero">
-        <img className="dt-hero-logo" src={logo} alt="Bruna & Marc" />
+        <img className="dt-hero-logo" src="/bm-logo.png" alt="Bruna & Marc" />
         <div className="bm-ornament">— ✦ —</div>
         <p className="dt-hero-date">Sonntag, 18. Oktober 2026</p>
         <h1 className="dt-hero-title">Der große Tag</h1>
