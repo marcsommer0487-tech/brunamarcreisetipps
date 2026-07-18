@@ -392,10 +392,7 @@ export function DerTag() {
       <section className="dt-section dt-dresscode">
         <div className="bm-container">
           <span className="bm-eyebrow">Dresscode</span>
-          <h2 className="bm-title">Formal clássico</h2>
-          <p className="bm-lead" style={{ fontSize: "1.35rem", fontWeight: 500 }}>
-            Elegant in Dunkel
-          </p>
+          <h2 className="bm-title">Elegant in Dunkel</h2>
           <p className="bm-lead">
             Ein kleiner Überblick als Inspiration:
           </p>
