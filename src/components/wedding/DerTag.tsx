@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/bm-logo.png";
-import dresscodeElas from "@/assets/dresscode-elas.png.asset.json";
-import dresscodeEles from "@/assets/dresscode-eles.png.asset.json";
-import dresscodeElasNogo from "@/assets/dresscode-elas-nogo.png.asset.json";
-import dresscodeElesNogo from "@/assets/dresscode-eles-nogo.png.asset.json";
 
 
 
@@ -162,7 +157,7 @@ export function DerTag() {
       </nav>
 
       <header className="dt-hero">
-        <img className="dt-hero-logo" src={logo} alt="Bruna & Marc" />
+        <img className="dt-hero-logo" src="/bm-logo.png" alt="Bruna & Marc" />
         <div className="bm-ornament">— ✦ —</div>
         <p className="dt-hero-date">Sonntag, 18. Oktober 2026</p>
         <h1 className="dt-hero-title">Der große Tag</h1>
@@ -399,7 +394,7 @@ export function DerTag() {
           <div className="dt-dresscode-grid">
             <figure className="dt-dresscode-card">
               <div className="dt-dresscode-card-media">
-                <img src={dresscodeElas.url} alt="Dresscode für Frauen – elegante, dunkle Kleidung" />
+                <img src="/dresscode-elas.png" alt="Dresscode für Frauen – elegante, dunkle Kleidung" />
               </div>
               <h3>Für Sie</h3>
               <figcaption>
@@ -412,7 +407,7 @@ export function DerTag() {
             </figure>
             <figure className="dt-dresscode-card">
               <div className="dt-dresscode-card-media">
-                <img src={dresscodeEles.url} alt="Dresscode für Männer – Anzughose und Hemd" />
+                <img src="/dresscode-eles.png" alt="Dresscode für Männer – Anzughose und Hemd" />
               </div>
               <h3>Für Ihn</h3>
               <figcaption>
@@ -428,7 +423,7 @@ export function DerTag() {
           <div className="dt-dresscode-grid">
             <figure className="dt-dresscode-card dt-dresscode-card-nogo">
               <div className="dt-dresscode-card-media">
-                <img src={dresscodeElasNogo.url} alt="Nicht erwünscht – helle Kleider" />
+                <img src="/dresscode-elas-nogo.png" alt="Nicht erwünscht – helle Kleider" />
               </div>
               <h3>Für Sie</h3>
               <figcaption>
@@ -441,7 +436,7 @@ export function DerTag() {
             </figure>
             <figure className="dt-dresscode-card dt-dresscode-card-nogo">
               <div className="dt-dresscode-card-media">
-                <img src={dresscodeElesNogo.url} alt="Nicht erwünscht – zu legere Kleidung" />
+                <img src="/dresscode-eles-nogo.png" alt="Nicht erwünscht – zu legere Kleidung" />
               </div>
               <h3>Für Ihn</h3>
               <figcaption>
