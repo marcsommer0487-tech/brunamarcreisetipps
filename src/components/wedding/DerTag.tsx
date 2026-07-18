@@ -229,23 +229,21 @@ export function DerTag() {
                     </label>
                   </div>
                 </div>
-                <label className="dt-field">
-                  <span>Name</span>
-                  <input
-                    type="text"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Vor- und Nachname"
-                    required
-                  />
-                </label>
                 {form.attending === "yes" && (
                   <>
                     <label className="dt-field">
                       <span>Anzahl der Gäste</span>
                       <select
                         value={form.guests}
-                        onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                        onChange={(e) => {
+                          const count = Number(e.target.value) || 0;
+                          setForm((prev) => {
+                            const names = [...prev.guestNames];
+                            while (names.length < count) names.push("");
+                            names.length = count;
+                            return { ...prev, guests: e.target.value, guestNames: names };
+                          });
+                        }}
                         required
                       >
                         <option value="" disabled>
@@ -258,6 +256,28 @@ export function DerTag() {
                         ))}
                       </select>
                     </label>
+                    {Number(form.guests) > 0 && (
+                      <div className="dt-field">
+                        <span>Namen der Gäste</span>
+                        {Array.from({ length: Number(form.guests) }).map((_, i) => (
+                          <input
+                            key={i}
+                            type="text"
+                            className="dt-guest-name"
+                            value={form.guestNames[i] || ""}
+                            onChange={(e) =>
+                              setForm((prev) => {
+                                const names = [...prev.guestNames];
+                                names[i] = e.target.value;
+                                return { ...prev, guestNames: names };
+                              })
+                            }
+                            placeholder={`Name Gast ${i + 1}`}
+                            required
+                          />
+                        ))}
+                      </div>
+                    )}
                     <label className="dt-field">
                       <span>Anreisetag (optional)</span>
                       <input
