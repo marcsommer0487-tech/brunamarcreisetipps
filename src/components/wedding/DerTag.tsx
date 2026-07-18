@@ -629,5 +629,11 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-dresscode-card p{margin:0 0 0.7rem;font-size:0.95rem;color:var(--bm-brown2);line-height:1.65;}
 .dt-dresscode-card p:last-child{margin-bottom:0;}
 .dt-dresscode-note{font-size:0.88rem !important;color:var(--bm-brown2);border-left:2px solid var(--bm-gold3);padding-left:0.9rem;}
+.dt-dresscode-nogo-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--bm-green);margin:2.8rem 0 1.2rem;text-align:center;letter-spacing:0.02em;}
+.dt-dresscode-nogo-title::before,.dt-dresscode-nogo-title::after{content:'—';color:var(--bm-gold);margin:0 0.7rem;opacity:0.5;}
+.dt-dresscode-card-nogo img{filter:grayscale(0.15);opacity:0.92;}
+.dt-dresscode-card-nogo{border-color:#e8d5d1;position:relative;}
+.dt-dresscode-card-nogo::after{content:'✕';position:absolute;top:0.7rem;right:0.9rem;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;background:rgba(185,28,28,0.9);color:#fff;border-radius:50%;font-size:1rem;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+
 `;
 
