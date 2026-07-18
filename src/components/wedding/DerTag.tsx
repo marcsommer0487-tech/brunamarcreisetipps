@@ -425,7 +425,6 @@ export function DerTag() {
               <div className="dt-dresscode-card-media">
                 <img src="/dresscode-elas-nogo.png" alt="Nicht erwünscht – helle Kleider" />
               </div>
-              <h3>Für Sie</h3>
               <figcaption>
                 <p>
                   Bitte <strong>keine hellen Farben</strong> wie Weiß, Off-White,
@@ -438,7 +437,6 @@ export function DerTag() {
               <div className="dt-dresscode-card-media">
                 <img src="/dresscode-eles-nogo.png" alt="Nicht erwünscht – zu legere Kleidung" />
               </div>
-              <h3>Für Ihn</h3>
               <figcaption>
                 <p>
                   Bitte <strong>keine Shorts, T-Shirts, Trikots</strong> oder sehr
