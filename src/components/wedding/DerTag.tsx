@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/bm-logo.png";
+import dresscodeElas from "@/assets/dresscode-elas.png.asset.json";
+import dresscodeEles from "@/assets/dresscode-eles.png.asset.json";
+
 
 const ADDRESS_SHARE_URL = "https://share.google/RfJ5xwi1vwSWgSfvn";
 const MAPS_EMBED_QUERY = encodeURIComponent(
@@ -337,11 +340,12 @@ export function DerTag() {
             </InfoCard>
 
             <InfoCard icon="🕰️" label="Beginn">
-              <p className="dt-big">16:00 Uhr</p>
+              <p className="dt-big">15:45 Uhr</p>
               <p className="dt-note">
                 Bitte plant etwas Puffer für die Anfahrt ein.
               </p>
             </InfoCard>
+
 
             <InfoCard icon="👗" label="Dresscode">
               <p className="dt-big" style={{ fontSize: "1.6rem" }}>
@@ -410,9 +414,53 @@ export function DerTag() {
         </div>
       </section>
 
+      <section className="dt-section dt-dresscode">
+        <div className="bm-container">
+          <span className="bm-eyebrow">Dresscode</span>
+          <h2 className="bm-title">Formal clássico</h2>
+          <p className="bm-lead">
+            Elegante, festliche Kleidung in dunklen Tönen. Ein kleiner Überblick
+            als Inspiration:
+          </p>
+          <div className="dt-dresscode-grid">
+            <figure className="dt-dresscode-card">
+              <img src={dresscodeElas.url} alt="Dresscode für Frauen – elegante, dunkle Kleidung" />
+              <figcaption>
+                <h3>Für Sie</h3>
+                <p>
+                  Langes oder Midi-Kleid, eleganter Jumpsuit oder ein festliches
+                  Ensemble in <strong>dunklen Tönen</strong> (z. B. Schwarz,
+                  Dunkelgrün, Marineblau, Marsala).
+                </p>
+                <p className="dt-dresscode-note">
+                  Bitte <strong>keine hellen Farben</strong> wie Weiß, Off-White,
+                  Beige, Elfenbein, Perle oder Champagner — diese sind der Braut
+                  vorbehalten.
+                </p>
+              </figcaption>
+            </figure>
+            <figure className="dt-dresscode-card">
+              <img src={dresscodeEles.url} alt="Dresscode für Männer – Anzughose und Hemd" />
+              <figcaption>
+                <h3>Für Ihn</h3>
+                <p>
+                  <strong>Anzughose, Hemd</strong> und, wenn möglich, eine{" "}
+                  <strong>lange Krawatte</strong>.
+                </p>
+                <p className="dt-dresscode-note">
+                  Sakko/Blazer sind optional — wir bitten aber um festliche
+                  Kleidung, damit der elegante Rahmen unserer Feier gewahrt bleibt.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <footer className="bm-footer">
         <p>18. Oktober 2026 · Belo Horizonte, Brasilien · Made with ♥</p>
       </footer>
+
     </>
   );
 }
@@ -548,5 +596,17 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
   .bm-hamburger{display:flex;}
   .dt-section{padding:3.5rem 1.2rem;}
   .dt-grid>*{flex:0 1 100%;max-width:100%;}
+  .dt-dresscode-grid{grid-template-columns:1fr !important;}
 }
+
+.dt-dresscode{background:var(--bm-ivory);}
+.dt-dresscode-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;}
+.dt-dresscode-card{margin:0;background:#fff;border:1px solid var(--bm-ivory3);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(27,67,50,0.06);}
+.dt-dresscode-card img{width:100%;height:auto;display:block;background:var(--bm-ivory2);}
+.dt-dresscode-card figcaption{padding:1.4rem 1.5rem 1.6rem;}
+.dt-dresscode-card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--bm-green);margin:0 0 0.6rem;letter-spacing:0.02em;}
+.dt-dresscode-card p{margin:0 0 0.7rem;font-size:0.95rem;color:var(--bm-brown2);line-height:1.65;}
+.dt-dresscode-card p:last-child{margin-bottom:0;}
+.dt-dresscode-note{font-size:0.88rem !important;color:var(--bm-brown2);border-left:2px solid var(--bm-gold3);padding-left:0.9rem;}
 `;
+
