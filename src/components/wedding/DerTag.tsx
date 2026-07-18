@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/bm-logo.png";
-import dresscodeElas from "@/assets/dresscode-elas.png.asset.json";
-import dresscodeEles from "@/assets/dresscode-eles.png.asset.json";
-import dresscodeElasNogo from "@/assets/dresscode-elas-nogo.png.asset.json";
-import dresscodeElesNogo from "@/assets/dresscode-eles-nogo.png.asset.json";
 
 
 
