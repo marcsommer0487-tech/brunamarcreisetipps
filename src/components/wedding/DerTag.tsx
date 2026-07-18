@@ -3,6 +3,9 @@ import { Link } from "@tanstack/react-router";
 import logo from "@/assets/bm-logo.png";
 import dresscodeElas from "@/assets/dresscode-elas.png.asset.json";
 import dresscodeEles from "@/assets/dresscode-eles.png.asset.json";
+import dresscodeElasNogo from "@/assets/dresscode-elas-nogo.png.asset.json";
+import dresscodeElesNogo from "@/assets/dresscode-eles-nogo.png.asset.json";
+
 
 
 const ADDRESS_SHARE_URL = "https://share.google/RfJ5xwi1vwSWgSfvn";
@@ -383,6 +386,66 @@ export function DerTag() {
         </button>
       </div>
 
+      <section className="dt-section dt-dresscode">
+        <div className="bm-container">
+          <span className="bm-eyebrow">Dresscode</span>
+          <h2 className="bm-title">Formal clássico</h2>
+          <p className="bm-lead">
+            Elegante, festliche Kleidung in dunklen Tönen. Ein kleiner Überblick
+            als Inspiration:
+          </p>
+          <div className="dt-dresscode-grid">
+            <figure className="dt-dresscode-card">
+              <img src={dresscodeElas.url} alt="Dresscode für Frauen – elegante, dunkle Kleidung" />
+              <figcaption>
+                <h3>Für Sie</h3>
+                <p>
+                  Langes oder Midi-Kleid, eleganter Jumpsuit oder ein festliches
+                  Ensemble in <strong>dunklen Tönen</strong> (z. B. Schwarz,
+                  Dunkelgrün, Marineblau, Marsala).
+                </p>
+              </figcaption>
+            </figure>
+            <figure className="dt-dresscode-card">
+              <img src={dresscodeEles.url} alt="Dresscode für Männer – Anzughose und Hemd" />
+              <figcaption>
+                <h3>Für Ihn</h3>
+                <p>
+                  <strong>Anzughose, Hemd</strong> und, wenn möglich, eine{" "}
+                  <strong>lange Krawatte</strong>. Sakko/Blazer sind optional.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <h3 className="dt-dresscode-nogo-title">Bitte vermeiden</h3>
+          <div className="dt-dresscode-grid">
+            <figure className="dt-dresscode-card dt-dresscode-card-nogo">
+              <img src={dresscodeElasNogo.url} alt="Nicht erwünscht – helle Kleider" />
+              <figcaption>
+                <h3>Für Sie</h3>
+                <p>
+                  Bitte <strong>keine hellen Farben</strong> wie Weiß, Off-White,
+                  Beige, Elfenbein, Perle oder Champagner — diese sind der Braut
+                  vorbehalten.
+                </p>
+              </figcaption>
+            </figure>
+            <figure className="dt-dresscode-card dt-dresscode-card-nogo">
+              <img src={dresscodeElesNogo.url} alt="Nicht erwünscht – zu legere Kleidung" />
+              <figcaption>
+                <h3>Für Ihn</h3>
+                <p>
+                  Bitte <strong>keine Shorts, T-Shirts, Trikots</strong> oder sehr
+                  auffällige, bunte Outfits — wir bitten um festliche Kleidung,
+                  damit der elegante Rahmen unserer Feier gewahrt bleibt.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <section className="dt-section dt-section-alt">
         <div className="bm-container">
           <span className="bm-eyebrow">Location</span>
@@ -414,52 +477,10 @@ export function DerTag() {
         </div>
       </section>
 
-      <section className="dt-section dt-dresscode">
-        <div className="bm-container">
-          <span className="bm-eyebrow">Dresscode</span>
-          <h2 className="bm-title">Formal clássico</h2>
-          <p className="bm-lead">
-            Elegante, festliche Kleidung in dunklen Tönen. Ein kleiner Überblick
-            als Inspiration:
-          </p>
-          <div className="dt-dresscode-grid">
-            <figure className="dt-dresscode-card">
-              <img src={dresscodeElas.url} alt="Dresscode für Frauen – elegante, dunkle Kleidung" />
-              <figcaption>
-                <h3>Für Sie</h3>
-                <p>
-                  Langes oder Midi-Kleid, eleganter Jumpsuit oder ein festliches
-                  Ensemble in <strong>dunklen Tönen</strong> (z. B. Schwarz,
-                  Dunkelgrün, Marineblau, Marsala).
-                </p>
-                <p className="dt-dresscode-note">
-                  Bitte <strong>keine hellen Farben</strong> wie Weiß, Off-White,
-                  Beige, Elfenbein, Perle oder Champagner — diese sind der Braut
-                  vorbehalten.
-                </p>
-              </figcaption>
-            </figure>
-            <figure className="dt-dresscode-card">
-              <img src={dresscodeEles.url} alt="Dresscode für Männer – Anzughose und Hemd" />
-              <figcaption>
-                <h3>Für Ihn</h3>
-                <p>
-                  <strong>Anzughose, Hemd</strong> und, wenn möglich, eine{" "}
-                  <strong>lange Krawatte</strong>.
-                </p>
-                <p className="dt-dresscode-note">
-                  Sakko/Blazer sind optional — wir bitten aber um festliche
-                  Kleidung, damit der elegante Rahmen unserer Feier gewahrt bleibt.
-                </p>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
       <footer className="bm-footer">
         <p>18. Oktober 2026 · Belo Horizonte, Brasilien · Made with ♥</p>
       </footer>
+
 
     </>
   );
@@ -608,5 +629,11 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-dresscode-card p{margin:0 0 0.7rem;font-size:0.95rem;color:var(--bm-brown2);line-height:1.65;}
 .dt-dresscode-card p:last-child{margin-bottom:0;}
 .dt-dresscode-note{font-size:0.88rem !important;color:var(--bm-brown2);border-left:2px solid var(--bm-gold3);padding-left:0.9rem;}
+.dt-dresscode-nogo-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--bm-green);margin:2.8rem 0 1.2rem;text-align:center;letter-spacing:0.02em;}
+.dt-dresscode-nogo-title::before,.dt-dresscode-nogo-title::after{content:'—';color:var(--bm-gold);margin:0 0.7rem;opacity:0.5;}
+.dt-dresscode-card-nogo img{filter:grayscale(0.15);opacity:0.92;}
+.dt-dresscode-card-nogo{border-color:#e8d5d1;position:relative;}
+.dt-dresscode-card-nogo::after{content:'✕';position:absolute;top:0.7rem;right:0.9rem;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;background:rgba(185,28,28,0.9);color:#fff;border-radius:50%;font-size:1rem;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+
 `;
 
