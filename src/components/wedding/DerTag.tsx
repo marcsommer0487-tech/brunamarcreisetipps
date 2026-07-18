@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/bm-logo.png";
+import dresscodeElas from "@/assets/dresscode-elas.png.asset.json";
+import dresscodeEles from "@/assets/dresscode-eles.png.asset.json";
+
 
 const ADDRESS_SHARE_URL = "https://share.google/RfJ5xwi1vwSWgSfvn";
 const MAPS_EMBED_QUERY = encodeURIComponent(
