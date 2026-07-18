@@ -61,8 +61,8 @@ export function DerTag() {
     setIsModalOpen(false);
     setForm({
       attending: "yes",
-      name: "",
       guests: "",
+      guestNames: [""],
       arrival: "",
       dietary: "no",
       dietaryNote: "",
