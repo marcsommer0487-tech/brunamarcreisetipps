@@ -357,6 +357,9 @@ export function DerTag() {
               <p className="dt-note">
                 Dunkle, festliche Kleidung — schick und stilvoll.
               </p>
+              <p className="dt-note" style={{ marginTop: "0.5rem", fontWeight: 600 }}>
+                Mehr Infos untenstehend ↓
+              </p>
             </InfoCard>
 
             <InfoCard icon="🚗" label="Anfahrt & Parken">
@@ -390,9 +393,11 @@ export function DerTag() {
         <div className="bm-container">
           <span className="bm-eyebrow">Dresscode</span>
           <h2 className="bm-title">Formal clássico</h2>
+          <p className="bm-lead" style={{ fontSize: "1.35rem", fontWeight: 500 }}>
+            Elegant in Dunkel
+          </p>
           <p className="bm-lead">
-            Elegante, festliche Kleidung in dunklen Tönen. Ein kleiner Überblick
-            als Inspiration:
+            Ein kleiner Überblick als Inspiration:
           </p>
           <div className="dt-dresscode-grid">
             <figure className="dt-dresscode-card">
