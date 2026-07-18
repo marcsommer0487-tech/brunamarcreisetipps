@@ -394,7 +394,7 @@ export function DerTag() {
           <div className="dt-dresscode-grid">
             <figure className="dt-dresscode-card">
               <div className="dt-dresscode-card-media">
-                <img src={dresscodeElas.url} alt="Dresscode für Frauen – elegante, dunkle Kleidung" />
+                <img src="/dresscode-elas.png" alt="Dresscode für Frauen – elegante, dunkle Kleidung" />
               </div>
               <h3>Für Sie</h3>
               <figcaption>
@@ -407,7 +407,7 @@ export function DerTag() {
             </figure>
             <figure className="dt-dresscode-card">
               <div className="dt-dresscode-card-media">
-                <img src={dresscodeEles.url} alt="Dresscode für Männer – Anzughose und Hemd" />
+                <img src="/dresscode-eles.png" alt="Dresscode für Männer – Anzughose und Hemd" />
               </div>
               <h3>Für Ihn</h3>
               <figcaption>
