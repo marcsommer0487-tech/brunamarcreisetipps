@@ -414,9 +414,53 @@ export function DerTag() {
         </div>
       </section>
 
+      <section className="dt-section dt-dresscode">
+        <div className="bm-container">
+          <span className="bm-eyebrow">Dresscode</span>
+          <h2 className="bm-title">Formal clássico</h2>
+          <p className="bm-lead">
+            Elegante, festliche Kleidung in dunklen Tönen. Ein kleiner Überblick
+            als Inspiration:
+          </p>
+          <div className="dt-dresscode-grid">
+            <figure className="dt-dresscode-card">
+              <img src={dresscodeElas.url} alt="Dresscode für Frauen – elegante, dunkle Kleidung" />
+              <figcaption>
+                <h3>Für Sie</h3>
+                <p>
+                  Langes oder Midi-Kleid, eleganter Jumpsuit oder ein festliches
+                  Ensemble in <strong>dunklen Tönen</strong> (z. B. Schwarz,
+                  Dunkelgrün, Marineblau, Marsala).
+                </p>
+                <p className="dt-dresscode-note">
+                  Bitte <strong>keine hellen Farben</strong> wie Weiß, Off-White,
+                  Beige, Elfenbein, Perle oder Champagner — diese sind der Braut
+                  vorbehalten.
+                </p>
+              </figcaption>
+            </figure>
+            <figure className="dt-dresscode-card">
+              <img src={dresscodeEles.url} alt="Dresscode für Männer – Anzughose und Hemd" />
+              <figcaption>
+                <h3>Für Ihn</h3>
+                <p>
+                  <strong>Anzughose, Hemd</strong> und, wenn möglich, eine{" "}
+                  <strong>lange Krawatte</strong>.
+                </p>
+                <p className="dt-dresscode-note">
+                  Sakko/Blazer sind optional — wir bitten aber um festliche
+                  Kleidung, damit der elegante Rahmen unserer Feier gewahrt bleibt.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <footer className="bm-footer">
         <p>18. Oktober 2026 · Belo Horizonte, Brasilien · Made with ♥</p>
       </footer>
+
     </>
   );
 }
