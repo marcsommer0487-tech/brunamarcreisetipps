@@ -16,12 +16,19 @@ const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output
 const GOOGLE_FORM_ID = "1FAIpQLScoh3aeiLybfF1kXRynPoO90LNyQxjRxRlZKZw3U8eDbrKxyg";
 const GOOGLE_FORM_ENTRIES = {
   attending: "entry.375662700",
-  name: "entry.958544039",
   guests: "entry.116323640",
+  names: [
+    "entry.958544039",
+    "entry.424745400",
+    "entry.989269875",
+    "entry.576531442",
+    "entry.1786211925",
+  ],
   arrival: "entry.1121964792",
   dietary: "entry.2138633738",
   dietaryNote: "entry.257800192",
 };
+const MAX_GUESTS = 5;
 const GOOGLE_FORM_ACTION = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
 
 const NAV_LINKS: { href: string; label: string }[] = [
