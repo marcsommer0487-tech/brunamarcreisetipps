@@ -69,7 +69,7 @@ function Hero() {
 
   return (
     <section id="hero" className="bm-hero">
-      <img className="bm-hero-logo" src={logo} alt="Bruna & Marc" />
+      <img className="bm-hero-logo" src="/bm-logo.png" alt="Bruna & Marc" />
       <div className="bm-ornament">— ✦ —</div>
       <p className="bm-hero-date">
         Sonntag, 18. Oktober 2026
