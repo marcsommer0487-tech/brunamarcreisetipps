@@ -74,8 +74,11 @@ export function DerTag() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim()) return;
-    if (form.attending === "yes" && !form.guests.trim()) return;
+    const guestCount = Number(form.guests) || 0;
+    if (form.attending === "yes") {
+      if (!guestCount) return;
+      if (form.guestNames.slice(0, guestCount).some((n) => !n.trim())) return;
+    }
     setSubmitting(true);
     setSubmitError("");
     try {
@@ -84,7 +87,10 @@ export function DerTag() {
         GOOGLE_FORM_ENTRIES.attending,
         form.attending === "yes" ? "Ich bin dabei" : "Ich kann leider nicht dabei sein"
       );
-      body.append(GOOGLE_FORM_ENTRIES.name, form.name.trim());
+      const nameValue = form.attending === "yes"
+        ? form.guestNames.slice(0, guestCount).map((n) => n.trim()).join("\n")
+        : "";
+      body.append(GOOGLE_FORM_ENTRIES.name, nameValue);
       if (form.attending === "yes") {
         body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
         if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
