@@ -201,7 +201,7 @@ export function DerTag() {
             ) : (
               <form className="dt-modal-form" onSubmit={handleSubmit}>
                 <div className="dt-field">
-                  <span>Kommst du? / Kommt ihr</span>
+                  <span>Kommst du / Kommt ihr?</span>
                   <div className="dt-radio-group dt-radio-group-attending">
                     <label className="dt-radio">
                       <input
