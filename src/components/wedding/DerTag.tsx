@@ -16,12 +16,19 @@ const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output
 const GOOGLE_FORM_ID = "1FAIpQLScoh3aeiLybfF1kXRynPoO90LNyQxjRxRlZKZw3U8eDbrKxyg";
 const GOOGLE_FORM_ENTRIES = {
   attending: "entry.375662700",
-  name: "entry.958544039",
   guests: "entry.116323640",
+  names: [
+    "entry.958544039",
+    "entry.424745400",
+    "entry.989269875",
+    "entry.576531442",
+    "entry.1786211925",
+  ],
   arrival: "entry.1121964792",
   dietary: "entry.2138633738",
   dietaryNote: "entry.257800192",
 };
+const MAX_GUESTS = 5;
 const GOOGLE_FORM_ACTION = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
 
 const NAV_LINKS: { href: string; label: string }[] = [
@@ -87,10 +94,12 @@ export function DerTag() {
         GOOGLE_FORM_ENTRIES.attending,
         form.attending === "yes" ? "Ich bin dabei / Wir sind dabei" : "Ich kann / wir können leider nicht dabei sein"
       );
-      const nameValue = form.attending === "yes"
-        ? form.guestNames.slice(0, guestCount).map((n) => n.trim()).join("\n")
-        : "";
-      body.append(GOOGLE_FORM_ENTRIES.name, nameValue);
+      if (form.attending === "yes") {
+        form.guestNames.slice(0, guestCount).forEach((n, i) => {
+          const entry = GOOGLE_FORM_ENTRIES.names[i];
+          if (entry) body.append(entry, n.trim());
+        });
+      }
       if (form.attending === "yes") {
         body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
         if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
