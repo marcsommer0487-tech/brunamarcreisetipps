@@ -425,7 +425,6 @@ export function DerTag() {
               <div className="dt-dresscode-card-media">
                 <img src="/dresscode-elas-nogo.png" alt="Nicht erwünscht – helle Kleider" />
               </div>
-              <h3>Für Sie</h3>
               <figcaption>
                 <p>
                   Bitte <strong>keine hellen Farben</strong> wie Weiß, Off-White,
@@ -438,7 +437,6 @@ export function DerTag() {
               <div className="dt-dresscode-card-media">
                 <img src="/dresscode-eles-nogo.png" alt="Nicht erwünscht – zu legere Kleidung" />
               </div>
-              <h3>Für Ihn</h3>
               <figcaption>
                 <p>
                   Bitte <strong>keine Shorts, T-Shirts, Trikots</strong> oder sehr
@@ -640,7 +638,10 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-dresscode-card-nogo .dt-dresscode-card-media{background:#faf5f4;}
 .dt-dresscode-card-nogo .dt-dresscode-card-media img{filter:grayscale(0.15);opacity:0.92;}
 .dt-dresscode-card-nogo{border-color:#e8d5d1;}
-.dt-dresscode-card-nogo .dt-dresscode-card-media::after{content:'✕';position:absolute;top:0.7rem;right:0.9rem;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;background:rgba(185,28,28,0.9);color:#fff;border-radius:50%;font-size:1rem;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.2);z-index:1;}
+.dt-dresscode-card-nogo .dt-dresscode-card-media::before,
+.dt-dresscode-card-nogo .dt-dresscode-card-media::after{content:'';position:absolute;top:50%;left:50%;width:90%;height:6px;background:rgba(185,28,28,0.92);border-radius:3px;z-index:2;box-shadow:0 2px 6px rgba(0,0,0,0.25);}
+.dt-dresscode-card-nogo .dt-dresscode-card-media::before{transform:translate(-50%,-50%) rotate(45deg);}
+.dt-dresscode-card-nogo .dt-dresscode-card-media::after{transform:translate(-50%,-50%) rotate(-45deg);}
 
 
 `;
