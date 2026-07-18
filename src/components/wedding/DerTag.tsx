@@ -85,7 +85,7 @@ export function DerTag() {
       const body = new FormData();
       body.append(
         GOOGLE_FORM_ENTRIES.attending,
-        form.attending === "yes" ? "Ich bin dabei" : "Ich kann leider nicht dabei sein"
+        form.attending === "yes" ? "Ich bin dabei / Wir sind dabei" : "Ich kann / wir können leider nicht dabei sein"
       );
       const nameValue = form.attending === "yes"
         ? form.guestNames.slice(0, guestCount).map((n) => n.trim()).join("\n")
@@ -201,7 +201,7 @@ export function DerTag() {
             ) : (
               <form className="dt-modal-form" onSubmit={handleSubmit}>
                 <div className="dt-field">
-                  <span>Kommst du?</span>
+                  <span>Kommst du? / Kommt ihr</span>
                   <div className="dt-radio-group dt-radio-group-attending">
                     <label className="dt-radio">
                       <input
@@ -213,7 +213,7 @@ export function DerTag() {
                           setForm({ ...form, attending: e.target.value })
                         }
                       />
-                      <span>Ich bin dabei</span>
+                      <span>Ich bin dabei / Wir sind dabei</span>
                     </label>
                     <label className="dt-radio">
                       <input
@@ -225,7 +225,7 @@ export function DerTag() {
                           setForm({ ...form, attending: e.target.value })
                         }
                       />
-                      <span>Ich kann leider nicht dabei sein</span>
+                      <span>Ich kann / wir können leider nicht dabei sein</span>
                     </label>
                   </div>
                 </div>
