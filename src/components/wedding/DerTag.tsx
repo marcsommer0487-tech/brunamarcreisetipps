@@ -40,8 +40,8 @@ export function DerTag() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form, setForm] = useState({
     attending: "yes",
-    name: "",
     guests: "",
+    guestNames: [""],
     arrival: "",
     dietary: "no",
     dietaryNote: "",
@@ -61,8 +61,8 @@ export function DerTag() {
     setIsModalOpen(false);
     setForm({
       attending: "yes",
-      name: "",
       guests: "",
+      guestNames: [""],
       arrival: "",
       dietary: "no",
       dietaryNote: "",
@@ -74,8 +74,11 @@ export function DerTag() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim()) return;
-    if (form.attending === "yes" && !form.guests.trim()) return;
+    const guestCount = Number(form.guests) || 0;
+    if (form.attending === "yes") {
+      if (!guestCount) return;
+      if (form.guestNames.slice(0, guestCount).some((n) => !n.trim())) return;
+    }
     setSubmitting(true);
     setSubmitError("");
     try {
@@ -84,7 +87,10 @@ export function DerTag() {
         GOOGLE_FORM_ENTRIES.attending,
         form.attending === "yes" ? "Ich bin dabei" : "Ich kann leider nicht dabei sein"
       );
-      body.append(GOOGLE_FORM_ENTRIES.name, form.name.trim());
+      const nameValue = form.attending === "yes"
+        ? form.guestNames.slice(0, guestCount).map((n) => n.trim()).join("\n")
+        : "";
+      body.append(GOOGLE_FORM_ENTRIES.name, nameValue);
       if (form.attending === "yes") {
         body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
         if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
@@ -223,23 +229,21 @@ export function DerTag() {
                     </label>
                   </div>
                 </div>
-                <label className="dt-field">
-                  <span>Name</span>
-                  <input
-                    type="text"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Vor- und Nachname"
-                    required
-                  />
-                </label>
                 {form.attending === "yes" && (
                   <>
                     <label className="dt-field">
                       <span>Anzahl der Gäste</span>
                       <select
                         value={form.guests}
-                        onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                        onChange={(e) => {
+                          const count = Number(e.target.value) || 0;
+                          setForm((prev) => {
+                            const names = [...prev.guestNames];
+                            while (names.length < count) names.push("");
+                            names.length = count;
+                            return { ...prev, guests: e.target.value, guestNames: names };
+                          });
+                        }}
                         required
                       >
                         <option value="" disabled>
@@ -252,6 +256,28 @@ export function DerTag() {
                         ))}
                       </select>
                     </label>
+                    {Number(form.guests) > 0 && (
+                      <div className="dt-field">
+                        <span>Namen der Gäste</span>
+                        {Array.from({ length: Number(form.guests) }).map((_, i) => (
+                          <input
+                            key={i}
+                            type="text"
+                            className="dt-guest-name"
+                            value={form.guestNames[i] || ""}
+                            onChange={(e) =>
+                              setForm((prev) => {
+                                const names = [...prev.guestNames];
+                                names[i] = e.target.value;
+                                return { ...prev, guestNames: names };
+                              })
+                            }
+                            placeholder={`Name Gast ${i + 1}`}
+                            required
+                          />
+                        ))}
+                      </div>
+                    )}
                     <label className="dt-field">
                       <span>Anreisetag (optional)</span>
                       <input
@@ -596,6 +622,8 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-field input,.dt-field select{padding:0.75rem 0.9rem;border:1px solid var(--bm-ivory3);border-radius:3px;background:var(--bm-ivory);font-family:'Lato',sans-serif;font-size:1rem;color:var(--bm-brown);outline:none;transition:border-color 0.2s;}
 .dt-field input:focus,.dt-field select:focus{border-color:var(--bm-gold);}
 .dt-field input::placeholder{color:var(--bm-brown3);}
+.dt-guest-name{margin-top:0.35rem;}
+.dt-guest-name:first-of-type{margin-top:0;}
 .dt-radio-group{display:flex;gap:1.2rem;padding:0.4rem 0;}
 .dt-radio-group-attending{flex-direction:column;gap:0.7rem;padding:0.55rem 0;}
 .dt-radio{display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:1rem;color:var(--bm-brown);text-transform:none;letter-spacing:0;font-weight:400;}
