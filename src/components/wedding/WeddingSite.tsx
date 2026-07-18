@@ -367,27 +367,27 @@ function DiscoverSection() {
     {
       icon: "🏛️",
       title: "Conjunto Pampulha",
-      image: imgPampulha,
+      image: "/pampulha.jpg",
       body: "UNESCO-Welterbe seit 2016. Oscar Niemeyers modernistisches Meisterwerk an der Lagoa da Pampulha — inklusive Igreja São Francisco de Assis, seiner bekanntesten Kirche, dekoriert mit Azulejos von Portinari."},
     {
       icon: "🏪",
       title: "Mercado Central",
-      image: imgMercado,
+      image: "/mercado.jpg",
       body: "Riesiger Markt mit über 400 Ständen: Cachaça, Pão de queijo, Gewürze, Handwerk."},
     {
       icon: "🌿",
       title: "Praça da Liberdade",
-      image: imgLiberdade,
+      image: "/liberdade.jpg",
       body: "Eleganter Kulturplatz mit kostenlosem Zugang zu mehreren Museen."},
     {
       icon: "🌄",
       title: "Mirante das Mangabeiras",
-      image: imgMirante,
+      image: "/mirante.jpg",
       body: "Aussichtspunkt mit Panoramablick über ganz BH."},
     {
       icon: "🏟️",
       title: "Mineirão",
-      image: imgMineirao,
+      image: "/mineirao.jpg",
       body: "Legendäres Fußballstadion — bekannt für die 7:1-Halbfinale 2014. Für Fußballfans empfohlen: Führungen buchbar.",
       tag: { cls: "bm-tag-blue", label: "Für Fans" }},
   ];
@@ -396,31 +396,31 @@ function DiscoverSection() {
     {
       icon: "🏚️",
       title: "Ouro Preto",
-      image: imgOuroPreto,
+      image: "/ouropreto.jpg",
       body: "Ca. 1,5 Std. — UNESCO-Welterbe. Barocke Kolonialarchitektur, steile Gassen, Goldschmiede. Marc und Bruna planen ebenfalls, dorthin zu fahren — wer möchte, kann sich gerne anschließen.",
       tag: { cls: "bm-tag-green", label: "★★★ Top-Empfehlung" }},
     {
       icon: "🎭",
       title: "Inhotim",
-      image: imgInhotim,
+      image: "/inhotim.jpg",
       body: "Ca. 1,5 Std. — Weltklasse Freilicht-Kunstmuseum mit botanischem Garten. Mindestens 1 ganzer Tag!",
       tag: { cls: "bm-tag-green", label: "★★★ Top-Empfehlung" }},
     {
       icon: "🕍",
       title: "Tiradentes",
-      image: imgTiradentes,
+      image: "/tiradentes.jpg",
       body: "Ca. 2,5 Std. — Charmantes Kolonialstädtchen mit Barockkirchen und hervorragenden Restaurants.",
       tag: { cls: "bm-tag-gold", label: "★★ Sehr empfehlenswert" }},
     {
       icon: "🏔️",
       title: "Serra do Cipó",
-      image: imgSerraDoCipo,
+      image: "/serradocipo.jpg",
       body: "Ca. 1,5 Std. — Nationalpark mit Wasserfällen, Wanderwegen und Naturbädern.",
       tag: { cls: "bm-tag-gold", label: "★★ Sehr empfehlenswert" }},
     {
       icon: "🚂",
       title: "São João del-Rei",
-      image: imgSaoJoao,
+      image: "/saojoao.jpg",
       body: "Ca. 2 Std. — Historische Stadt mit einem der schönsten Kolonialkerne Minas Gerais. Mit der dampfbetriebenen Maria-Fumaça nach Tiradentes fahren — ein echtes Erlebnis!",
       tag: { cls: "bm-tag-gold", label: "★★ Sehr empfohlenswert" }},
   ];
