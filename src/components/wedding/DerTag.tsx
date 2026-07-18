@@ -596,5 +596,17 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
   .bm-hamburger{display:flex;}
   .dt-section{padding:3.5rem 1.2rem;}
   .dt-grid>*{flex:0 1 100%;max-width:100%;}
+  .dt-dresscode-grid{grid-template-columns:1fr !important;}
 }
+
+.dt-dresscode{background:var(--bm-ivory);}
+.dt-dresscode-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;}
+.dt-dresscode-card{margin:0;background:#fff;border:1px solid var(--bm-ivory3);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(27,67,50,0.06);}
+.dt-dresscode-card img{width:100%;height:auto;display:block;background:var(--bm-ivory2);}
+.dt-dresscode-card figcaption{padding:1.4rem 1.5rem 1.6rem;}
+.dt-dresscode-card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--bm-green);margin:0 0 0.6rem;letter-spacing:0.02em;}
+.dt-dresscode-card p{margin:0 0 0.7rem;font-size:0.95rem;color:var(--bm-brown2);line-height:1.65;}
+.dt-dresscode-card p:last-child{margin-bottom:0;}
+.dt-dresscode-note{font-size:0.88rem !important;color:var(--bm-brown2);border-left:2px solid var(--bm-gold3);padding-left:0.9rem;}
 `;
+
