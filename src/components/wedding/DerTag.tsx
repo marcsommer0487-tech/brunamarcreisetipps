@@ -621,19 +621,21 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 }
 
 .dt-dresscode{background:var(--bm-ivory);}
-.dt-dresscode-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;}
-.dt-dresscode-card{margin:0;background:#fff;border:1px solid var(--bm-ivory3);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(27,67,50,0.06);}
-.dt-dresscode-card img{width:100%;height:auto;display:block;background:var(--bm-ivory2);}
-.dt-dresscode-card figcaption{padding:1.4rem 1.5rem 1.6rem;}
-.dt-dresscode-card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--bm-green);margin:0 0 0.6rem;letter-spacing:0.02em;}
-.dt-dresscode-card p{margin:0 0 0.7rem;font-size:0.95rem;color:var(--bm-brown2);line-height:1.65;}
-.dt-dresscode-card p:last-child{margin-bottom:0;}
-.dt-dresscode-note{font-size:0.88rem !important;color:var(--bm-brown2);border-left:2px solid var(--bm-gold3);padding-left:0.9rem;}
-.dt-dresscode-nogo-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--bm-green);margin:2.8rem 0 1.2rem;text-align:center;letter-spacing:0.02em;}
+.dt-dresscode-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;align-items:stretch;}
+.dt-dresscode-card{margin:0;background:#fff;border:1px solid var(--bm-ivory3);border-radius:6px;overflow:hidden;display:grid;grid-template-rows:auto auto 1fr;box-shadow:0 4px 20px rgba(27,67,50,0.06);}
+.dt-dresscode-card-media{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--bm-ivory2);}
+.dt-dresscode-card-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;padding:0.4rem;}
+.dt-dresscode-card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--bm-green);margin:0;letter-spacing:0.02em;text-align:center;padding:1.1rem 1.5rem 0.4rem;border-top:1px solid var(--bm-ivory3);}
+.dt-dresscode-card h3::after{content:'';display:block;width:38px;height:1px;background:var(--bm-gold);margin:0.55rem auto 0;opacity:0.7;}
+.dt-dresscode-card figcaption{padding:0.9rem 1.5rem 1.6rem;display:flex;flex-direction:column;justify-content:flex-start;}
+.dt-dresscode-card p{margin:0;font-size:0.95rem;color:var(--bm-brown2);line-height:1.65;text-align:center;}
+.dt-dresscode-nogo-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--bm-green);margin:3rem 0 1.2rem;text-align:center;letter-spacing:0.02em;}
 .dt-dresscode-nogo-title::before,.dt-dresscode-nogo-title::after{content:'—';color:var(--bm-gold);margin:0 0.7rem;opacity:0.5;}
-.dt-dresscode-card-nogo img{filter:grayscale(0.15);opacity:0.92;}
-.dt-dresscode-card-nogo{border-color:#e8d5d1;position:relative;}
-.dt-dresscode-card-nogo::after{content:'✕';position:absolute;top:0.7rem;right:0.9rem;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;background:rgba(185,28,28,0.9);color:#fff;border-radius:50%;font-size:1rem;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+.dt-dresscode-card-nogo .dt-dresscode-card-media{background:#faf5f4;}
+.dt-dresscode-card-nogo .dt-dresscode-card-media img{filter:grayscale(0.15);opacity:0.92;}
+.dt-dresscode-card-nogo{border-color:#e8d5d1;}
+.dt-dresscode-card-nogo .dt-dresscode-card-media::after{content:'✕';position:absolute;top:0.7rem;right:0.9rem;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;background:rgba(185,28,28,0.9);color:#fff;border-radius:50%;font-size:1rem;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.2);z-index:1;}
+
 
 `;
 
