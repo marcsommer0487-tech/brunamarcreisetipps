@@ -92,7 +92,7 @@ export function DerTag() {
       const body = new FormData();
       body.append(
         GOOGLE_FORM_ENTRIES.attending,
-        form.attending === "yes" ? "Ich bin dabei / Wir sind dabei" : "Ich kann / wir können leider nicht dabei sein"
+        form.attending === "yes" ? "Ich bin dabei / wir sind dabei" : "Ich kann / wir können leider nicht dabei sein"
       );
       if (form.attending === "yes") {
         form.guestNames.slice(0, guestCount).forEach((n, i) => {
