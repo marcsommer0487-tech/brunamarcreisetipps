@@ -19,7 +19,6 @@ const GOOGLE_FORM_ENTRIES = {
     "entry.576531442",
     "entry.1786211925",
   ],
-  arrival: "entry.1121964792",
   dietary: "entry.2138633738",
   dietaryNote: "entry.257800192",
 };
@@ -35,7 +34,6 @@ export function Casamento() {
     attending: "yes",
     guests: "",
     guestNames: [""],
-    arrival: "",
     dietary: "no",
     dietaryNote: "",
   });
@@ -56,7 +54,6 @@ export function Casamento() {
       attending: "yes",
       guests: "",
       guestNames: [""],
-      arrival: "",
       dietary: "no",
       dietaryNote: "",
     });
@@ -84,7 +81,6 @@ export function Casamento() {
         if (entry) body.append(entry, n);
       });
       body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
-      if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
       if (form.attending === "yes") {
         body.append(
           GOOGLE_FORM_ENTRIES.dietary,
@@ -269,52 +265,42 @@ export function Casamento() {
                   </div>
                 )}
                 {form.attending === "yes" && (
-                  <>
-                    <label className="dt-field">
-                      <span>Dia da chegada (opcional)</span>
-                      <input
-                        type="date"
-                        value={form.arrival}
-                        onChange={(e) => setForm({ ...form, arrival: e.target.value })}
-                      />
-                    </label>
-                    <div className="dt-field">
-                      <span>Alimentação – restrições & preferências</span>
-                      <div className="dt-radio-group">
-                        <label className="dt-radio">
-                          <input
-                            type="radio"
-                            name="dietary"
-                            value="no"
-                            checked={form.dietary === "no"}
-                            onChange={(e) =>
-                              setForm({ ...form, dietary: e.target.value, dietaryNote: "" })
-                            }
-                          />
-                          <span>Não</span>
-                        </label>
-                        <label className="dt-radio">
-                          <input
-                            type="radio"
-                            name="dietary"
-                            value="yes"
-                            checked={form.dietary === "yes"}
-                            onChange={(e) => setForm({ ...form, dietary: e.target.value })}
-                          />
-                          <span>Sim</span>
-                        </label>
-                      </div>
-                      {form.dietary === "yes" && (
+                  <div className="dt-field">
+                    <span>Alimentação – restrições & preferências</span>
+                    <div className="dt-radio-group">
+                      <label className="dt-radio">
                         <input
-                          className="dt-dietary-note"
-                          type="text"
-                          value={form.dietaryNote}
-                          onChange={(e) => setForm({ ...form, dietaryNote: e.target.value })}
-                          placeholder="ex.: intolerância a glúten, vegetariano, vegano"
+                          type="radio"
+                          name="dietary"
+                          value="no"
+                          checked={form.dietary === "no"}
+                          onChange={(e) =>
+                            setForm({ ...form, dietary: e.target.value, dietaryNote: "" })
+                          }
                         />
-                      )}
+                        <span>Não</span>
+                      </label>
+                      <label className="dt-radio">
+                        <input
+                          type="radio"
+                          name="dietary"
+                          value="yes"
+                          checked={form.dietary === "yes"}
+                          onChange={(e) => setForm({ ...form, dietary: e.target.value })}
+                        />
+                        <span>Sim</span>
+                      </label>
                     </div>
-                  </>
+                    {form.dietary === "yes" && (
+                      <input
+                        className="dt-dietary-note"
+                        type="text"
+                        value={form.dietaryNote}
+                        onChange={(e) => setForm({ ...form, dietaryNote: e.target.value })}
+                        placeholder="ex.: intolerância a glúten, vegetariano, vegano"
+                      />
+                    )}
+                  </div>
                 )}
 
                 {submitError && (
