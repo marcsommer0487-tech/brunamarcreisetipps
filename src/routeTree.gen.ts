@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CasamentoRouteImport } from './routes/casamento'
 import { Route as DertagRouteImport } from './routes/dertag'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasamentoRoute = CasamentoRouteImport.update({
+  id: '/casamento',
+  path: '/casamento',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DertagRoute = DertagRouteImport.update({
@@ -25,27 +31,31 @@ const DertagRoute = DertagRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/casamento': typeof CasamentoRoute
   '/dertag': typeof DertagRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/casamento': typeof CasamentoRoute
   '/dertag': typeof DertagRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/casamento': typeof CasamentoRoute
   '/dertag': typeof DertagRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dertag'
+  fullPaths: '/' | '/casamento' | '/dertag'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dertag'
-  id: '__root__' | '/' | '/dertag'
+  to: '/' | '/casamento' | '/dertag'
+  id: '__root__' | '/' | '/casamento' | '/dertag'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CasamentoRoute: typeof CasamentoRoute
   DertagRoute: typeof DertagRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/casamento': {
+      id: '/casamento'
+      path: '/casamento'
+      fullPath: '/casamento'
+      preLoaderRoute: typeof CasamentoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dertag': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CasamentoRoute: CasamentoRoute,
   DertagRoute: DertagRoute,
 }
 export const routeTree = rootRouteImport
