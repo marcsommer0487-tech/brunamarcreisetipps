@@ -59,6 +59,8 @@ const stripDiacritics = (s: string) =>
 
 export const normalizeName = stripDiacritics;
 
+const firstNameOf = (name: string) => stripDiacritics(name).split(/\s+/)[0] ?? "";
+
 export function findGuestMatches(query: string, excluded: string[] = []): string[] {
   const q = stripDiacritics(query);
   if (q.length < 2) return [];
@@ -66,7 +68,8 @@ export function findGuestMatches(query: string, excluded: string[] = []): string
   return GUEST_LIST.filter((name) => {
     const norm = stripDiacritics(name);
     if (excludedSet.has(norm)) return false;
-    return norm.includes(q);
+    // Match only against the beginning of the first name.
+    return firstNameOf(name).startsWith(q);
   }).slice(0, 8);
 }
 
