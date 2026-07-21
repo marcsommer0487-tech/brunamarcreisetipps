@@ -251,7 +251,7 @@ export function Casamento() {
                   <div className="dt-field">
                     <span>Nomes dos convidados</span>
                     <p className="dt-modal-hint">
-                      Comece a digitar (mín. 2 letras) e selecione o nome na lista.
+                      Digite as primeiras letras do primeiro nome (mín. 2 letras) e selecione o nome na lista.
                     </p>
                     {Array.from({ length: Number(form.guests) }).map((_, i) => (
                       <GuestNameInput
