@@ -84,7 +84,7 @@ export function Casamento() {
       if (form.attending === "yes") {
         body.append(
           GOOGLE_FORM_ENTRIES.dietary,
-          form.dietary === "yes" ? "Ja" : "Nein"
+          form.dietary === "yes" ? "Sim" : "Não"
         );
         if (form.dietaryNote.trim()) {
           body.append(GOOGLE_FORM_ENTRIES.dietaryNote, form.dietaryNote.trim());
