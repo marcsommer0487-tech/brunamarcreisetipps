@@ -760,4 +760,14 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-dresscode-card-nogo .dt-dresscode-card-media::after{content:'';position:absolute;top:50%;left:50%;width:90%;height:6px;background:rgba(185,28,28,0.92);border-radius:3px;z-index:2;box-shadow:0 2px 6px rgba(0,0,0,0.25);}
 .dt-dresscode-card-nogo .dt-dresscode-card-media::before{transform:translate(-50%,-50%) rotate(45deg);}
 .dt-dresscode-card-nogo .dt-dresscode-card-media::after{transform:translate(-50%,-50%) rotate(-45deg);}
+
+.dt-modal-hint{font-size:0.8rem;color:var(--bm-brown2);margin:0 0 0.4rem;font-style:italic;letter-spacing:0;text-transform:none;font-weight:400;}
+.dt-autocomplete{position:relative;margin-top:0.35rem;}
+.dt-autocomplete:first-of-type{margin-top:0;}
+.dt-guest-name-valid{border-color:var(--bm-green3) !important;background:#f0f7f2 !important;}
+.dt-guest-name-invalid{border-color:#d97706 !important;background:#fff8ec !important;}
+.dt-autocomplete-list{position:absolute;top:100%;left:0;right:0;z-index:10;margin:2px 0 0;padding:0.3rem 0;list-style:none;background:#fff;border:1px solid var(--bm-ivory3);border-radius:3px;box-shadow:0 10px 30px rgba(0,0,0,0.12);max-height:220px;overflow-y:auto;}
+.dt-autocomplete-list li{padding:0.55rem 0.9rem;font-size:0.95rem;color:var(--bm-brown);cursor:pointer;}
+.dt-autocomplete-list li.is-active,.dt-autocomplete-list li:hover{background:var(--bm-ivory2);color:var(--bm-green);}
+.dt-autocomplete-empty{margin:0.4rem 0 0;font-size:0.82rem;color:#b45309;font-style:italic;letter-spacing:0;text-transform:none;font-weight:400;}
 `;
