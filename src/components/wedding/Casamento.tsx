@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { findGuestMatches, isValidGuest } from "./guestList";
 
 const ADDRESS_SHARE_URL = "https://share.google/RfJ5xwi1vwSWgSfvn";
 const MAPS_EMBED_QUERY = encodeURIComponent(
@@ -7,6 +8,8 @@ const MAPS_EMBED_QUERY = encodeURIComponent(
 );
 const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output=embed`;
 
+// TODO: substituir pelos IDs do NOVO Google Form em português.
+// Envie um "link pré-preenchido" do novo formulário e eu troco estes valores.
 const GOOGLE_FORM_ID = "1FAIpQLScoh3aeiLybfF1kXRynPoO90LNyQxjRxRlZKZw3U8eDbrKxyg";
 const GOOGLE_FORM_ENTRIES = {
   attending: "entry.375662700",
@@ -23,6 +26,9 @@ const GOOGLE_FORM_ENTRIES = {
   dietaryNote: "entry.257800192",
 };
 const GOOGLE_FORM_ACTION = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
+
+const ATTENDING_YES = "Eu vou / Nós vamos";
+const ATTENDING_NO = "Infelizmente eu não posso / nós não podemos";
 
 export function Casamento() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -65,18 +71,19 @@ export function Casamento() {
     e.preventDefault();
     const guestCount = Number(form.guests) || 0;
     if (!guestCount) return;
-    if (form.guestNames.slice(0, guestCount).some((n) => !n.trim())) return;
+    const names = form.guestNames.slice(0, guestCount).map((n) => n.trim());
+    if (names.some((n) => !n || !isValidGuest(n))) return;
     setSubmitting(true);
     setSubmitError("");
     try {
       const body = new FormData();
       body.append(
         GOOGLE_FORM_ENTRIES.attending,
-        form.attending === "yes" ? "Ich bin dabei / wir sind dabei" : "Ich kann / wir können leider nicht dabei sein"
+        form.attending === "yes" ? ATTENDING_YES : ATTENDING_NO
       );
-      form.guestNames.slice(0, guestCount).forEach((n, i) => {
+      names.forEach((n, i) => {
         const entry = GOOGLE_FORM_ENTRIES.names[i];
-        if (entry) body.append(entry, n.trim());
+        if (entry) body.append(entry, n);
       });
       body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
       if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
@@ -243,21 +250,22 @@ export function Casamento() {
                 {Number(form.guests) > 0 && (
                   <div className="dt-field">
                     <span>Nomes dos convidados</span>
+                    <p className="dt-modal-hint">
+                      Comece a digitar (mín. 2 letras) e selecione o nome na lista.
+                    </p>
                     {Array.from({ length: Number(form.guests) }).map((_, i) => (
-                      <input
+                      <GuestNameInput
                         key={i}
-                        type="text"
-                        className="dt-guest-name"
+                        index={i}
                         value={form.guestNames[i] || ""}
-                        onChange={(e) =>
+                        otherNames={form.guestNames.filter((_, j) => j !== i)}
+                        onChange={(val) =>
                           setForm((prev) => {
                             const names = [...prev.guestNames];
-                            names[i] = e.target.value;
+                            names[i] = val;
                             return { ...prev, guestNames: names };
                           })
                         }
-                        placeholder={`Nome convidado ${i + 1}`}
-                        required
                       />
                     ))}
                   </div>
@@ -316,13 +324,23 @@ export function Casamento() {
                     {submitError}
                   </p>
                 )}
-                <button
-                  className="dt-modal-submit"
-                  type="submit"
-                  disabled={submitting}
-                >
-                  {submitting ? "Enviando…" : "Enviar"}
-                </button>
+                {(() => {
+                  const count = Number(form.guests) || 0;
+                  const namesOk =
+                    count > 0 &&
+                    form.guestNames
+                      .slice(0, count)
+                      .every((n) => n.trim() && isValidGuest(n));
+                  return (
+                    <button
+                      className="dt-modal-submit"
+                      type="submit"
+                      disabled={submitting || !namesOk}
+                    >
+                      {submitting ? "Enviando…" : "Enviar"}
+                    </button>
+                  );
+                })()}
               </form>
             )}
           </div>
@@ -498,6 +516,96 @@ export function Casamento() {
   );
 }
 
+function GuestNameInput({
+  index,
+  value,
+  otherNames,
+  onChange,
+}: {
+  index: number;
+  value: string;
+  otherNames: string[];
+  onChange: (val: string) => void;
+}) {
+  const [focused, setFocused] = useState(false);
+  const [highlight, setHighlight] = useState(0);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  const matches = findGuestMatches(value, otherNames);
+  const valid = isValidGuest(value);
+  const showList = focused && matches.length > 0 && !valid;
+
+  useEffect(() => {
+    if (!focused) return;
+    const onClick = (e: MouseEvent) => {
+      if (!wrapRef.current?.contains(e.target as Node)) setFocused(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [focused]);
+
+  useEffect(() => setHighlight(0), [value]);
+
+  const pick = (name: string) => {
+    onChange(name);
+    setFocused(false);
+  };
+
+  return (
+    <div className="dt-autocomplete" ref={wrapRef}>
+      <input
+        type="text"
+        className={`dt-guest-name${value && !valid ? " dt-guest-name-invalid" : ""}${valid ? " dt-guest-name-valid" : ""}`}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onFocus={() => setFocused(true)}
+        onKeyDown={(e) => {
+          if (!showList) return;
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            setHighlight((h) => Math.min(h + 1, matches.length - 1));
+          } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            setHighlight((h) => Math.max(h - 1, 0));
+          } else if (e.key === "Enter") {
+            e.preventDefault();
+            pick(matches[highlight]);
+          } else if (e.key === "Escape") {
+            setFocused(false);
+          }
+        }}
+        placeholder={`Convidado ${index + 1} — digite ao menos 2 letras`}
+        autoComplete="off"
+        required
+      />
+      {showList && (
+        <ul className="dt-autocomplete-list" role="listbox">
+          {matches.map((name, i) => (
+            <li
+              key={name}
+              role="option"
+              aria-selected={i === highlight}
+              className={i === highlight ? "is-active" : ""}
+              onMouseDown={(e) => {
+                e.preventDefault();
+                pick(name);
+              }}
+              onMouseEnter={() => setHighlight(i)}
+            >
+              {name}
+            </li>
+          ))}
+        </ul>
+      )}
+      {focused && value.trim().length >= 2 && matches.length === 0 && !valid && (
+        <p className="dt-autocomplete-empty">
+          Nenhum convidado encontrado. Verifique o nome ou entre em contato conosco.
+        </p>
+      )}
+    </div>
+  );
+}
+
 function InfoCard({
   icon,
   label,
@@ -652,4 +760,14 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-dresscode-card-nogo .dt-dresscode-card-media::after{content:'';position:absolute;top:50%;left:50%;width:90%;height:6px;background:rgba(185,28,28,0.92);border-radius:3px;z-index:2;box-shadow:0 2px 6px rgba(0,0,0,0.25);}
 .dt-dresscode-card-nogo .dt-dresscode-card-media::before{transform:translate(-50%,-50%) rotate(45deg);}
 .dt-dresscode-card-nogo .dt-dresscode-card-media::after{transform:translate(-50%,-50%) rotate(-45deg);}
+
+.dt-modal-hint{font-size:0.8rem;color:var(--bm-brown2);margin:0 0 0.4rem;font-style:italic;letter-spacing:0;text-transform:none;font-weight:400;}
+.dt-autocomplete{position:relative;margin-top:0.35rem;}
+.dt-autocomplete:first-of-type{margin-top:0;}
+.dt-guest-name-valid{border-color:var(--bm-green3) !important;background:#f0f7f2 !important;}
+.dt-guest-name-invalid{border-color:#d97706 !important;background:#fff8ec !important;}
+.dt-autocomplete-list{position:absolute;top:100%;left:0;right:0;z-index:10;margin:2px 0 0;padding:0.3rem 0;list-style:none;background:#fff;border:1px solid var(--bm-ivory3);border-radius:3px;box-shadow:0 10px 30px rgba(0,0,0,0.12);max-height:220px;overflow-y:auto;}
+.dt-autocomplete-list li{padding:0.55rem 0.9rem;font-size:0.95rem;color:var(--bm-brown);cursor:pointer;}
+.dt-autocomplete-list li.is-active,.dt-autocomplete-list li:hover{background:var(--bm-ivory2);color:var(--bm-green);}
+.dt-autocomplete-empty{margin:0.4rem 0 0;font-size:0.82rem;color:#b45309;font-style:italic;letter-spacing:0;text-transform:none;font-weight:400;}
 `;
