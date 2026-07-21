@@ -250,21 +250,22 @@ export function Casamento() {
                 {Number(form.guests) > 0 && (
                   <div className="dt-field">
                     <span>Nomes dos convidados</span>
+                    <p className="dt-modal-hint">
+                      Comece a digitar (mín. 2 letras) e selecione o nome na lista.
+                    </p>
                     {Array.from({ length: Number(form.guests) }).map((_, i) => (
-                      <input
+                      <GuestNameInput
                         key={i}
-                        type="text"
-                        className="dt-guest-name"
+                        index={i}
                         value={form.guestNames[i] || ""}
-                        onChange={(e) =>
+                        otherNames={form.guestNames.filter((_, j) => j !== i)}
+                        onChange={(val) =>
                           setForm((prev) => {
                             const names = [...prev.guestNames];
-                            names[i] = e.target.value;
+                            names[i] = val;
                             return { ...prev, guestNames: names };
                           })
                         }
-                        placeholder={`Nome convidado ${i + 1}`}
-                        required
                       />
                     ))}
                   </div>
