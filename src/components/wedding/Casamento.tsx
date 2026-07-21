@@ -516,6 +516,96 @@ export function Casamento() {
   );
 }
 
+function GuestNameInput({
+  index,
+  value,
+  otherNames,
+  onChange,
+}: {
+  index: number;
+  value: string;
+  otherNames: string[];
+  onChange: (val: string) => void;
+}) {
+  const [focused, setFocused] = useState(false);
+  const [highlight, setHighlight] = useState(0);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  const matches = findGuestMatches(value, otherNames);
+  const valid = isValidGuest(value);
+  const showList = focused && matches.length > 0 && !valid;
+
+  useEffect(() => {
+    if (!focused) return;
+    const onClick = (e: MouseEvent) => {
+      if (!wrapRef.current?.contains(e.target as Node)) setFocused(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [focused]);
+
+  useEffect(() => setHighlight(0), [value]);
+
+  const pick = (name: string) => {
+    onChange(name);
+    setFocused(false);
+  };
+
+  return (
+    <div className="dt-autocomplete" ref={wrapRef}>
+      <input
+        type="text"
+        className={`dt-guest-name${value && !valid ? " dt-guest-name-invalid" : ""}${valid ? " dt-guest-name-valid" : ""}`}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onFocus={() => setFocused(true)}
+        onKeyDown={(e) => {
+          if (!showList) return;
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            setHighlight((h) => Math.min(h + 1, matches.length - 1));
+          } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            setHighlight((h) => Math.max(h - 1, 0));
+          } else if (e.key === "Enter") {
+            e.preventDefault();
+            pick(matches[highlight]);
+          } else if (e.key === "Escape") {
+            setFocused(false);
+          }
+        }}
+        placeholder={`Convidado ${index + 1} — digite ao menos 2 letras`}
+        autoComplete="off"
+        required
+      />
+      {showList && (
+        <ul className="dt-autocomplete-list" role="listbox">
+          {matches.map((name, i) => (
+            <li
+              key={name}
+              role="option"
+              aria-selected={i === highlight}
+              className={i === highlight ? "is-active" : ""}
+              onMouseDown={(e) => {
+                e.preventDefault();
+                pick(name);
+              }}
+              onMouseEnter={() => setHighlight(i)}
+            >
+              {name}
+            </li>
+          ))}
+        </ul>
+      )}
+      {focused && value.trim().length >= 2 && matches.length === 0 && !valid && (
+        <p className="dt-autocomplete-empty">
+          Nenhum convidado encontrado. Verifique o nome ou entre em contato conosco.
+        </p>
+      )}
+    </div>
+  );
+}
+
 function InfoCard({
   icon,
   label,
