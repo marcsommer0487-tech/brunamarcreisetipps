@@ -82,10 +82,8 @@ export function DerTag() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const guestCount = Number(form.guests) || 0;
-    if (form.attending === "yes") {
-      if (!guestCount) return;
-      if (form.guestNames.slice(0, guestCount).some((n) => !n.trim())) return;
-    }
+    if (!guestCount) return;
+    if (form.guestNames.slice(0, guestCount).some((n) => !n.trim())) return;
     setSubmitting(true);
     setSubmitError("");
     try {
@@ -94,15 +92,13 @@ export function DerTag() {
         GOOGLE_FORM_ENTRIES.attending,
         form.attending === "yes" ? "Ich bin dabei / wir sind dabei" : "Ich kann / wir können leider nicht dabei sein"
       );
+      form.guestNames.slice(0, guestCount).forEach((n, i) => {
+        const entry = GOOGLE_FORM_ENTRIES.names[i];
+        if (entry) body.append(entry, n.trim());
+      });
+      body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
+      if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
       if (form.attending === "yes") {
-        form.guestNames.slice(0, guestCount).forEach((n, i) => {
-          const entry = GOOGLE_FORM_ENTRIES.names[i];
-          if (entry) body.append(entry, n.trim());
-        });
-      }
-      if (form.attending === "yes") {
-        body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
-        if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
         body.append(
           GOOGLE_FORM_ENTRIES.dietary,
           form.dietary === "yes" ? "Ja" : "Nein"
@@ -111,6 +107,7 @@ export function DerTag() {
           body.append(GOOGLE_FORM_ENTRIES.dietaryNote, form.dietaryNote.trim());
         }
       }
+
 
       await fetch(GOOGLE_FORM_ACTION, {
         method: "POST",
