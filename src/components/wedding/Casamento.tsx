@@ -71,18 +71,19 @@ export function Casamento() {
     e.preventDefault();
     const guestCount = Number(form.guests) || 0;
     if (!guestCount) return;
-    if (form.guestNames.slice(0, guestCount).some((n) => !n.trim())) return;
+    const names = form.guestNames.slice(0, guestCount).map((n) => n.trim());
+    if (names.some((n) => !n || !isValidGuest(n))) return;
     setSubmitting(true);
     setSubmitError("");
     try {
       const body = new FormData();
       body.append(
         GOOGLE_FORM_ENTRIES.attending,
-        form.attending === "yes" ? "Ich bin dabei / wir sind dabei" : "Ich kann / wir können leider nicht dabei sein"
+        form.attending === "yes" ? ATTENDING_YES : ATTENDING_NO
       );
-      form.guestNames.slice(0, guestCount).forEach((n, i) => {
+      names.forEach((n, i) => {
         const entry = GOOGLE_FORM_ENTRIES.names[i];
-        if (entry) body.append(entry, n.trim());
+        if (entry) body.append(entry, n);
       });
       body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
       if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
