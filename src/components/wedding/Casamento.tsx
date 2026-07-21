@@ -324,13 +324,23 @@ export function Casamento() {
                     {submitError}
                   </p>
                 )}
-                <button
-                  className="dt-modal-submit"
-                  type="submit"
-                  disabled={submitting}
-                >
-                  {submitting ? "Enviando…" : "Enviar"}
-                </button>
+                {(() => {
+                  const count = Number(form.guests) || 0;
+                  const namesOk =
+                    count > 0 &&
+                    form.guestNames
+                      .slice(0, count)
+                      .every((n) => n.trim() && isValidGuest(n));
+                  return (
+                    <button
+                      className="dt-modal-submit"
+                      type="submit"
+                      disabled={submitting || !namesOk}
+                    >
+                      {submitting ? "Enviando…" : "Enviar"}
+                    </button>
+                  );
+                })()}
               </form>
             )}
           </div>
