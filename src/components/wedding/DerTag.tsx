@@ -82,10 +82,8 @@ export function DerTag() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const guestCount = Number(form.guests) || 0;
-    if (form.attending === "yes") {
-      if (!guestCount) return;
-      if (form.guestNames.slice(0, guestCount).some((n) => !n.trim())) return;
-    }
+    if (!guestCount) return;
+    if (form.guestNames.slice(0, guestCount).some((n) => !n.trim())) return;
     setSubmitting(true);
     setSubmitError("");
     try {
@@ -94,15 +92,13 @@ export function DerTag() {
         GOOGLE_FORM_ENTRIES.attending,
         form.attending === "yes" ? "Ich bin dabei / wir sind dabei" : "Ich kann / wir können leider nicht dabei sein"
       );
+      form.guestNames.slice(0, guestCount).forEach((n, i) => {
+        const entry = GOOGLE_FORM_ENTRIES.names[i];
+        if (entry) body.append(entry, n.trim());
+      });
+      body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
+      if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
       if (form.attending === "yes") {
-        form.guestNames.slice(0, guestCount).forEach((n, i) => {
-          const entry = GOOGLE_FORM_ENTRIES.names[i];
-          if (entry) body.append(entry, n.trim());
-        });
-      }
-      if (form.attending === "yes") {
-        body.append(GOOGLE_FORM_ENTRIES.guests, form.guests);
-        if (form.arrival) body.append(GOOGLE_FORM_ENTRIES.arrival, form.arrival);
         body.append(
           GOOGLE_FORM_ENTRIES.dietary,
           form.dietary === "yes" ? "Ja" : "Nein"
@@ -111,6 +107,7 @@ export function DerTag() {
           body.append(GOOGLE_FORM_ENTRIES.dietaryNote, form.dietaryNote.trim());
         }
       }
+
 
       await fetch(GOOGLE_FORM_ACTION, {
         method: "POST",
@@ -238,55 +235,55 @@ export function DerTag() {
                     </label>
                   </div>
                 </div>
-                {form.attending === "yes" && (
-                  <>
-                    <label className="dt-field">
-                      <span>Anzahl der Gäste</span>
-                      <select
-                        value={form.guests}
-                        onChange={(e) => {
-                          const count = Number(e.target.value) || 0;
+                <label className="dt-field">
+                  <span>Anzahl der Gäste</span>
+                  <select
+                    value={form.guests}
+                    onChange={(e) => {
+                      const count = Number(e.target.value) || 0;
+                      setForm((prev) => {
+                        const names = [...prev.guestNames];
+                        while (names.length < count) names.push("");
+                        names.length = count;
+                        return { ...prev, guests: e.target.value, guestNames: names };
+                      });
+                    }}
+                    required
+                  >
+                    <option value="" disabled>
+                      Bitte wählen
+                    </option>
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <option key={n} value={n}>
+                        {n} {n === 1 ? "Person" : "Personen"}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                {Number(form.guests) > 0 && (
+                  <div className="dt-field">
+                    <span>Namen der Gäste</span>
+                    {Array.from({ length: Number(form.guests) }).map((_, i) => (
+                      <input
+                        key={i}
+                        type="text"
+                        className="dt-guest-name"
+                        value={form.guestNames[i] || ""}
+                        onChange={(e) =>
                           setForm((prev) => {
                             const names = [...prev.guestNames];
-                            while (names.length < count) names.push("");
-                            names.length = count;
-                            return { ...prev, guests: e.target.value, guestNames: names };
-                          });
-                        }}
+                            names[i] = e.target.value;
+                            return { ...prev, guestNames: names };
+                          })
+                        }
+                        placeholder={`Name Gast ${i + 1}`}
                         required
-                      >
-                        <option value="" disabled>
-                          Bitte wählen
-                        </option>
-                        {[1, 2, 3, 4, 5].map((n) => (
-                          <option key={n} value={n}>
-                            {n} {n === 1 ? "Person" : "Personen"}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-                    {Number(form.guests) > 0 && (
-                      <div className="dt-field">
-                        <span>Namen der Gäste</span>
-                        {Array.from({ length: Number(form.guests) }).map((_, i) => (
-                          <input
-                            key={i}
-                            type="text"
-                            className="dt-guest-name"
-                            value={form.guestNames[i] || ""}
-                            onChange={(e) =>
-                              setForm((prev) => {
-                                const names = [...prev.guestNames];
-                                names[i] = e.target.value;
-                                return { ...prev, guestNames: names };
-                              })
-                            }
-                            placeholder={`Name Gast ${i + 1}`}
-                            required
-                          />
-                        ))}
-                      </div>
-                    )}
+                      />
+                    ))}
+                  </div>
+                )}
+                {form.attending === "yes" && (
+                  <>
                     <label className="dt-field">
                       <span>Anreisetag (optional)</span>
                       <input
@@ -333,6 +330,7 @@ export function DerTag() {
                     </div>
                   </>
                 )}
+
                 {submitError && (
                   <p className="dt-modal-error" role="alert">
                     {submitError}
