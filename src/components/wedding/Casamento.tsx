@@ -8,9 +8,7 @@ const MAPS_EMBED_QUERY = encodeURIComponent(
 );
 const MAPS_EMBED_SRC = `https://www.google.com/maps?q=${MAPS_EMBED_QUERY}&output=embed`;
 
-// TODO: substituir pelos IDs do NOVO Google Form em português.
-// Envie um "link pré-preenchido" do novo formulário e eu troco estes valores.
-const GOOGLE_FORM_ID = "1FAIpQLScoh3aeiLybfF1kXRynPoO90LNyQxjRxRlZKZw3U8eDbrKxyg";
+const GOOGLE_FORM_ID = "1FAIpQLSdahcPoWWmkEH34wdnXSGAhQ7CbGBXDHR-m-EoH4cG9WIu7Og";
 const GOOGLE_FORM_ENTRIES = {
   attending: "entry.375662700",
   guests: "entry.116323640",
