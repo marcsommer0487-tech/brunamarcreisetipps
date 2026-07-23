@@ -769,7 +769,7 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-cat-white{width:clamp(90px,14vw,190px);height:auto;bottom:-40px;right:2vw;z-index:3;filter:drop-shadow(0 8px 18px rgba(0,0,0,0.35));}
 .dt-hero{overflow:visible !important;}
 @media(max-width:640px){
-  .dt-corner{width:110px;opacity:0.4;}
+  .dt-corner-bottom{width:90px;opacity:0.5;}
   .dt-cat-black{width:56px;left:auto;right:-52px;bottom:-4px;}
   .dt-cat-white{width:80px;bottom:-22px;right:4vw;}
 }
