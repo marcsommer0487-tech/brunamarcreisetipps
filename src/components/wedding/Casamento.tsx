@@ -385,12 +385,6 @@ export function Casamento() {
               </p>
             </InfoCard>
 
-            <InfoCard icon="🎁" label="Presentes de casamento">
-              <p>
-                Não esperamos presentes — ficamos felizes com todos que fizerem
-                a longa viagem até o Brasil.
-              </p>
-            </InfoCard>
           </div>
         </div>
       </section>
