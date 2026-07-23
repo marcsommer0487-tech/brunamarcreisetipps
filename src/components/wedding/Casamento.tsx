@@ -150,6 +150,7 @@ export function Casamento() {
       </nav>
 
       <header className="dt-hero">
+        <img className="dt-cat dt-cat-white" src="/cat-white.png" alt="" aria-hidden="true" />
         <img className="dt-hero-logo" src="/bm-logo.png" alt="Bruna & Marc" />
         <div className="bm-ornament">— ✦ —</div>
         <p className="dt-hero-date">Domingo, 18 de outubro de 2026</p>
@@ -163,9 +164,12 @@ export function Casamento() {
         <div className="dt-photo">
           <img src="/latoscana.jpg" alt="La Toscana – local do casamento" />
           <div className="dt-photo-overlay">
-            <button className="dt-rsvp-btn" type="button" onClick={openModal}>
-              Você vem? Confirme sua presença aqui
-            </button>
+            <div className="dt-rsvp-wrap">
+              <button className="dt-rsvp-btn" type="button" onClick={openModal}>
+                Você vem? Confirme sua presença aqui
+              </button>
+              <img className="dt-cat dt-cat-black" src="/cat-black.png" alt="" aria-hidden="true" />
+            </div>
           </div>
         </div>
       </section>
