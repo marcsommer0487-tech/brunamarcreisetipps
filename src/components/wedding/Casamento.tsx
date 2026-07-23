@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { findGuestMatches, isValidGuest } from "./guestList";
-import cornerBranches from "@/assets/convite-branches.png.asset.json";
+
 
 const ADDRESS_SHARE_URL = "https://share.google/RfJ5xwi1vwSWgSfvn";
 const MAPS_EMBED_QUERY = encodeURIComponent(
@@ -151,8 +151,10 @@ export function Casamento() {
       </nav>
 
       <header className="dt-hero">
-        <img className="dt-corner-branches" src={cornerBranches.url} alt="" aria-hidden="true" />
+        <img className="dt-corner dt-corner-tl" src="/branch-left.png" alt="" aria-hidden="true" />
+        <img className="dt-corner dt-corner-tr" src="/branch-right.png" alt="" aria-hidden="true" />
         <img className="dt-cat dt-cat-white" src="/cat-white.png" alt="" aria-hidden="true" />
+
         <img className="dt-hero-logo" src="/bm-logo.png" alt="Bruna & Marc" />
         <div className="bm-ornament">— ✦ —</div>
         <p className="dt-hero-date">Domingo, 18 de outubro de 2026</p>
@@ -632,7 +634,10 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 
 .dt-hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--bm-green);padding:8rem 2rem 4rem;position:relative;overflow:hidden;color:#fff;}
 .dt-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(64,145,108,0.25) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(184,150,46,0.12) 0%,transparent 50%);pointer-events:none;}
-.dt-corner-branches{position:absolute;top:0;left:50%;width:min(1100px,92vw);transform:translateX(-50%);pointer-events:none;user-select:none;z-index:2;opacity:0.92;}
+.dt-corner{position:absolute;top:0;width:clamp(140px,22vw,280px);height:auto;pointer-events:none;user-select:none;opacity:0.45;z-index:0;}
+.dt-corner-tl{left:0;}
+.dt-corner-tr{right:0;transform:scaleX(-1);}
+
 .dt-hero-logo{width:clamp(180px,26vw,300px);height:auto;margin-bottom:1rem;filter:brightness(0) saturate(100%) invert(78%) sepia(38%) saturate(548%) hue-rotate(8deg) brightness(95%) contrast(88%);position:relative;z-index:1;}
 .bm-ornament{color:var(--bm-gold);font-size:1rem;letter-spacing:0.8rem;margin-bottom:2rem;opacity:0.6;}
 .dt-hero-date{font-size:0.8rem;color:rgba(255,255,255,0.9);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.6rem;}
@@ -762,7 +767,7 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 .dt-cat-white{width:clamp(90px,14vw,190px);height:auto;bottom:-40px;right:2vw;z-index:3;filter:drop-shadow(0 8px 18px rgba(0,0,0,0.35));}
 .dt-hero{overflow:visible !important;}
 @media(max-width:640px){
-  .dt-corner-branches{width:110vw;opacity:0.85;}
+  .dt-corner{width:110px;opacity:0.4;}
   .dt-cat-black{width:56px;left:auto;right:-52px;bottom:-4px;}
   .dt-cat-white{width:80px;bottom:-22px;right:4vw;}
 }
