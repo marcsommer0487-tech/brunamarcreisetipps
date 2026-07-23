@@ -491,9 +491,9 @@ export function Casamento() {
             </button>
           </div>
         </div>
-      </section>
-
       <footer className="bm-footer">
+        <img className="dt-corner-bottom dt-corner-bl" src="/branch-bottom.png" alt="" aria-hidden="true" />
+        <img className="dt-corner-bottom dt-corner-br" src="/branch-bottom.png" alt="" aria-hidden="true" />
         <p>18 de outubro de 2026 · Belo Horizonte, Brasil · Feito com ♥</p>
       </footer>
     </>
