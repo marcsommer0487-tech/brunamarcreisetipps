@@ -164,12 +164,9 @@ export function Casamento() {
         <div className="dt-photo">
           <img src="/latoscana.jpg" alt="La Toscana – local do casamento" />
           <div className="dt-photo-overlay">
-            <div className="dt-rsvp-wrap">
-              <button className="dt-rsvp-btn" type="button" onClick={openModal}>
-                Você vem? Confirme sua presença aqui
-              </button>
-              <img className="dt-cat dt-cat-black" src="/cat-black.png" alt="" aria-hidden="true" />
-            </div>
+            <button className="dt-rsvp-btn" type="button" onClick={openModal}>
+              Você vem? Confirme sua presença aqui
+            </button>
           </div>
         </div>
       </section>
@@ -390,9 +387,12 @@ export function Casamento() {
       </section>
 
       <div className="dt-rsvp-standalone">
-        <button className="dt-rsvp-btn" type="button" onClick={openModal}>
-          Você vem? Confirme sua presença aqui
-        </button>
+        <div className="dt-rsvp-wrap">
+          <button className="dt-rsvp-btn" type="button" onClick={openModal}>
+            Você vem? Confirme sua presença aqui
+          </button>
+          <img className="dt-cat dt-cat-black" src="/cat-black.png" alt="" aria-hidden="true" />
+        </div>
       </div>
 
       <section id="dresscode" className="dt-section dt-dresscode">
