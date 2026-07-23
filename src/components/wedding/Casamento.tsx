@@ -153,9 +153,9 @@ export function Casamento() {
         <img className="dt-hero-logo" src="/bm-logo.png" alt="Bruna & Marc" />
         <div className="bm-ornament">— ✦ —</div>
         <p className="dt-hero-date">Domingo, 18 de outubro de 2026</p>
-        <h1 className="dt-hero-title">O grande dia</h1>
+        <h1 className="dt-hero-title">O Nosso &quot;Sim&quot;</h1>
         <p className="dt-hero-sub">
-          Tudo o que você precisa saber sobre o dia do casamento
+          Tudo o que você precisa saber sobre o dia do nosso casamento
         </p>
       </header>
 
@@ -355,7 +355,7 @@ export function Casamento() {
             <InfoCard icon="🕰️" label="Início">
               <p className="dt-big">15:30h</p>
               <p className="dt-note">
-                Deixem um tempo extra para a chegada.
+                Pontualidade é tudo! Por favor, programem-se para chegar com antecedência.
               </p>
             </InfoCard>
 
@@ -672,7 +672,7 @@ body{font-family:'Lato',sans-serif;font-weight:300;color:var(--bm-brown);backgro
 
 .dt-photo-section{background:var(--bm-green);padding:0;}
 .dt-photo{max-width:1200px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;position:relative;}
-.dt-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.dt-photo img{width:100%;height:100%;object-fit:cover;display:block;opacity:0.75;}
 .dt-photo-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(to top,rgba(15,40,25,0.55) 0%,rgba(15,40,25,0.15) 50%,rgba(15,40,25,0.35) 100%);pointer-events:none;}
 .dt-rsvp-btn{pointer-events:auto;border:0;padding:1.1rem 2rem;background:var(--bm-gold);color:#fff;font-family:'Lato',sans-serif;font-size:0.95rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border-radius:4px;box-shadow:0 8px 28px rgba(0,0,0,0.35);cursor:pointer;transition:transform 0.2s,background 0.2s,box-shadow 0.2s;}
 .dt-rsvp-btn:hover{background:var(--bm-gold2);transform:translateY(-2px);box-shadow:0 12px 34px rgba(0,0,0,0.45);}
