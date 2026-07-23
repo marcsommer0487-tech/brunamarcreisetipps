@@ -151,8 +151,10 @@ export function Casamento() {
       </nav>
 
       <header className="dt-hero">
-        <img className="dt-corner-branches" src={cornerBranches.url} alt="" aria-hidden="true" />
+        <img className="dt-corner dt-corner-tl" src="/branch-left.png" alt="" aria-hidden="true" />
+        <img className="dt-corner dt-corner-tr" src="/branch-right.png" alt="" aria-hidden="true" />
         <img className="dt-cat dt-cat-white" src="/cat-white.png" alt="" aria-hidden="true" />
+
         <img className="dt-hero-logo" src="/bm-logo.png" alt="Bruna & Marc" />
         <div className="bm-ornament">— ✦ —</div>
         <p className="dt-hero-date">Domingo, 18 de outubro de 2026</p>
